@@ -101,22 +101,26 @@ perform_data_preparation <- function()
   train_input1             <- data.frame(train_input[,features_select])
   
   vbef_data                <- create_vbfe(train_input1,medical_keyword_features)
+  
+  train_input2             <- data.frame(train_input1,vbef_data)
+  
   replace_origin_features  <- c("Medical_History_6","Medical_History_7","Medical_History_8",
                                 "Medical_History_26","Medical_History_27","Medical_History_28")
     
   process_missing_features <- c(employment_info_features,"Insurance_History_5",family_hist_features,
-                                medical_history_features_missing)
+                                medical_history_features_missing,"Family_Hist_2_3")
   
-  new_missing_data <- process_missing_data(train_input1[,process_missing_features])
+  new_missing_data <- process_missing_data(train_input2[,process_missing_features])
   
-  replace_features <- c(replace_origin_features,process_missing_features)
+  # replace_features <- c(replace_origin_features,process_missing_features)
   
-  train_input2 <- data.frame(train_input1[,!(names(train_input1) %in% replace_features)],
-                             vbef_data,
+  replace_features <- c(process_missing_features)
+  
+  train_input3 <- data.frame(train_input2[,!(names(train_input2) %in% replace_features)],
                              new_missing_data,
                              Response=me_input_target_data)
   
-  me_input_data <- data.frame(train_input2)
+  me_input_data <- data.frame(train_input3)
 
   create_log_entry("", "Prepare train data finished","SF")
   
@@ -129,12 +133,16 @@ perform_data_preparation <- function()
   # str(test_input)
   
   vbef_data             <- create_vbfe(test_input,medical_keyword_features)
-  new_missing_data      <- process_missing_data(test_input[,process_missing_features])
   
-  test_input1           <- data.frame(test_input[,!(names(test_input) %in% process_missing_features)],vbef_data,new_missing_data)
+  test_input1           <- data.frame(test_input,vbef_data)
+  
+  new_missing_data      <- process_missing_data(test_input1[,process_missing_features])
+  
+  test_input2           <- data.frame(test_input1[,!(names(test_input1) %in% process_missing_features)],
+                                      new_missing_data)
 
   p_features_select     <- c("Id", setdiff(names(me_input_data),c("Response")))
-  p_input_data          <- data.frame(test_input1[,p_features_select])
+  p_input_data          <- data.frame(test_input2[,p_features_select])
   
   create_log_entry("", "Prepare test data finished","SF")
   
@@ -159,26 +167,20 @@ perform_data_preparation <- function()
 
 process_missing_data <- function (input_data)
 {
-  
-  new_input_data <- input_data
-  
-  new_input_data$Employment_Info_1[is.na(input_data$Employment_Info_1)]        <- -1
-  new_input_data$Employment_Info_2[is.na(input_data$Employment_Info_2)]        <- -1
-  new_input_data$Employment_Info_3[is.na(input_data$Employment_Info_3)]        <- -1
-  new_input_data$Employment_Info_4[is.na(input_data$Employment_Info_4)]        <- -1
-  new_input_data$Employment_Info_5[is.na(input_data$Employment_Info_5)]        <- -1
-  new_input_data$Employment_Info_6[is.na(input_data$Employment_Info_6)]        <- -1
-  new_input_data$Insurance_History_5[is.na(input_data$Insurance_History_5)]    <- -1
-  
-  new_input_data$Family_Hist_2[is.na(input_data$Family_Hist_2)]                <- -1
-  new_input_data$Family_Hist_3[is.na(input_data$Family_Hist_3)]                <- -1
-  new_input_data$Family_Hist_4[is.na(input_data$Family_Hist_4)]                <- -1
-  new_input_data$Family_Hist_5[is.na(input_data$Family_Hist_5)]                <- -1
-  
-  new_input_data$Medical_History_1[is.na(input_data$Medical_History_1)]        <- -1
-  new_input_data$Medical_History_15[is.na(input_data$Medical_History_15)]      <- -1
-  
-  return (new_input_data)
+    
+    missing_features <- c("Employment_Info_1","Employment_Info_2","Employment_Info_3","Employment_Info_4",
+                          "Employment_Info_5","Employment_Info_6","Insurance_History_5","Family_Hist_2",
+                          "Family_Hist_3","Family_Hist_4","Family_Hist_5","Medical_History_1",
+                          "Medical_History_15","Family_Hist_2_3")
+    new_input_data <- input_data[,missing_features]
+    
+    new_input_data <- apply(input_data,2,function(x) {
+      median_x <- median(x,na.rm = TRUE)
+      new_x <- ifelse(is.na(x),median_x,x)
+    })
+    
+    
+    return (new_input_data)
 }
 
 create_vbfe <- function(input_data,medical_keyword_features)
@@ -198,19 +200,28 @@ create_vbfe <- function(input_data,medical_keyword_features)
                         "Medical_Keyword_2","Medical_Keyword_32","Medical_Keyword_6",
                         "Medical_Keyword_20","Medical_Keyword_33")
   bi_gram_comb     <- t(combn(bi_gram_features,2))
-  
   bi_gram_data     <- apply(bi_gram_comb , 1 , function (x) {
     i_bi_gram_data <- input_data[[x[1]]]*input_data[[x[2]]]
   })
-
   bi_gram_data_names     <- paste0(bi_gram_comb[,1],"_",str_split_fixed(bi_gram_comb[,2],"_",3)[,3])
-  
   colnames(bi_gram_data) <- bi_gram_data_names
   
   medical_keyword_sum     <- rowSums(input_data[,medical_keyword_features])
 
+  Family_Hist_2_3 <- rep(NA,dim(input_data)[1])
+  
+  Family_Hist_2_3 <- ifelse(input_data$Family_Hist_2>=0 & is.na(input_data$Family_Hist_3), 1, Family_Hist_2_3)
+  
+  Family_Hist_2_3 <- ifelse(input_data$Family_Hist_3>=0 & is.na(input_data$Family_Hist_2), 0, Family_Hist_2_3)
+  
+  Dummy <- rep(1,dim(input_data)[1])
+  
   vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N,MHN_6m7m8,MHN_26m27m28,bi_gram_data,
                           Medical_Keyword_Sum = medical_keyword_sum)
+  
+  vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N , Family_Hist_2_3 = Family_Hist_2_3)
+  
+  
 }
 
 perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
@@ -249,15 +260,16 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   
   # Greed for parameter evaluation
   if (grepl("XGBC",ma_model_id)) {
-    xgbc_tuneGrid   <- expand.grid( nrounds   = seq(200,400, length.out = 3) , 
-                                    eta       = seq(0.02,0.05, length.out = 4) , 
-                                    max_depth = seq(9,12, length.out = 4) ,
+    xgbc_tuneGrid   <- expand.grid( nrounds   = seq(500,1000, length.out = 2) , 
+                                    eta       = seq(0.01,0.05, length.out = 3) , 
+                                    max_depth = seq(10,12, length.out = 2) ,
                                     gamma = 0,               
                                     colsample_bytree = 1,    
-                                    min_child_weight = 5)
+                                    min_child_weight = 240)
     
-    xgbc_tuneGrid   <- expand.grid( nrounds   = 200 , eta = 0.05         , max_depth = 10 ,
-                                    gamma = 0       , colsample_bytree = 1, min_child_weight = 5)
+    xgbc_tuneGrid   <- expand.grid( nrounds   = 500 , eta = 0.03         , max_depth = 9 ,
+                                    gamma = 0       , colsample_bytree = 1 , min_child_weight = 200)
+    
     assesment_grid <- xgbc_tuneGrid
   }
   
@@ -265,8 +277,8 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
     gbm_tuneGrid   <- expand.grid(interaction.depth = seq(1,3, length.out = 3),
                                   n.trees = seq(301,501, length.out = 3),
                                   shrinkage = seq(0.02,0.05, length.out = 3) , n.minobsinnode = 5)
-    gbm_tuneGrid   <- expand.grid(interaction.depth = 1, n.trees = 101 ,
-                                  shrinkage = 0.5 , n.minobsinnode = 5)
+#     gbm_tuneGrid   <- expand.grid(interaction.depth = 1, n.trees = 101 ,
+#                                   shrinkage = 0.5 , n.minobsinnode = 5)
     
     assesment_grid <- gbm_tuneGrid
   }
@@ -317,7 +329,7 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   }
   
   
-  SYS_CV_NFOLDS <- 2
+  SYS_CV_NFOLDS <- 5
   # CVreps  <- 4
   
   
@@ -779,9 +791,9 @@ create_prediction_values <- function (classification_model, p_input_data , m_run
 
 process_prediction_values <- function (prediction_values)
 {
+  prediction_values1 <- findInterval (prediction_values , c(-999,2,2.8,3.2,4,4.67,5.75,6.5,999))
   
   prediction_values1  <- round(prediction_values)
-  
   prediction_values2 <- ifelse(prediction_values1 < 1,1, prediction_values1)
   prediction_values3 <- ifelse(prediction_values2 > 8,8, prediction_values2)
   

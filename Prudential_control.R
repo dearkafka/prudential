@@ -47,7 +47,7 @@ run_data_preparation <- function()       ################## Data Preparation ###
 source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
 run_mode_evaluation <- function()        ################## Model Evaluation #############
 {
-#SYS_ALGORITHM_ID            <- "XGBC" 
+SYS_ALGORITHM_ID            <- "XGBC" 
 #SYS_ALGORITHM_ID            <- "GBM"
 #SYS_ALGORITHM_ID            <- "SVMR"
 #SYS_ALGORITHM_ID            <- "SVML"
@@ -68,14 +68,14 @@ create_log_entry("", "Model evaluation started .....","SF")
   create_log_entry("","Model evaluation load data finsihed","SF")
 
 # Initialize parallel framework  
-  closeAllConnections()
-  library(doMC)
-  registerDoMC(cores=4)
+    closeAllConnections()
+    library(doMC)
+    registerDoMC(cores=4)
 
   ma_model_id             <- paste0("MA_","#",SYS_ALGORITHM_ID,"#",format(Sys.time(), "%Y-%m-%d %H_%M_%S"))
   me_classification_model <- perform_model_assessment(me_data,ma_model_id,SYS_CS_MODE)
   invisible(gc())
-  closeAllConnections()
+  #closeAllConnections()
 
 create_log_entry("", "Model evaluation finished ..... ","SF")
 
@@ -92,19 +92,18 @@ run_prediction <- function()        ################## Prediction #############
 #   names(opt_parameters) <- c("nrounds","max_depth", "eta")
 #   setwd(SYSG_OUTPUT_MODELING_DIR)
 #   save(opt_parameters, file = paste0("OM_",ma_run_id,".rda"))
-  ma_run_id <- "MA_#XGBC#2016-01-27 23_02_47"
+  ma_run_id <- "MA_#XGBC#2016-01-31 00_16_23"
 
   create_log_entry("", "Starting prediction on data","SF")
   opt_model_id <- paste0("MODEL_","#",SYS_ALGORITHM_ID,"#",format(Sys.time(), "%Y-%m-%d %H_%M_%S"))
   if (exists("me_data"))  rm(me_data)
   setwd(SYSG_SYSTEM_DIR)
   me_data                <- get(load("me_input_data.rda"))
-  me_data <- me_data[1:1000,]
   if (exists("classification_model"))         rm(classification_model)
   setwd(SYSG_OUTPUT_MODELING_DIR)
   classification_model   <- get(load(paste0(ma_run_id,".rda")))
   
-  source(paste0(SYSG_SYSTEM_DIR,"\\Prudential_functions.R"))
+  source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
   create_p_model(opt_model_id,me_data,classification_model)
   
  
