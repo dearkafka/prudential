@@ -1,67 +1,63 @@
 
 perform_data_understanding <- function()
 {
-
   
-library(reshape2)
-library(plyr)
-library(ggplot2)
   
- dim(train_input)  
- summary(train_input)
- 
- # Check dynamic data
- 
- summary(train_input[,medical_history_features])
- 
- dynamic_data_features <- c(medical_history_features[c(3:9,11:14,16:23,25:31,33:41)],"Response")
- 
- plot_input_data            <- train_input[,dynamic_data_features]
- plot_input_data$Response   <- factor(plot_input_data$Response)
- 
- # contruct new data
- 
- plot_input_data$MHN_6m7m8 <- plot_input_data$Medical_History_6*plot_input_data$Medical_History_7*plot_input_data$Medical_History_8
- plot_input_data$MHN_26m27m28 <- plot_input_data$Medical_History_26*plot_input_data$Medical_History_27*plot_input_data$Medical_History_28
-
- 
- # Plot original data
- medical_history_mean       <- ddply(plot_input_data, .(Response) , numcolwise(median))
-
- plot_data                   <- melt(medical_history_mean, id.var = "Response")
- 
- plot_data$variable          <- str_replace(plot_data$variable, "Medical_History", "MH")
- 
- plot_original_data          <- plot_data[!str_detect(plot_data$variable,"MHN"),]
- 
- 
- p1 <- ggplot(data=plot_original_data, aes(x=variable, y=value, group = Response, colour = Response)) +
-   geom_line() + geom_point( size=4, shape=21, fill="white")
- 
- p1
- 
- plot_new_data              <- plot_data[str_detect(plot_data$variable,"MHN"),]
- 
- p2 <- ggplot(data=plot_new_data, aes(x=variable, y=value, group = Response, colour = Response)) +
-   geom_line() + geom_point( size=4, shape=21, fill="white")
- 
- p2
- 
- 
-
- # Diagnostic plot
- 
- 
- 
- 
+  library(reshape2)
+  library(plyr)
+  library(ggplot2)
+  
+  dim(train_input)  
+  summary(train_input)
+  
+  # Check dynamic data
+  
+  summary(train_input[,medical_history_features])
+  
+  dynamic_data_features <- c(medical_history_features[c(3:9,11:14,16:23,25:31,33:41)],"Response")
+  
+  plot_input_data            <- train_input[,dynamic_data_features]
+  plot_input_data$Response   <- factor(plot_input_data$Response)
+  
+  # contruct new data
+  
+  plot_input_data$MHN_6m7m8 <- plot_input_data$Medical_History_6*plot_input_data$Medical_History_7*plot_input_data$Medical_History_8
+  plot_input_data$MHN_26m27m28 <- plot_input_data$Medical_History_26*plot_input_data$Medical_History_27*plot_input_data$Medical_History_28
+  
+  
+  # Plot original data
+  medical_history_mean       <- ddply(plot_input_data, .(Response) , numcolwise(median))
+  
+  plot_data                   <- melt(medical_history_mean, id.var = "Response")
+  
+  plot_data$variable          <- str_replace(plot_data$variable, "Medical_History", "MH")
+  
+  plot_original_data          <- plot_data[!str_detect(plot_data$variable,"MHN"),]
+  
+  
+  p1 <- ggplot(data=plot_original_data, aes(x=variable, y=value, group = Response, colour = Response)) +
+    geom_line() + geom_point( size=4, shape=21, fill="white")
+  
+  p1
+  
+  plot_new_data              <- plot_data[str_detect(plot_data$variable,"MHN"),]
+  
+  p2 <- ggplot(data=plot_new_data, aes(x=variable, y=value, group = Response, colour = Response)) +
+    geom_line() + geom_point( size=4, shape=21, fill="white")
+  
+  p2
+  
+  
+  
+  # Diagnostic plot
+  
+  
+  
+  
 }
 
 perform_data_preparation <- function()
 {
-  library(readr)
-  library(stringr)
-  library(dplyr)
-  
   #READ TRAIN DATA
   setwd(SYSG_INPUT_DIR)
   train_input                 <- read_csv("train.csv")
@@ -84,44 +80,50 @@ perform_data_preparation <- function()
   medical_history_features         <- setdiff(medical_history_features,c(medical_history_features_dropped))
   
   medical_keyword_features         <- names(train_input)[str_detect(names(train_input), "^Medical_Keyword")]
-
+  
   features_select <- c("Product_Info_1","Product_Info_2","Product_Info_3","Product_Info_4",
                        "Product_Info_5","Product_Info_6", "Product_Info_7",
                        "Ins_Age","Ht","Wt","BMI",
-                        employment_info_features,
-                        insured_info_features, 
-                        insurance_history_features , 
-                        family_hist_features, 
-                        medical_history_features,
-                        medical_keyword_features)
+                       employment_info_features,
+                       insured_info_features, 
+                       insurance_history_features , 
+                       family_hist_features, 
+                       medical_history_features,
+                       medical_keyword_features)
   
   # Assume same order and quantity of rows
-  
   me_input_target_data     <- train_input$Response
   train_input1             <- data.frame(train_input[,features_select])
   
-  vbef_data                <- create_vbfe(train_input1,medical_keyword_features)
+  # Set what to do with origin features that are basis for some derived features
+  medical_history_features_to_cat <- setdiff(medical_history_features,
+                                             c("Medical_History_32","Medical_History_24","Medical_History_15",
+                                               "Medical_History_10","Medical_History_1","Medical_History_2"))
+  medical_history_multiplication  <- c("Medical_History_6","Medical_History_7","Medical_History_8",
+                                       "Medical_History_26","Medical_History_27","Medical_History_28")
   
-  train_input2             <- data.frame(train_input1,vbef_data)
+  vbef_data         <- create_vbfe(train_input1,medical_keyword_features)
   
-  replace_origin_features  <- c("Medical_History_6","Medical_History_7","Medical_History_8",
-                                "Medical_History_26","Medical_History_27","Medical_History_28")
-    
-  process_missing_features <- c(employment_info_features,"Insurance_History_5",family_hist_features,
-                                medical_history_features_missing,"Family_Hist_2_3")
+  replace_features  <- c("Product_Info_2")
   
-  new_missing_data <- process_missing_data(train_input2[,process_missing_features])
+  train_input2      <- data.frame(train_input1[,!(names(train_input1) %in% replace_features)],vbef_data , 
+                                  stringsAsFactors = FALSE)
+  
+  missing_features  <- c("Employment_Info_1","Employment_Info_2","Employment_Info_3","Employment_Info_4",
+                         "Employment_Info_5","Employment_Info_6", "Insurance_History_5","Family_Hist_1",
+                         "Family_Hist_2","Family_Hist_3","Family_Hist_4","Family_Hist_5","Medical_History_1",
+                         "Medical_History_15","Family_Hist_2_3")
+  
+  new_missing_data  <- process_missing_data(train_input2[,missing_features])
   
   # replace_features <- c(replace_origin_features,process_missing_features)
   
-  replace_features <- c(process_missing_features)
-  
-  train_input3 <- data.frame(train_input2[,!(names(train_input2) %in% replace_features)],
+  train_input3 <- data.frame(train_input2[,!(names(train_input2) %in% missing_features)], 
                              new_missing_data,
-                             Response=me_input_target_data)
+                             Response=me_input_target_data , stringsAsFactors = FALSE)
   
-  me_input_data <- data.frame(train_input3)
-
+  me_input_data <- data.frame(train_input3 , stringsAsFactors = FALSE)
+  
   create_log_entry("", "Prepare train data finished","SF")
   
   # summary(me_input_data)
@@ -133,18 +135,18 @@ perform_data_preparation <- function()
   # str(test_input)
   
   vbef_data             <- create_vbfe(test_input,medical_keyword_features)
+  test_input1           <- data.frame(test_input[,!(names(test_input) %in% replace_features)],vbef_data , 
+                                      stringsAsFactors = FALSE)
   
-  test_input1           <- data.frame(test_input,vbef_data)
+  new_missing_data      <- process_missing_data(test_input1[,missing_features])
   
-  new_missing_data      <- process_missing_data(test_input1[,process_missing_features])
+  test_input2           <- data.frame(test_input1[,!(names(test_input1) %in% missing_features)],
+                                      new_missing_data , stringsAsFactors = FALSE)
   
-  test_input2           <- data.frame(test_input1[,!(names(test_input1) %in% process_missing_features)],
-                                      new_missing_data)
-
   p_features_select     <- c("Id", setdiff(names(me_input_data),c("Response")))
-  p_input_data          <- data.frame(test_input2[,p_features_select])
+  p_input_data          <- data.frame(test_input2[,p_features_select] , stringsAsFactors = FALSE)
   
-  create_log_entry("", "Prepare test data finished","SF")
+  
   
   for (f in names(me_input_data)) {
     if (class(me_input_data[[f]])=="character") {
@@ -153,6 +155,19 @@ perform_data_preparation <- function()
       p_input_data[[f]]   <- factor(p_input_data[[f]],  levels=levels)
     }
   }
+  
+  
+  me_input_data <- create_data_presentation(me_input_data,medical_history_features_to_cat)
+  p_input_data  <- create_data_presentation(p_input_data,medical_history_features_to_cat)
+  
+  m_not_p_features <- setdiff(names(me_input_data),names(p_input_data))
+  
+  new_me_features  <- c(setdiff(names(me_input_data),m_not_p_features),"Response")
+
+  me_input_data    <- me_input_data[,new_me_features]
+  
+  
+  create_log_entry("", "Prepare test data finished","SF")
   
   # summary(p_input_data)
   # str(p_input_data)
@@ -165,22 +180,76 @@ perform_data_preparation <- function()
   
 }
 
+create_data_presentation <- function (input_data,medical_history_features_to_cat)
+{
+  
+  output_data <- NULL
+  
+  # Data presentation
+  
+  # Transfer medical history to categorical data
+  #   cnt <- 1
+  #   medical_history_features_cat_data <- apply(input_data[,medical_history_features_to_cat],2,
+  #                                                 function (x) { 
+  #     # No NAs . Check if factor NA is returned in case of NA
+  #     i_mh_features_cat_data <- 
+  #       paste0("MH_",substr(medical_history_features_to_cat[cnt], 17, 20),"_", x)
+  #     cnt <- cnt + 1
+  #     i_mh_features_cat_data
+  #     })
+  # 
+  # Create medical history dummy features
+  
+  mh_input_dummy         <- data.frame(apply(input_data[,medical_history_features_to_cat],2,as.factor))
+  mh_features_dummy_data <- createDummyFeatures(mh_input_dummy)
+  
+  replace_features         <- c(medical_history_features_to_cat)
+  original_output_features <- setdiff(names(input_data),c(replace_features , "Response"))
+  
+  if("Response" %in% names(input_data)) {
+    output_data                      <- data.frame(input_data[,original_output_features],
+                                                   mh_features_dummy_data,
+                                                   Response = input_data$Response)
+  }
+  else  output_data                <- data.frame(input_data[,original_output_features],
+                                                 mh_features_dummy_data)
+  
+  return(output_data)
+}
+
 process_missing_data <- function (input_data)
 {
-    
-    missing_features <- c("Employment_Info_1","Employment_Info_2","Employment_Info_3","Employment_Info_4",
-                          "Employment_Info_5","Employment_Info_6","Insurance_History_5","Family_Hist_2",
-                          "Family_Hist_3","Family_Hist_4","Family_Hist_5","Medical_History_1",
-                          "Medical_History_15","Family_Hist_2_3")
-    new_input_data <- input_data[,missing_features]
-    
-    new_input_data <- apply(input_data,2,function(x) {
-      median_x <- median(x,na.rm = TRUE)
-      new_x <- ifelse(is.na(x),median_x,x)
-    })
-    
-    
-    return (new_input_data)
+  new_input_data <- input_data
+  
+  #   new_input_data$Employment_Info_1[is.na(input_data$Employment_Info_1)]        <- -1
+  #   new_input_data$Employment_Info_2[is.na(input_data$Employment_Info_2)]        <- -1
+  #   new_input_data$Employment_Info_3[is.na(input_data$Employment_Info_3)]        <- -1
+  #   new_input_data$Employment_Info_4[is.na(input_data$Employment_Info_4)]        <- -1
+  #   new_input_data$Employment_Info_5[is.na(input_data$Employment_Info_5)]        <- -1
+  #   new_input_data$Employment_Info_6[is.na(input_data$Employment_Info_6)]        <- -1
+  #   new_input_data$Insurance_History_5[is.na(input_data$Insurance_History_5)]    <- -1
+  #   
+  #   new_input_data$Family_Hist_2[is.na(input_data$Family_Hist_2)]                <- -1
+  #   new_input_data$Family_Hist_3[is.na(input_data$Family_Hist_3)]                <- -1
+  #   new_input_data$Family_Hist_4[is.na(input_data$Family_Hist_4)]                <- -1
+  #   new_input_data$Family_Hist_5[is.na(input_data$Family_Hist_5)]                <- -1
+  #   
+  #   new_input_data$Medical_History_1[is.na(input_data$Medical_History_1)]        <- -1
+  #   new_input_data$Medical_History_15[is.na(input_data$Medical_History_15)]      <- -1
+  #   
+  #   new_input_data$Family_Hist_2_3[is.na(input_data$Family_Hist_2_3)]            <- -1
+  
+  #   Employment_Info_1_median <- median(input_data$Employment_Info_1, na.rm = TRUE))
+  #   new_input_data$Employment_Info_1[is.na(input_data$Employment_Info_1)]        <- Employment_Info_1_median
+  
+  
+  new_input_data <- apply(input_data,2,function(x) {
+    median_x <- median(x,na.rm = TRUE)
+    new_x <- ifelse(is.na(x),median_x,x)
+  })
+  
+  
+  return (new_input_data)
 }
 
 create_vbfe <- function(input_data,medical_keyword_features)
@@ -190,6 +259,8 @@ create_vbfe <- function(input_data,medical_keyword_features)
   
   Product_Info_2L <- substr(Product_Info_2, 1 , 1)
   Product_Info_2N <- as.integer(substr(Product_Info_2, 2 , 2))
+  
+  BMI_Mult_Ins_Age <- input_data$BMI*input_data$Ins_Age
   
   MHN_6m7m8    <- input_data$Medical_History_6*input_data$Medical_History_7*input_data$Medical_History_8
   MHN_26m27m28 <- input_data$Medical_History_26*input_data$Medical_History_27*input_data$Medical_History_28
@@ -207,7 +278,7 @@ create_vbfe <- function(input_data,medical_keyword_features)
   colnames(bi_gram_data) <- bi_gram_data_names
   
   medical_keyword_sum     <- rowSums(input_data[,medical_keyword_features])
-
+  
   Family_Hist_2_3 <- rep(NA,dim(input_data)[1])
   
   Family_Hist_2_3 <- ifelse(input_data$Family_Hist_2>=0 & is.na(input_data$Family_Hist_3), 1, Family_Hist_2_3)
@@ -219,19 +290,15 @@ create_vbfe <- function(input_data,medical_keyword_features)
   vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N,MHN_6m7m8,MHN_26m27m28,bi_gram_data,
                           Medical_Keyword_Sum = medical_keyword_sum)
   
-  vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N , Family_Hist_2_3 = Family_Hist_2_3)
+  vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N , 
+                          Family_Hist_2_3 = Family_Hist_2_3 , 
+                          stringsAsFactors = FALSE)
   
   
 }
 
 perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
 {
-  
-  library(caret)
-  library(Metrics)
-  
-  source(paste0(SYSG_SYSTEM_DIR,"modeling_functions.R"))
-
   set.seed(998)
   m_indexes    <- createDataPartition(me_input_data$Response , p = .85, list = FALSE)
   
@@ -254,75 +321,80 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   end_time              <- NULL
   classification_model  <- NULL
   opt_param_description <- NULL
+  opt_bounds            <- NULL
   assesment_grid        <- NULL
   start_time            <- proc.time()
   
   
   # Greed for parameter evaluation
-  if (grepl("XGBC",ma_model_id)) {
-    xgbc_tuneGrid   <- expand.grid( nrounds   = seq(500,1000, length.out = 2) , 
-                                    eta       = seq(0.01,0.05, length.out = 3) , 
-                                    max_depth = seq(10,12, length.out = 2) ,
-                                    gamma = 0,               
-                                    colsample_bytree = 1,    
-                                    min_child_weight = 240)
+  if (SYS_ALGORITHM_ID == "XGBC") {
+    # nrounds, max_depth, eta, gamma, colsample_bytree, min_child_weight
+    xgbc_tuneGrid   <- expand.grid( nrounds          = seq(500,1000, length.out = 2) , 
+                                    eta              = seq(0.01,0.05, length.out = 5) , 
+                                    max_depth        = seq(9,12, length.out = 3) ,
+                                    min_child_weight = seq(10,500, by = 50),
+                                    colsample_bytree = 1,
+                                    gamma = 0)
     
-    xgbc_tuneGrid   <- expand.grid( nrounds   = 500 , eta = 0.03         , max_depth = 9 ,
-                                    gamma = 0       , colsample_bytree = 1 , min_child_weight = 200)
-    
+    xgbc_tuneGrid   <- expand.grid(    nrounds          = 500 , 
+                                       eta              = 0.04, 
+                                       max_depth        = 9   ,
+                                       min_child_weight = 60  ,
+                                       colsample_bytree = 1   ,
+                                       gamma = 0)
     assesment_grid <- xgbc_tuneGrid
   }
   
-  if (grepl("GBM",ma_model_id)) {
+  if (SYS_ALGORITHM_ID == "XGBCL") {
+    # nrounds, lambda, alpha
+    xgbcl_tuneGrid   <- expand.grid( nrounds   = seq(500,1500, length.out = 3) , 
+                                     lambda       = seq(0.01,0.05, length.out = 5) , 
+                                     alpha        = seq(0.01,0.05, length.out = 5))
+    
+    xgbcl_tuneGrid   <- expand.grid( nrounds   = 100 , 
+                                     lambda    = 0.01,
+                                     alpha    = 0.01)
+    assesment_grid <- xgbcl_tuneGrid
+    
+  }
+  
+  
+  if (SYS_ALGORITHM_ID == "GBM") {
     gbm_tuneGrid   <- expand.grid(interaction.depth = seq(1,3, length.out = 3),
                                   n.trees = seq(301,501, length.out = 3),
                                   shrinkage = seq(0.02,0.05, length.out = 3) , n.minobsinnode = 5)
-#     gbm_tuneGrid   <- expand.grid(interaction.depth = 1, n.trees = 101 ,
-#                                   shrinkage = 0.5 , n.minobsinnode = 5)
+    #     gbm_tuneGrid   <- expand.grid(interaction.depth = 1, n.trees = 101 ,
+    #                                   shrinkage = 0.5 , n.minobsinnode = 5)
     
     assesment_grid <- gbm_tuneGrid
   }
   
-  if (grepl("SVMR",ma_model_id)) {
-    svmr_tuneGrid   <- expand.grid(sigma = seq(0.01,0.03, length.out = 3),C = 2^seq(1,10, length.out = 10))
-    svmr_tuneGrid   <- expand.grid(sigma = 0.1 , C = 100)
-    
-    assesment_grid <- svmr_tuneGrid
-  }
-  
-  if (grepl("SVML",ma_model_id)) {
-    svml_tuneGrid   <- expand.grid(C = 2^seq(1,10, length.out = 10))
-    svml_tuneGrid   <- expand.grid(C = 100)
-    
-    assesment_grid <- svml_tuneGrid
-  }
-  
-  if (grepl("GLMNET",ma_model_id)) {
+  if (SYS_ALGORITHM_ID == "GLMNET") {
     glmnet_tuneGrid   <- expand.grid(alpha = c(0,1),lambda = seq(0.1,0.3, length.out = 3))
     glmnet_tuneGrid   <- expand.grid(alpha = 0.5 ,lambda = 0.005)
     
     assesment_grid <- glmnet_tuneGrid
   }
   
-  emm_tuneGrid_list <- NULL;
-  if (grepl("EMM",ma_model_id)) {
+  emm_tuneGrid_list <- NULL
+  if (SYS_ALGORITHM_ID == "EMM") {
     emm_tuneGrid                       <- expand.grid(emm=1)
-    emm_tuneGrid_list$xgbc1_tuneGrid   <- expand.grid( nrounds   = 200,eta = 0.05, max_depth = 10,
-                                          gamma = 0, colsample_bytree = 1, min_child_weight = 5)
+    emm_tuneGrid_list$xgbc1_tuneGrid   <- expand.grid( nrounds   = 100,eta = 0.05, max_depth = 10,
+                                                       gamma = 0, colsample_bytree = 1, min_child_weight = 50)
     emm_tuneGrid_list$gbm2_tuneGrid    <- expand.grid(interaction.depth = 1, n.trees = 101 ,
-                                          shrinkage = 0.5 , n.minobsinnode = 5)
+                                                      shrinkage = 0.5 , n.minobsinnode = 5)
     assesment_grid <- emm_tuneGrid
   }
   
   
-  if (grepl("EMF",ma_model_id)) {
+  if (SYS_ALGORITHM_ID == "EMF") {
     emf_tuneGrid                       <- expand.grid(emf=1)
     
     emf_tuneGrid_list <- NULL
-    emf_tuneGrid_list_XGBC   <- expand.grid( nrounds   = 200,eta = 0.05, max_depth = 10,
-                                                       gamma = 0, colsample_bytree = 1, min_child_weight = 5)
-#     emf_tuneGrid_list$GBM    <- expand.grid(interaction.depth = 1, n.trees = 101 ,
-#                                                       shrinkage = 0.5 , n.minobsinnode = 5)
+    emf_tuneGrid_list_XGBC   <- expand.grid( nrounds   = 100,eta = 0.05, max_depth = 10,
+                                             gamma = 0, colsample_bytree = 1, min_child_weight = 5)
+    #     emf_tuneGrid_list$GBM    <- expand.grid(interaction.depth = 1, n.trees = 101 ,
+    #                                                       shrinkage = 0.5 , n.minobsinnode = 5)
     assesment_grid <- emf_tuneGrid_list_XGBC
     
     
@@ -331,7 +403,6 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   
   SYS_CV_NFOLDS <- 5
   # CVreps  <- 4
-  
   
   #Index for the trainControl()
   set.seed(1045481)
@@ -357,7 +428,7 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   create_log_entry("",paste0(ma_model_id ," Model Assesment started"),"SF")
   create_log_entry(names(assesment_grid),assesment_grid,"F")
   
-  if (grepl("XGBC",ma_model_id)) { 
+  if (SYS_ALGORITHM_ID == "XGBC") { 
     xgbc_model <- train( classification_formula , data = m_input_data , method = "xgbTree", 
                          metric   ="QWKE" , trControl = ma_control, tuneGrid = assesment_grid , 
                          objective           = 'reg:linear',
@@ -367,9 +438,35 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
     classification_model$model$M                <- xgbc_model
     classification_model$model$M$opt_param      <- xgbc_model$bestTune
     
+    prediction_values                           <- predict(xgbc_model,m_input_data , type = "raw")
+    classification_model$model$M$opt_bounds     <- 
+      create_prediction_bounds(prediction_values,m_input_data$Response)
+    
+    #     print(head(prediction_values))
+    #     print(head(m_input_data$Response))
+    #     print(classification_model$model$M$opt_bounds)
+    
     opt_param_description$opt_param <- classification_model$model$M$opt_param
   }
-  if (grepl("GBM",ma_model_id)) { 
+  
+  if (SYS_ALGORITHM_ID == "XGBCL") { 
+    xgbcl_model <- train( classification_formula , data = m_input_data , method = "xgbLinear", 
+                          metric   ="QWKE" , trControl = ma_control, tuneGrid = assesment_grid , 
+                          objective           = 'reg:linear',
+                          nthread             = 2)
+    
+    classification_model$ma_model_id            <- ma_model_id
+    classification_model$model$M                <- xgbcl_model
+    classification_model$model$M$opt_param      <- xgbcl_model$bestTune
+    
+    prediction_values                           <- predict(xgbcl_model,m_input_data , type = "raw")
+    classification_model$model$M$opt_bounds     <- 
+      create_prediction_bounds(prediction_values,m_input_data$Response)
+    
+    opt_param_description$opt_param <- classification_model$model$M$opt_param
+  }
+  
+  if (SYS_ALGORITHM_ID == "GBM") { 
     gbm_model <- train(classification_formula , data = m_input_data , method = "gbm", 
                        metric = "QWKE" , trControl = ma_control, tuneGrid = assesment_grid,
                        maximize = FALSE)
@@ -378,65 +475,53 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
     classification_model$model$M                <- gbm_model
     classification_model$model$M$opt_param      <- gbm_model$bestTune
     
-    opt_param_description$opt_param <- classification_model$model$M$opt_param
-  }
-  if (grepl("SVMR",ma_model_id)) { 
-    svmr_model <- train(classification_formula , data = m_input_data , method = "svmRadial", 
-                       metric = "QWKE" , trControl = ma_control, tuneGrid = assesment_grid,
-                       maximize = FALSE)
-
-    classification_model$ma_model_id            <- ma_model_id
-    classification_model$model$M                <- svmr_model
-    classification_model$model$M$opt_param      <- svmr_model$bestTune
+    prediction_values                           <- predict(gbm_model,m_input_data , type = "raw")
+    classification_model$model$M$opt_bounds     <- 
+      create_prediction_bounds(prediction_values,m_input_data$Response)
     
     opt_param_description$opt_param <- classification_model$model$M$opt_param
   }
-  
-  if (grepl("SVML",ma_model_id)) { 
-    svml_model <- train(classification_formula , data = m_input_data , method = "svmLinear", 
-                        metric = "QWKE" , trControl = ma_control, tuneGrid = assesment_grid,
-                        maximize = FALSE)
-
-    classification_model$ma_model_id            <- ma_model_id
-    classification_model$model$M                <- svml_model
-    classification_model$model$M$opt_param      <- svml_model$bestTune
-    
-    opt_param_description$opt_param <- classification_model$model$M$opt_param
-  }
-  if (grepl("GLMNET",ma_model_id)) { 
+  if (SYS_ALGORITHM_ID == "GLMNET") { 
     glmnet_model <- train(classification_formula , data = m_input_data , method = "glmnet", 
-                        metric = "QWKE" , trControl = ma_control, tuneGrid = assesment_grid,
-                        maximize = FALSE)
-
+                          metric = "QWKE" , trControl = ma_control, tuneGrid = assesment_grid,
+                          maximize = FALSE)
+    
     classification_model$ma_model_id            <- ma_model_id
     classification_model$model$M                <- glmnet_model
     classification_model$model$M$opt_param      <- glmnet_model$bestTune
     
+    prediction_values                           <- predict(glmnet_model,m_input_data , type = "raw")
+    classification_model$model$M$opt_bounds     <- 
+      create_prediction_bounds(prediction_values,m_input_data$Response)
+    
     opt_param_description$opt_param <- classification_model$model$M$opt_param
   }
   
-  if (grepl("EMM",ma_model_id)) { 
+  if (SYS_ALGORITHM_ID == "EMM") { 
     emm_model_list <- caretList (
       classification_formula , data = m_input_data , 
       trControl=ma_control, metric = "QWKE",
-     tuneList=list(
-      xgbc1  = caretModelSpec(method='xgbTree', tuneGrid=emm_tuneGrid_list$xgbc1_tuneGrid , objective = 'reg:linear'),
-      gbm2   = caretModelSpec(method='gbm',     tuneGrid=emm_tuneGrid_list$gbm2_tuneGrid , verbose = FALSE)
+      tuneList=list(
+        xgbc1  = caretModelSpec(method='xgbTree', tuneGrid=emm_tuneGrid_list$xgbc1_tuneGrid , objective = 'reg:linear'),
+        gbm2   = caretModelSpec(method='gbm',     tuneGrid=emm_tuneGrid_list$gbm2_tuneGrid , verbose = FALSE)
       )
     )
     # emm_model <- caretEnsemble(emm_model_list,optFUN = QWKE)
     emm_model <- caretEnsemble(emm_model_list)
-
-    classification_model$ma_model_id            <- ma_model_id
-    classification_model$M                      <- emm_model
-    classification_model$model                  <- emm_model$models
-    classification_model$weights                <- emm_model$weights
     
-    opt_param_description                       <- sapply(classification_model$model, "[[", "bestTune")
-    opt_param_description$weights               <- classification_model$weights
+    classification_model$ma_model_id       <- ma_model_id
+    classification_model$M                 <- emm_model
+    classification_model$model             <- emm_model$models
+    classification_model$weights           <- emm_model$weights
+    
+    prediction_values                      <- predict(emm_model,newdata = m_input_data)
+    classification_model$opt_bounds        <- create_prediction_bounds(prediction_values,m_input_data$Response)
+    
+    opt_param_description                  <- sapply(classification_model$model, "[[", "bestTune")
+    opt_param_description$weights          <- classification_model$weights
   }
   
-  if (grepl("EMF",ma_model_id)) { 
+  if (SYS_ALGORITHM_ID == "EMF") { 
     
     emf_model <- NULL
     emf_algorithms <- c("XGBC")
@@ -448,27 +533,27 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
     # a <- which(names(me_input_data) %in% c("Family_Hist_5","Employment_Info_4"))
     
     ensemble_space <- expand.grid(alg = emf_algorithms,fs = emf_feature_subsets)
-
+    
     emf_model$ma_model_id            <- ma_model_id
     
     emf_model_list <- apply(ensemble_space, 1, function(x) {
       fsx  <- unlist(x$fs)
       algx <- unlist(x$alg)
       subset <- m_input_data[,c(names(m_input_data)[fsx],"Response")]
-
+      
       i_assesment_grid <- assesment_grid
       classification_formula <- as.formula(paste("Response" ,"~",
-                                                  paste(names(subset)[!names(subset)=='Response'],collapse="+")))
+                                                 paste(names(subset)[!names(subset)=='Response'],collapse="+")))
       i_emf_model <- train(  classification_formula , data = subset , method = "xgbTree", 
-                           metric              ="QWKE" , trControl = ma_control, tuneGrid = i_assesment_grid , 
-                           objective           = 'reg:linear',
-                           nthread             = 2)
+                             metric              ="QWKE" , trControl = ma_control, tuneGrid = i_assesment_grid , 
+                             objective           = 'reg:linear',
+                             nthread             = 2)
       i_emf_model$fs        <- fsx
       i_emf_model$alg       <- algx
       i_emf_model$opt_param <- i_emf_model$bestTune
       i_emf_model
     })
-
+    
     # sapply(mylist,function(x) x[2])
     names(emf_model_list) <- paste0("M_",1:dim(ensemble_space)[1])
     emf_model$model       <- emf_model_list
@@ -483,7 +568,11 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
     emf_model$model$weights <- weights
     
     classification_model <- emf_model
-
+    
+    prediction_values               <- create_emf_prediction_values(emf_model_list,emf_model$model$weights,m_input_data)
+    classification_model$opt_bounds <- create_prediction_bounds(prediction_values,m_input_data$Response)
+    
+    
     opt_param_description$alg                      <- lapply(emf_model_list, "[[", "alg")
     opt_param_description$fs                       <- lapply(emf_model_list, "[[", "fs")
     opt_param_description$opt_param                <- lapply(emf_model_list, "[[", "opt_param")
@@ -494,11 +583,11 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   end_time <- proc.time() ; runtime <- round(as.numeric((end_time - start_time)[3]),2)
   
   create_log_entry(paste0(ma_model_id , " Model Assesment finished : " , runtime),"","SF")
-
+  
   create_log_entry("Optimal parameters : ", opt_param_description ,"SF")
   
   featureImp <- create_feature_importance_data(classification_model,ma_model_id)
- 
+  
   # Create predictions based on evaluation data
   create_log_entry(" Evaluation prediction started ..... ","","SF")
   
@@ -514,8 +603,21 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
 }
 
 QWKE <- function(data,lev = NULL, model = NULL) {
-  prediction_values  <- process_prediction_values(data$pred)
-  err  <- ScoreQuadraticWeightedKappa(data$obs,prediction_values)
+  # prediction_values  <- process_prediction_values(data$pred , data$obs )
+  prediction_values  <- data$pred
+  #   # Simple bounding
+  #   prediction_values1 <- round(prediction_values)
+  #   prediction_values2 <- ifelse(prediction_values1 < 1,1, prediction_values1)
+  #   prediction_values3 <- ifelse(prediction_values2 > 8,8, prediction_values2)
+  
+  # Process with optim
+  prediction_bounds  <- create_prediction_bounds(prediction_values,data$obs)
+  #   print(head(prediction_values))
+  #   print(prediction_bounds)
+  prediction_values1 <- as.numeric(Hmisc::cut2(prediction_values, prediction_bounds))
+  
+  
+  err  <- ScoreQuadraticWeightedKappa(data$obs,prediction_values1)
   names(err) <- "QWKE"
   err
 }
@@ -525,23 +627,23 @@ create_feature_importance_data <- function(classification_model,ma_model_id)
 {
   
   create_log_entry(" Feature Importance evaluation started ..... ","","SF")
-  if(!grepl("EMM",ma_model_id) & !grepl("EMF",ma_model_id)) {
+  if(SYS_ALGORITHM_ID != "EMM" & SYS_ALGORITHM_ID != "EMF") {
     # Output feature importance based on modelling data
     importance_data_obj <- varImp(classification_model$model$M,scale = FALSE)$importance
     importance_data     <- data.frame(Var = rownames(importance_data_obj),Imp = importance_data_obj$Overall,stringsAsFactors=FALSE)
   } 
-  if (grepl("EMM",ma_model_id)) {
+  if (SYS_ALGORITHM_ID == "EMM") {
     # Output feature importance based on modelling data
     importance_data_obj <- varImp(classification_model$M,scale = TRUE)
     importance_data     <- data.frame(importance_data_obj,stringsAsFactors=FALSE)
   }
   
   # Importance is presented for each partial model
-  if (grepl("EMF",ma_model_id)) 
+  if (SYS_ALGORITHM_ID == "EMF") 
   {
-      ens_classification_models <- classification_model$model[names(classification_model$model)[grepl("M_", names(classification_model$model))]]
-
-      importance_data     <- sapply(ens_classification_models , function (x) {
+    ens_classification_models <- classification_model$model[names(classification_model$model)[grepl("M_", names(classification_model$model))]]
+    
+    importance_data     <- sapply(ens_classification_models , function (x) {
       importance_data_obj <- varImp(x,scale = FALSE)$importance
       importance_data     <- data.frame(Var = rownames(importance_data_obj),
                                         Imp = importance_data_obj$Overall,stringsAsFactors=FALSE)
@@ -556,10 +658,7 @@ create_feature_importance_data <- function(classification_model,ma_model_id)
 
 perform_feature_selection <- function(input_data)
 {
-  
-  library(caret)
-  
-  
+
   ctrl <- rfeControl(functions = lmFuncs,
                      method = "repeatedcv",
                      repeats = 5,
@@ -573,7 +672,7 @@ create_evaluation_diagnostic <- function(ma_run_id)
 {
   library(ggplot2)
   ma_run_id      <- "MA_#XGBC#2016-01-08 00_56_47"
-
+  
   prediction_data                <- classification_model$epd
   
   prediction_data$resid  <- prediction_data$obs - prediction_data$pred
@@ -594,15 +693,16 @@ create_evaluation_diagnostic <- function(ma_run_id)
 }
 
 # Function predicts model on evaluation data and output AUC to log
+# prediction bounds presented by best classification model
 create_e_prediction_data <- function (classification_model, e_input_data , ma_run_id)
 {
   
-  prediction_values  <- create_prediction_values(classification_model, e_input_data , ma_run_id)
+  prediction_values  <- create_prediction_values(classification_model, e_input_data)
   
   prediction_data <- data.frame(pred = prediction_values,obs = e_input_data$Response)
   
   QWKE <- QWKE(prediction_data)
-
+  
   create_log_entry(paste0(ma_run_id , " Evaluation : " , QWKE),"","SF")
   
   return(prediction_data)
@@ -629,42 +729,51 @@ create_p_model <- function (opt_model_id,me_input_data,classification_model)
                             verboseIter     = TRUE)
   
   create_log_entry(paste0(opt_model_id ," Optimal Model Creation started : "),"","SF")
-
+  
   start_time <- proc.time()
   
-  if (grepl("XGBC",opt_model_id)) { 
+  if (SYS_ALGORITHM_ID == "XGBC") { 
     opt_parameters <- classification_model$model$M$opt_param
     xgbc_model <- train( classification_formula , data = me_input_data , method = "xgbTree", 
                          trControl = m_control, tuneGrid = opt_parameters , 
                          objective           = 'reg:linear',
                          nthread             = 6)
     
-    opt_classification_model$p_model_id <- opt_model_id
-    opt_classification_model$model$M <- xgbc_model
+    opt_classification_model$p_model_id       <- opt_model_id
+    opt_classification_model$model$M          <- xgbc_model
+    opt_classification_model$model$M$opt_bounds <- classification_model$model$M$opt_bounds
   }
-  if (grepl("GBM",opt_model_id)) { 
+  if (SYS_ALGORITHM_ID == "XGBCL") { 
+    opt_parameters <- classification_model$model$M$opt_param
+    xgbcl_model <- train( classification_formula , data = me_input_data , method = "xgbLinear", 
+                          trControl = m_control, tuneGrid = opt_parameters , 
+                          objective           = 'reg:linear',
+                          nthread             = 6)
+    
+    opt_classification_model$p_model_id <- opt_model_id
+    opt_classification_model$model$M <- xgbcl_model
+    opt_classification_model$model$M$opt_bounds <- classification_model$model$M$opt_bounds
+  }
+  if (SYS_ALGORITHM_ID == "GBM") { 
     gbm_model <- train(classification_formula , data = me_input_data , method = "gbm", 
                        trControl = m_control, tuneGrid = opt_parameters)
-    opt_classification_model <- gbm_model
+    
+    opt_classification_model$p_model_id       <- opt_model_id
+    opt_classification_model$model$M          <- gbm_model
+    opt_classification_model$model$M$opt_bounds <- classification_model$model$M$opt_bounds
+    
   }
   
-  if (grepl("SVMR",opt_model_id)) { 
-    svmr_model <- train(classification_formula , data = me_input_data , method = "svmRadial", 
-                        trControl = m_control, tuneGrid = opt_parameters)
-    opt_classification_model <- svmr_model
-  }
-  if (grepl("SVML",opt_model_id)) { 
-    svml_model <- train(classification_formula , data = me_input_data , method = "svmLinear", 
-                        trControl = m_control, tuneGrid = opt_parameters)
-    opt_classification_model <- svml_model
-  }
-  if (grepl("GLMNET",opt_model_id)) { 
+  if (SYS_ALGORITHM_ID == "GLMNET") { 
     glmnet_model <- train(classification_formula , data = me_input_data , method = "glmnet", 
                           trControl = m_control, tuneGrid = opt_parameters)
-    opt_classification_model <- glmnet_model
+    
+    opt_classification_model$p_model_id       <- opt_model_id
+    opt_classification_model$model$M          <- glmnet_model
+    opt_classification_model$model$M$opt_bounds <- classification_model$model$M$opt_bounds
   }
   
-  if (grepl("EMM",opt_model_id)) { 
+  if (SYS_ALGORITHM_ID == "EMM") { 
     
     #Index for the trainControl()
     set.seed(1045481)
@@ -677,13 +786,13 @@ create_p_model <- function (opt_model_id,me_input_data,classification_model)
     p_seeds[[2+1]] <- sample.int(1000, 1)
     
     m_control <- trainControl(method          = "cv",
-                               number          = 2,
-                               index           = createFolds(me_input_data$Response, k=2),
-                               seeds           = p_seeds,
-                               summaryFunction = QWKE,
-                               allowParallel   = TRUE , 
-                               verboseIter     = TRUE,
-                               savePredictions = TRUE)
+                              number          = 2,
+                              index           = createFolds(me_input_data$Response, k=2),
+                              seeds           = p_seeds,
+                              summaryFunction = QWKE,
+                              allowParallel   = TRUE , 
+                              verboseIter     = TRUE,
+                              savePredictions = TRUE)
     
     emm_model_list <- caretList (
       classification_formula , data = me_input_data , 
@@ -702,34 +811,35 @@ create_p_model <- function (opt_model_id,me_input_data,classification_model)
     opt_classification_model$M              <- emm_model
     opt_classification_model$model          <- emm_model$models
     opt_classification_model$weights        <- emm_model$weights
+    opt_classification_model$opt_bounds     <- classification_model$opt_bounds
   }
   
-  if (grepl("EMF",opt_model_id)) { 
-
+  if (SYS_ALGORITHM_ID == "EMF") { 
+    
     ens_classification_models <- classification_model$model[grepl("M_",names(classification_model$model))]
     
     emf_model_list <- lapply(ens_classification_models, function(x) {
       fsx  <- unlist(x$fs)
       algx <- unlist(x$alg)
-      subset <- me_input_data[,c(names(m_input_data)[fsx],"Response")]
+      subset <- me_input_data[,c(names(me_input_data)[fsx],"Response")]
       
       i_assesment_grid <- x$opt_param
       classification_formula <- as.formula(paste("Response" ,"~",
                                                  paste(names(subset)[!names(subset)=='Response'],collapse="+")))
       i_emf_model <- train(  classification_formula , data = subset , method = "xgbTree", 
-                           metric              ="QWKE" , trControl = m_control, tuneGrid = i_assesment_grid , 
-                           objective           = 'reg:linear',
-                           nthread             = 2)
+                             metric              ="QWKE" , trControl = m_control, tuneGrid = i_assesment_grid , 
+                             objective           = 'reg:linear',
+                             nthread             = 2)
       i_emf_model$fs        <- fsx
       i_emf_model$alg       <- algx
-      i_emf_model$opt_param <- emf_model$bestTune
+      i_emf_model$opt_param <- i_emf_model$bestTune
       i_emf_model
     })
     names(emf_model_list)                   <- names(ens_classification_models)
     opt_classification_model$p_model_id     <- opt_model_id
     opt_classification_model$model          <- emf_model_list
     opt_classification_model$model$weights  <- classification_model$model$weights
-
+    
   }
   
   end_time <- proc.time() ; runtime <- round(as.numeric((end_time - start_time)[3]),2)
@@ -744,7 +854,7 @@ create_p_model <- function (opt_model_id,me_input_data,classification_model)
 perform_p_prediction <- function (classification_model,p_input_data,opt_model_id)
 {
   
-  prediction_values         <- create_prediction_values(classification_model,p_input_data,opt_model_id)
+  prediction_values         <- create_prediction_values(classification_model,p_input_data)
   
   prediction_data           <- data.frame(Id = p_input_data$Id,Response = prediction_values , row.names = NULL)
   
@@ -753,51 +863,63 @@ perform_p_prediction <- function (classification_model,p_input_data,opt_model_id
   write.csv(prediction_data, file = paste0("submission_", opt_model_id ,".csv"), row.names = FALSE)
   options(scipen=0)
   create_log_entry("Finished prediction on data","","SF")
-
+  
 }
 
+
 # Function creates predictions with given classification model and input data
-create_prediction_values <- function (classification_model, p_input_data , m_run_id)
+create_prediction_values <- function (classification_model, p_input_data)
 {
   prediction_values  <- NULL
-  
-  if (!grepl("EMM",m_run_id) & !grepl("EMF",m_run_id))
+  opt_bounds         <- NULL
+  if (SYS_ALGORITHM_ID != "EMM" & SYS_ALGORITHM_ID != "EMF")
   {
     classification_model <- classification_model$model$M
     prediction_values    <- predict(classification_model,p_input_data , type = "raw")
-    prediction_values    <- process_prediction_values(prediction_values)
-    
+    opt_bounds <- classification_model$opt_bounds
   }
-  if (grepl("EMF",m_run_id)) 
+  if (SYS_ALGORITHM_ID == "EMF") 
   {
     weights <- classification_model$model$weights
     ens_classification_models <- classification_model$model[grepl("M_",names(classification_model$model))]
     
-    prediction_values     <- sapply(ens_classification_models , function (x) {
-    prediction_values     <- predict(x,p_input_data , type = "raw")
-    })
-    # Assumimg regression
-    prediction_values <- process_prediction_values(prediction_values%*%weights)
+    prediction_values         <- create_emf_prediction_values(ens_classification_models, weights , p_input_data)
+    opt_bounds                <- classification_model$opt_bounds
   }
-  if (grepl("EMM",m_run_id)) 
+  if (SYS_ALGORITHM_ID == "EMM") 
   {
-    classification_model <- classification_model$M
-    prediction_values    <- predict(classification_model,newdata = p_input_data)
-    prediction_values    <- process_prediction_values(prediction_values)
+    prediction_values    <- predict(classification_model$M,newdata = p_input_data)
+    opt_bounds           <- classification_model$opt_bounds
   }
+  
+  #   # Simple bounding
+  #   prediction_values1 <- round(prediction_values)
+  #   prediction_values2 <- ifelse(prediction_values1 < 1,1, prediction_values1)
+  #   prediction_values3 <- ifelse(prediction_values2 > 8,8, prediction_values2)
+  
+  # Process with optim
+  #   print(head(prediction_values))
+  #   print(prediction_bounds)
+  
+  prediction_values1 <- as.numeric(Hmisc::cut2(prediction_values, opt_bounds))
+  
+  prediction_values <- prediction_values1
   
   return (prediction_values)
 }
 
-process_prediction_values <- function (prediction_values)
+create_emf_prediction_values <- function (ens_classification_models, weights , p_input_data)
 {
-  prediction_values1 <- findInterval (prediction_values , c(-999,2,2.8,3.2,4,4.67,5.75,6.5,999))
+  #   print(names(ens_classification_models))  
+  #   print(head(p_input_data))
   
-  prediction_values1  <- round(prediction_values)
-  prediction_values2 <- ifelse(prediction_values1 < 1,1, prediction_values1)
-  prediction_values3 <- ifelse(prediction_values2 > 8,8, prediction_values2)
+  prediction_values       <- sapply(ens_classification_models , function (x) {
+    i_prediction_values     <- predict(x,p_input_data , type = "raw")
+    i_prediction_values
+  })
+  # Assumimg regression
+  prediction_values    <- prediction_values%*%weights
   
-  return (prediction_values3)
 }
 
 create_log_entry <- function(message_title = "", message , log_mode)
@@ -813,7 +935,7 @@ create_log_entry <- function(message_title = "", message , log_mode)
   }
   
   if (regexpr("F",log_mode)>0) {
-      write(message_title , "log.txt", append = TRUE)
+    write(message_title , "log.txt", append = TRUE)
     if (class(message)=="data.frame")
       write.table(message , "log.txt", append = TRUE,col.names = FALSE ,  row.names = FALSE , quote = FALSE , sep = "\t") 
     else write.table(paste0(Sys.time(), " : " , message) , "log.txt", append = TRUE, col.names = FALSE ,  row.names = FALSE , quote = FALSE,sep = ",")

@@ -12,11 +12,16 @@ source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
 # DP - Data Preparation , ME - Modelling and Evaluation , P - Prediction and Submission
 SYS_RUN_MODE               <- "DP" 
 
-library(caret)
-library(caretEnsemble)
+library(readr)
 library(stringr)
 library(plyr)
 library(dplyr)
+library(mlr)
+library(caret)
+library(Metrics)
+library(caretEnsemble)
+library(Hmisc)
+
 
 create_log_entry("", "Starting run ....................................","SF")
 
@@ -35,30 +40,31 @@ if (SYS_RUN_MODE == "DP") {
 
 create_log_entry("","Finished run ....................................","SF")
 
-source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
+
 run_data_preparation <- function()       ################## Data Preparation ##############
 {
+  source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
   create_log_entry("", "Data preparation started .....","SF")
   perform_data_preparation()
   invisible(gc())
   create_log_entry("", "Data preparation finished ..... ","SF")
 }
 
-source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
 run_mode_evaluation <- function()        ################## Model Evaluation #############
 {
-SYS_ALGORITHM_ID            <- "XGBC" 
-#SYS_ALGORITHM_ID            <- "GBM"
-#SYS_ALGORITHM_ID            <- "SVMR"
-#SYS_ALGORITHM_ID            <- "SVML"
-#SYS_ALGORITHM_ID            <- "GLMNET"
-#SYS_ALGORITHM_ID            <- "EMM"
-#SYS_ALGORITHM_ID            <- "EMF"
+
+SYS_ALGORITHM_ID            <- "XGBC"
+# SYS_ALGORITHM_ID              <- "XGBLC"
+# SYS_ALGORITHM_ID            <- "GBM"
+# SYS_ALGORITHM_ID            <- "GLMNET"
+# SYS_ALGORITHM_ID            <- "EMM"
+# SYS_ALGORITHM_ID            <- "EMF"
 
 SYS_CS_MODE                  <- "CW" #, "N" , "S"
 
 
 source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
+source(paste0(SYSG_SYSTEM_DIR,"modeling_functions.R"))
 create_log_entry("", "Model evaluation started .....","SF")
 # Prepare model evaluation input data
   create_log_entry("", "Model evaluation load data started","SF")  
@@ -92,7 +98,7 @@ run_prediction <- function()        ################## Prediction #############
 #   names(opt_parameters) <- c("nrounds","max_depth", "eta")
 #   setwd(SYSG_OUTPUT_MODELING_DIR)
 #   save(opt_parameters, file = paste0("OM_",ma_run_id,".rda"))
-  ma_run_id <- "MA_#XGBC#2016-01-31 00_16_23"
+  ma_run_id <- "MA_#XGBC#2016-02-04 18_59_10"
 
   create_log_entry("", "Starting prediction on data","SF")
   opt_model_id <- paste0("MODEL_","#",SYS_ALGORITHM_ID,"#",format(Sys.time(), "%Y-%m-%d %H_%M_%S"))
