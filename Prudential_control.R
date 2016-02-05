@@ -87,7 +87,7 @@ create_log_entry("", "Model evaluation finished ..... ","SF")
 
 }
 
-source(paste0(SYSG_SYSTEM_DIR,"\\Prudential_functions.R"))
+source(paste0(SYSG_SYSTEM_DIR,"Prudential_functions.R"))
 run_prediction <- function()        ################## Prediction #############
 {
 
@@ -98,7 +98,7 @@ run_prediction <- function()        ################## Prediction #############
 #   names(opt_parameters) <- c("nrounds","max_depth", "eta")
 #   setwd(SYSG_OUTPUT_MODELING_DIR)
 #   save(opt_parameters, file = paste0("OM_",ma_run_id,".rda"))
-  ma_run_id <- "MA_#XGBC#2016-02-04 18_59_10"
+  ma_run_id <- "MA_#XGBC#2016-02-05 21_44_37"
 
   create_log_entry("", "Starting prediction on data","SF")
   opt_model_id <- paste0("MODEL_","#",SYS_ALGORITHM_ID,"#",format(Sys.time(), "%Y-%m-%d %H_%M_%S"))

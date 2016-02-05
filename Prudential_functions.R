@@ -76,7 +76,6 @@ perform_data_preparation <- function()
   
   medical_history_features         <- names(train_input)[str_detect(names(train_input), "^Medical_History")]
   medical_history_features_dropped <- c("Medical_History_10","Medical_History_24","Medical_History_32")
-  medical_history_features_missing <- c("Medical_History_1","Medical_History_15")
   medical_history_features         <- setdiff(medical_history_features,c(medical_history_features_dropped))
   
   medical_keyword_features         <- names(train_input)[str_detect(names(train_input), "^Medical_Keyword")]
@@ -109,10 +108,11 @@ perform_data_preparation <- function()
   train_input2      <- data.frame(train_input1[,!(names(train_input1) %in% replace_features)],vbef_data , 
                                   stringsAsFactors = FALSE)
   
+  medical_history_features_missing <- c("Medical_History_1","Medical_History_15")
   missing_features  <- c("Employment_Info_1","Employment_Info_2","Employment_Info_3","Employment_Info_4",
                          "Employment_Info_5","Employment_Info_6", "Insurance_History_5","Family_Hist_1",
-                         "Family_Hist_2","Family_Hist_3","Family_Hist_4","Family_Hist_5","Medical_History_1",
-                         "Medical_History_15","Family_Hist_2_3")
+                         "Family_Hist_2","Family_Hist_3","Family_Hist_4","Family_Hist_5",
+                          medical_history_features_missing,"Family_Hist_2_3")
   
   new_missing_data  <- process_missing_data(train_input2[,missing_features])
   
@@ -156,15 +156,15 @@ perform_data_preparation <- function()
     }
   }
   
-  
-  me_input_data <- create_data_presentation(me_input_data,medical_history_features_to_cat)
-  p_input_data  <- create_data_presentation(p_input_data,medical_history_features_to_cat)
-  
-  m_not_p_features <- setdiff(names(me_input_data),names(p_input_data))
-  
-  new_me_features  <- c(setdiff(names(me_input_data),m_not_p_features),"Response")
-
-  me_input_data    <- me_input_data[,new_me_features]
+#   
+#   me_input_data <- create_data_presentation(me_input_data,medical_history_features_to_cat)
+#   p_input_data  <- create_data_presentation(p_input_data,medical_history_features_to_cat)
+#   
+#   m_not_p_features <- setdiff(names(me_input_data),names(p_input_data))
+#   
+#   new_me_features  <- c(setdiff(names(me_input_data),m_not_p_features),"Response")
+# 
+#   me_input_data    <- me_input_data[,new_me_features]
   
   
   create_log_entry("", "Prepare test data finished","SF")
@@ -248,6 +248,11 @@ process_missing_data <- function (input_data)
     new_x <- ifelse(is.na(x),median_x,x)
   })
   
+  new_input_data <- apply(input_data,2,function(x) {
+    median_x <- median(x,na.rm = TRUE)
+    new_x <- ifelse(is.na(x),-1,x)
+  })
+  
   
   return (new_input_data)
 }
@@ -285,13 +290,10 @@ create_vbfe <- function(input_data,medical_keyword_features)
   
   Family_Hist_2_3 <- ifelse(input_data$Family_Hist_3>=0 & is.na(input_data$Family_Hist_2), 0, Family_Hist_2_3)
   
-  Dummy <- rep(1,dim(input_data)[1])
-  
-  vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N,MHN_6m7m8,MHN_26m27m28,bi_gram_data,
-                          Medical_Keyword_Sum = medical_keyword_sum)
-  
   vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N , 
-                          Family_Hist_2_3 = Family_Hist_2_3 , 
+                          Family_Hist_2_3 = Family_Hist_2_3 ,
+                          BMI_Mult_Ins_Age = BMI_Mult_Ins_Age,
+                          Medical_Keyword_Sum = medical_keyword_sum,
                           stringsAsFactors = FALSE)
   
   
@@ -431,6 +433,7 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   if (SYS_ALGORITHM_ID == "XGBC") { 
     xgbc_model <- train( classification_formula , data = m_input_data , method = "xgbTree", 
                          metric   ="QWKE" , trControl = ma_control, tuneGrid = assesment_grid , 
+                         subsample           = 1,
                          objective           = 'reg:linear',
                          nthread             = 2)
     
