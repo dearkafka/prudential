@@ -75,7 +75,7 @@ perform_data_preparation <- function()
   family_hist_features             <- names(train_input)[str_detect(names(train_input), "^Family_Hist")]
   
   medical_history_features         <- names(train_input)[str_detect(names(train_input), "^Medical_History")]
-  medical_history_features_dropped <- c("Medical_History_10","Medical_History_24","Medical_History_32")
+  medical_history_features_dropped <- c("Medical_History_10")
   medical_history_features         <- setdiff(medical_history_features,c(medical_history_features_dropped))
   
   medical_keyword_features         <- names(train_input)[str_detect(names(train_input), "^Medical_Keyword")]
@@ -96,11 +96,9 @@ perform_data_preparation <- function()
   
   # Set what to do with origin features that are basis for some derived features
   medical_history_features_to_cat <- setdiff(medical_history_features,
-                                             c("Medical_History_32","Medical_History_24","Medical_History_15",
-                                               "Medical_History_10","Medical_History_1","Medical_History_2"))
-  medical_history_multiplication  <- c("Medical_History_6","Medical_History_7","Medical_History_8",
-                                       "Medical_History_26","Medical_History_27","Medical_History_28")
-  
+                                             c(medical_history_features_dropped,"Medical_History_15",
+                                               "Medical_History_1","Medical_History_2"))
+
   vbef_data         <- create_vbfe(train_input1,medical_keyword_features)
   
   replace_features  <- c("Product_Info_2")
@@ -108,7 +106,8 @@ perform_data_preparation <- function()
   train_input2      <- data.frame(train_input1[,!(names(train_input1) %in% replace_features)],vbef_data , 
                                   stringsAsFactors = FALSE)
   
-  medical_history_features_missing <- c("Medical_History_1","Medical_History_15")
+  medical_history_features_missing <- c("Medical_History_1","Medical_History_15","Medical_History_32",
+                                        "Medical_History_24")
   missing_features  <- c("Employment_Info_1","Employment_Info_2","Employment_Info_3","Employment_Info_4",
                          "Employment_Info_5","Employment_Info_6", "Insurance_History_5","Family_Hist_1",
                          "Family_Hist_2","Family_Hist_3","Family_Hist_4","Family_Hist_5",
@@ -221,28 +220,6 @@ process_missing_data <- function (input_data)
 {
   new_input_data <- input_data
   
-  #   new_input_data$Employment_Info_1[is.na(input_data$Employment_Info_1)]        <- -1
-  #   new_input_data$Employment_Info_2[is.na(input_data$Employment_Info_2)]        <- -1
-  #   new_input_data$Employment_Info_3[is.na(input_data$Employment_Info_3)]        <- -1
-  #   new_input_data$Employment_Info_4[is.na(input_data$Employment_Info_4)]        <- -1
-  #   new_input_data$Employment_Info_5[is.na(input_data$Employment_Info_5)]        <- -1
-  #   new_input_data$Employment_Info_6[is.na(input_data$Employment_Info_6)]        <- -1
-  #   new_input_data$Insurance_History_5[is.na(input_data$Insurance_History_5)]    <- -1
-  #   
-  #   new_input_data$Family_Hist_2[is.na(input_data$Family_Hist_2)]                <- -1
-  #   new_input_data$Family_Hist_3[is.na(input_data$Family_Hist_3)]                <- -1
-  #   new_input_data$Family_Hist_4[is.na(input_data$Family_Hist_4)]                <- -1
-  #   new_input_data$Family_Hist_5[is.na(input_data$Family_Hist_5)]                <- -1
-  #   
-  #   new_input_data$Medical_History_1[is.na(input_data$Medical_History_1)]        <- -1
-  #   new_input_data$Medical_History_15[is.na(input_data$Medical_History_15)]      <- -1
-  #   
-  #   new_input_data$Family_Hist_2_3[is.na(input_data$Family_Hist_2_3)]            <- -1
-  
-  #   Employment_Info_1_median <- median(input_data$Employment_Info_1, na.rm = TRUE))
-  #   new_input_data$Employment_Info_1[is.na(input_data$Employment_Info_1)]        <- Employment_Info_1_median
-  
-  
   new_input_data <- apply(input_data,2,function(x) {
     median_x <- median(x,na.rm = TRUE)
     new_x <- ifelse(is.na(x),median_x,x)
@@ -257,7 +234,7 @@ process_missing_data <- function (input_data)
   return (new_input_data)
 }
 
-create_vbfe <- function(input_data,medical_keyword_features)
+create_vbfe <- function(input_data,medical_keyword_features,medical_history_features)
 {
   
   Product_Info_2  <- input_data$Product_Info_2
@@ -267,22 +244,30 @@ create_vbfe <- function(input_data,medical_keyword_features)
   
   BMI_Mult_Ins_Age <- input_data$BMI*input_data$Ins_Age
   
-  MHN_6m7m8    <- input_data$Medical_History_6*input_data$Medical_History_7*input_data$Medical_History_8
-  MHN_26m27m28 <- input_data$Medical_History_26*input_data$Medical_History_27*input_data$Medical_History_28
+#   MHN_36m14    <- input_data$Medical_History_36*input_data$Medical_History_14
+#   MHN_26m38    <- input_data$Medical_History_26*input_data$Medical_History_38
   
-  # Bi gram features on set of medical keyword 
-  bi_gram_features <- c("Medical_Keyword_3", "Medical_Keyword_38", "Medical_Keyword_23",
-                        "Medical_Keyword_37","Medical_Keyword_15",
-                        "Medical_Keyword_2","Medical_Keyword_32","Medical_Keyword_6",
-                        "Medical_Keyword_20","Medical_Keyword_33")
-  bi_gram_comb     <- t(combn(bi_gram_features,2))
-  bi_gram_data     <- apply(bi_gram_comb , 1 , function (x) {
-    i_bi_gram_data <- input_data[[x[1]]]*input_data[[x[2]]]
-  })
-  bi_gram_data_names     <- paste0(bi_gram_comb[,1],"_",str_split_fixed(bi_gram_comb[,2],"_",3)[,3])
-  colnames(bi_gram_data) <- bi_gram_data_names
+#   # Bi gram features on set of medical keyword 
+#   bi_gram_features <- c("Medical_Keyword_3", "Medical_Keyword_38", "Medical_Keyword_23",
+#                         "Medical_Keyword_37","Medical_Keyword_15",
+#                         "Medical_Keyword_2","Medical_Keyword_32","Medical_Keyword_6",
+#                         "Medical_Keyword_20","Medical_Keyword_33")
+#   bi_gram_comb     <- t(combn(bi_gram_features,2))
+#   bi_gram_data     <- apply(bi_gram_comb , 1 , function (x) {
+#     i_bi_gram_data <- input_data[[x[1]]]*input_data[[x[2]]]
+#   })
+#   bi_gram_data_names     <- paste0(bi_gram_comb[,1],"_",str_split_fixed(bi_gram_comb[,2],"_",3)[,3])
+#   colnames(bi_gram_data) <- bi_gram_data_names
   
-  medical_keyword_sum     <- rowSums(input_data[,medical_keyword_features])
+
+  medical_keyword_sum        <- rowSums(input_data[,medical_keyword_features])
+  
+  medical_top_keyword_features <- c("Medical_Keyword_3","Medical_Keyword_38","Medical_Keyword_41",
+                                    "Medical_Keyword_25","Medical_Keyword_9","Medical_Keyword_37",
+                                    "Medical_Keyword_23","Medical_Keyword_48","Medical_Keyword_15",
+                                    "Medical_Keyword_47")
+  
+  medical_keyword_sum_top10  <- rowSums(input_data[,medical_top_keyword_features])
   
   Family_Hist_2_3 <- rep(NA,dim(input_data)[1])
   
@@ -290,13 +275,19 @@ create_vbfe <- function(input_data,medical_keyword_features)
   
   Family_Hist_2_3 <- ifelse(input_data$Family_Hist_3>=0 & is.na(input_data$Family_Hist_2), 0, Family_Hist_2_3)
   
+  is_BMI_above_mean <- ifelse(input_data$BMI > mean(input_data$BMI, na.rm=T), 1, 0)
+
+  # MH_NAs <- apply(input_data[,medical_history_features], 1, function(x) sum(is.na(x)))
+  
   vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N , 
                           Family_Hist_2_3 = Family_Hist_2_3 ,
                           BMI_Mult_Ins_Age = BMI_Mult_Ins_Age,
                           Medical_Keyword_Sum = medical_keyword_sum,
+                          medical_keyword_sum_top10 = medical_keyword_sum_top10,
+                          is_BMI_above_mean = is_BMI_above_mean,
+                          # MH_NAs = MH_NAs,
                           stringsAsFactors = FALSE)
-  
-  
+
 }
 
 perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
@@ -331,18 +322,18 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   # Greed for parameter evaluation
   if (SYS_ALGORITHM_ID == "XGBC") {
     # nrounds, max_depth, eta, gamma, colsample_bytree, min_child_weight
-    xgbc_tuneGrid   <- expand.grid( nrounds          = seq(500,1000, length.out = 2) , 
-                                    eta              = seq(0.01,0.05, length.out = 5) , 
-                                    max_depth        = seq(9,12, length.out = 3) ,
-                                    min_child_weight = seq(10,500, by = 50),
-                                    colsample_bytree = 1,
+    xgbc_tuneGrid   <- expand.grid( nrounds          = c(500,800,1000) , 
+                                    eta              = c(0.03,0.05,0.1,0.2) , 
+                                    max_depth        = c(6,8,10) ,
+                                    min_child_weight = seq(10,300, by = 50),
+                                    colsample_bytree = 0.67,
                                     gamma = 0)
     
     xgbc_tuneGrid   <- expand.grid(    nrounds          = 500 , 
                                        eta              = 0.04, 
                                        max_depth        = 9   ,
                                        min_child_weight = 60  ,
-                                       colsample_bytree = 1   ,
+                                       colsample_bytree = 0.67   ,
                                        gamma = 0)
     assesment_grid <- xgbc_tuneGrid
   }
@@ -355,7 +346,7 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
     
     xgbcl_tuneGrid   <- expand.grid( nrounds   = 100 , 
                                      lambda    = 0.01,
-                                     alpha    = 0.01)
+                                     alpha    = 1)
     assesment_grid <- xgbcl_tuneGrid
     
   }
@@ -433,7 +424,7 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   if (SYS_ALGORITHM_ID == "XGBC") { 
     xgbc_model <- train( classification_formula , data = m_input_data , method = "xgbTree", 
                          metric   ="QWKE" , trControl = ma_control, tuneGrid = assesment_grid , 
-                         subsample           = 1,
+                         subsample           = 0.9,
                          objective           = 'reg:linear',
                          nthread             = 2)
     
@@ -589,7 +580,7 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
   
   create_log_entry("Optimal parameters : ", opt_param_description ,"SF")
   
-  featureImp <- create_feature_importance_data(classification_model,ma_model_id)
+  featureImp <- create_feature_importance_data(classification_model,ma_model_id,m_input_data)
   
   # Create predictions based on evaluation data
   create_log_entry(" Evaluation prediction started ..... ","","SF")
@@ -626,7 +617,7 @@ QWKE <- function(data,lev = NULL, model = NULL) {
 }
 
 
-create_feature_importance_data <- function(classification_model,ma_model_id)
+create_feature_importance_data <- function(classification_model,ma_model_id,m_input_data)
 {
   
   create_log_entry(" Feature Importance evaluation started ..... ","","SF")
@@ -653,8 +644,17 @@ create_feature_importance_data <- function(classification_model,ma_model_id)
     })
   }
   
+  importance_input_vector <- unlist(sapply(importance_data$Var,function (x) {
+    which(names(m_input_data)==x)
+  }))
+  
+  
+  setwd(SYSG_OUTPUT_MODELING_DIR)
+  save(importance_input_vector, file = paste0(ma_model_id,"IIV_",".rda"))
+  
+  
   create_log_entry(paste0(ma_model_id , " Feature Importance : "),"","F")
-  create_log_entry(names(importance_data),head(importance_data,200),"F")
+  create_log_entry(names(importance_data),head(importance_data,500),"F")
   create_log_entry(" Feature Importance evaluation finished ..... ","","SF")
   
 }
@@ -739,6 +739,7 @@ create_p_model <- function (opt_model_id,me_input_data,classification_model)
     opt_parameters <- classification_model$model$M$opt_param
     xgbc_model <- train( classification_formula , data = me_input_data , method = "xgbTree", 
                          trControl = m_control, tuneGrid = opt_parameters , 
+                         subsample           = 0.9 ,
                          objective           = 'reg:linear',
                          nthread             = 6)
     

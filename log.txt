@@ -9616,3 +9616,3612 @@ MODEL_#XGBC#2016-02-05 21_51_36 Optimal Model Creation finished : 41.45
 2016-02-05 21:52:19 : 
 Finished prediction on data
 2016-02-05 21:55:41 : 
+
+2016-02-05 22:19:43 : Starting prediction on data
+MODEL_#XGBC#2016-02-05 22_19_43 Optimal Model Creation started : 
+2016-02-05 22:19:43 : 
+
+2016-02-05 22:20:27 : Data preparation started .....
+
+2016-02-05 22:20:28 : Prepare train data started
+
+2016-02-05 22:20:28 : Prepare train data finished
+
+2016-02-05 22:20:28 : Prepare test data started
+
+2016-02-05 22:20:28 : Prepare test data finished
+
+2016-02-05 22:20:29 : Data preparation finished ..... 
+
+2016-02-05 22:21:21 : Model evaluation started .....
+
+2016-02-05 22:21:21 : Model evaluation load data started
+
+2016-02-05 22:21:21 : Model evaluation load data finsihed
+
+2016-02-05 22:21:22 : MA_#XGBC#2016-02-05 22_21_21 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-05 22_21_21 Model Assesment finished : 186.97
+2016-02-05 22:24:29 : 
+Optimal parameters : 
+2016-02-05 22:24:29 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-05 22:24:29 : 
+MA_#XGBC#2016-02-05 22_21_21 Feature Importance : 
+2016-02-05 22:24:55 : 
+Var
+Imp
+BMI	0.227338474434455
+Medical_History_15	0.131905523801463
+Medical_History_23	0.0753297463736523
+Medical_Keyword_3	0.0608715190964827
+Product_Info_4	0.0446767593130998
+BMI_Mult_Ins_Age	0.0354994837958204
+Ins_Age	0.031183978842359
+Medical_Keyword_Sum	0.0267400829515523
+Wt	0.0225413068242687
+Employment_Info_1	0.0218451727362493
+Medical_History_1	0.0200508627219453
+Medical_History_4	0.0179192564997759
+InsuredInfo_6	0.0153594013216
+Employment_Info_6	0.0142058376346282
+Medical_History_2	0.0126416150040068
+Medical_History_40	0.0117107220225469
+Medical_History_13	0.0107931057028307
+Medical_History_30	0.0105675204039489
+Product_Info_2N	0.00964864662602983
+Family_Hist_3	0.00927773335046931
+Family_Hist_5	0.00863943287629287
+Medical_History_5	0.0085861265448071
+Insurance_History_2	0.00810443390404179
+Insurance_History_5	0.00804308886117096
+Employment_Info_2	0.00803446467390409
+Family_Hist_4	0.00799481123948557
+InsuredInfo_5	0.00797667875030675
+Ht	0.00769457880466041
+Medical_History_20	0.00678196828411417
+Medical_History_18	0.00669115399280878
+Medical_History_28	0.00640427475170848
+InsuredInfo_3	0.00578796995597793
+Employment_Info_4	0.00509427838189279
+InsuredInfo_7	0.0050729360095694
+Family_Hist_2	0.00455653088038308
+InsuredInfo_2	0.00429991059986783
+Medical_History_11	0.00402895366263078
+Medical_History_39	0.00352742225243451
+Medical_Keyword_38	0.0033336294114023
+Medical_History_17	0.00325064495474008
+Medical_History_27	0.00296450653021578
+InsuredInfo_1	0.00247031151625484
+Medical_History_41	0.00243474964636312
+Insurance_History_4	0.00237539671855491
+Medical_History_7	0.00224433013933498
+Medical_History_31	0.00223575087253132
+Insurance_History_8	0.00213485737955096
+Insurance_History_1	0.00211398958944779
+Medical_Keyword_41	0.00205386320820593
+Family_Hist_1	0.00180174208400324
+Medical_History_33	0.00178229086232871
+Insurance_History_7	0.00177464311934303
+Product_Info_2LA	0.00167821209819894
+Medical_History_9	0.00155577845404973
+Medical_History_19	0.00147904821223531
+Medical_Keyword_37	0.00136589508801941
+Medical_History_29	0.00136255244596878
+Medical_History_6	0.00134275666062711
+Medical_Keyword_23	0.00132655210253911
+Medical_Keyword_48	0.00132546613797167
+Medical_History_16	0.00124602795824389
+Product_Info_3	0.00123942941004655
+Medical_History_3	0.00121899658753557
+Medical_Keyword_25	0.00120076940156746
+Medical_Keyword_9	0.00119178758224193
+Product_Info_2LE	0.00111707547284919
+Medical_History_34	0.00104255970494944
+Medical_History_21	0.00102297316315178
+Medical_History_25	0.000965836449435694
+Insurance_History_3	0.000947102236321061
+Medical_History_12	0.000937179015111405
+Medical_Keyword_47	0.000858716541795464
+Medical_Keyword_15	0.000820300055797229
+Medical_Keyword_42	0.000810956518408143
+Insurance_History_9	0.000779790051013138
+Product_Info_6	0.000714018994729858
+Medical_History_22	0.000688094974005102
+Employment_Info_5	0.000680033917547229
+Family_Hist_2_3	0.000678385804859227
+Medical_History_8	0.000622985099853382
+InsuredInfo_4	0.000550532482936777
+Medical_Keyword_33	0.000505283910955023
+Product_Info_2LB	0.000474153978756373
+Medical_Keyword_40	0.000412055878355355
+Medical_Keyword_16	0.00039686242734808
+Medical_Keyword_22	0.000381589913425228
+Medical_Keyword_34	0.000367349329000637
+Medical_Keyword_11	0.00031692504274207
+Medical_Keyword_39	0.000303216863051941
+Medical_Keyword_24	0.00029943248463062
+Medical_History_37	0.000291093085082142
+Medical_Keyword_45	0.000289154535923224
+Medical_History_14	0.000287663387242013
+Medical_Keyword_26	0.0002833539443936
+Medical_History_36	0.000267517190725127
+Medical_Keyword_31	0.000264661022107348
+Medical_Keyword_19	0.000245770099188317
+Medical_Keyword_43	0.000233021704139299
+Medical_History_38	0.000206725464574256
+Medical_Keyword_1	0.000194043780592969
+Medical_Keyword_20	0.000192936857123484
+Medical_Keyword_27	0.000182066109287464
+Medical_Keyword_32	0.000166099247497952
+Medical_Keyword_21	0.000152084664355693
+Medical_Keyword_18	0.000148682434022513
+Medical_Keyword_10	0.000147791505814972
+Medical_Keyword_28	0.000140229283168083
+Product_Info_1	0.000133731008431671
+Medical_Keyword_6	0.000128726155696532
+Medical_Keyword_12	0.000128131415928831
+Medical_Keyword_29	0.000125682824168825
+Medical_Keyword_30	0.000119961521607243
+Medical_Keyword_2	0.000110893904708769
+Product_Info_2LC	0.000100110745804847
+Medical_Keyword_5	9.96408381789758e-05
+Product_Info_5	9.90643702745928e-05
+Product_Info_7	9.85488597629609e-05
+Medical_Keyword_44	8.69941027616551e-05
+Medical_Keyword_4	7.88348371710169e-05
+Medical_Keyword_8	6.18717877634052e-05
+Medical_Keyword_17	5.98587095336127e-05
+Medical_Keyword_36	5.09330749082496e-05
+Medical_Keyword_14	4.69877556628271e-05
+Medical_History_26	4.63754307194812e-05
+Medical_Keyword_7	4.08991732940395e-05
+Medical_Keyword_46	2.9179918341179e-05
+Medical_Keyword_13	2.26314770183172e-05
+Medical_Keyword_35	1.48954072311733e-05
+ Feature Importance evaluation finished ..... 
+2016-02-05 22:24:55 : 
+ Evaluation prediction started ..... 
+2016-02-05 22:24:55 : 
+MA_#XGBC#2016-02-05 22_21_21 Evaluation : 0.661752705276099
+2016-02-05 22:24:56 : 
+ Evaluation prediction finished ..... 
+2016-02-05 22:24:56 : 
+
+2016-02-05 22:24:57 : Model evaluation finished ..... 
+
+2016-02-05 22:30:11 : Starting prediction on data
+MODEL_#XGBC#2016-02-05 22_30_11 Optimal Model Creation started : 
+2016-02-05 22:30:12 : 
+MODEL_#XGBC#2016-02-05 22_30_11 Optimal Model Creation finished : 41.05
+2016-02-05 22:30:53 : 
+Finished prediction on data
+2016-02-05 22:30:55 : 
+
+2016-02-05 23:14:36 : Data preparation started .....
+
+2016-02-05 23:14:37 : Prepare train data started
+
+2016-02-05 23:14:37 : Prepare train data finished
+
+2016-02-05 23:14:37 : Prepare test data started
+
+2016-02-05 23:14:38 : Prepare test data finished
+
+2016-02-05 23:14:38 : Data preparation finished ..... 
+
+2016-02-05 23:17:48 : Model evaluation started .....
+
+2016-02-05 23:17:48 : Model evaluation load data started
+
+2016-02-05 23:17:49 : Model evaluation load data finsihed
+
+2016-02-05 23:17:49 : MA_#XGBC#2016-02-05 23_17_49 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-05 23_17_49 Model Assesment finished : 228.84
+2016-02-05 23:21:38 : 
+Optimal parameters : 
+2016-02-05 23:21:38 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-05 23:21:38 : 
+MA_#XGBC#2016-02-05 23_17_49 Feature Importance : 
+2016-02-05 23:22:04 : 
+Var
+Imp
+BMI	0.224986083888084
+Medical_History_15	0.0925889911311404
+Medical_History_23	0.0650097013469443
+Medical_History_4	0.0584368648288426
+Medical_Keyword_3	0.058362587705755
+Product_Info_4	0.046308455639651
+BMI_Mult_Ins_Age	0.0373227238183672
+Medical_Keyword_Sum	0.0337566069723212
+Ins_Age	0.0277085511943874
+Wt	0.0235340825769193
+Employment_Info_1	0.0212281812738836
+Medical_History_1	0.0196669103062705
+Employment_Info_6	0.0146576979675906
+Insurance_History_5	0.0125497094293556
+Medical_History_2	0.0122766593814779
+Medical_History_40	0.0122665365886472
+InsuredInfo_6	0.0122083660199503
+Family_Hist_4	0.0111132421987972
+Medical_History_13	0.0110201396101889
+Medical_History_30	0.0102747724877967
+Family_Hist_3	0.0100920536711916
+Product_Info_2N	0.00905377383665079
+Medical_History_5	0.00837087404584562
+InsuredInfo_5	0.00818674129646189
+Insurance_History_2	0.00802202832678095
+Family_Hist_2	0.00762873213136276
+Family_Hist_5	0.00760575364130171
+Employment_Info_2	0.00740855914910348
+Ht	0.00736550752166574
+Employment_Info_4	0.00707307696517783
+Medical_History_20	0.00671708028605351
+Medical_History_18	0.00665243656321531
+Medical_History_28	0.00656574628734258
+InsuredInfo_3	0.00597627760631558
+Medical_History_39	0.00514150588223547
+InsuredInfo_7	0.00492557316352837
+InsuredInfo_2	0.0041892460240452
+Medical_History_11	0.00393495526957363
+Medical_History_17	0.0032605505431699
+Medical_History_27	0.00303646307089286
+Medical_Keyword_38	0.00299244191099176
+InsuredInfo_1	0.00244132338832819
+Medical_History_7	0.00228517325213388
+Medical_History_31	0.00222886302934844
+Medical_History_41	0.00222452674027348
+Insurance_History_1	0.0020319179564549
+Medical_History_33	0.00200664768460677
+Medical_Keyword_41	0.0019666393881102
+Insurance_History_8	0.00191322150957341
+Family_Hist_1	0.00178052221137491
+Product_Info_2LA	0.00162375210370988
+Medical_History_19	0.00155800462673393
+Medical_Keyword_23	0.00155074255644253
+Medical_History_9	0.00150088414550302
+Medical_History_6	0.00149729513289269
+Medical_History_29	0.0014202448101366
+Medical_History_16	0.0013893601058901
+Product_Info_2LE	0.00135988551607625
+Product_Info_3	0.00131616944735436
+Medical_Keyword_37	0.00131085575729881
+Medical_History_3	0.00127832982419347
+Medical_Keyword_25	0.00123500656369625
+Insurance_History_4	0.00120452677588409
+Medical_Keyword_9	0.00115723852217972
+Medical_Keyword_48	0.00107057770671232
+Insurance_History_7	0.00103362085080612
+Medical_History_34	0.00102195787653008
+Medical_History_21	0.00101563125448526
+Medical_History_12	0.000924043588112905
+Medical_Keyword_15	0.000923781316896751
+Product_Info_6	0.000876778263944575
+Medical_History_22	0.000735070368067811
+Family_Hist_2_3	0.000719218520963887
+Medical_Keyword_47	0.000672105296079483
+InsuredInfo_4	0.000624715344751323
+Medical_Keyword_42	0.000593978234428089
+Employment_Info_5	0.000569719650835859
+Medical_History_25	0.000530508240535873
+Medical_Keyword_33	0.000518500637896787
+Medical_Keyword_34	0.00050067125050906
+Insurance_History_3	0.000452957323560358
+MHN_36m14	0.000440072787368333
+Medical_History_8	0.000432348661670348
+Medical_Keyword_22	0.000426140033540737
+Medical_Keyword_40	0.000389989620272186
+Product_Info_2LB	0.000342362961948063
+Medical_History_37	0.000341052392719011
+Medical_Keyword_24	0.000335311996358964
+Medical_Keyword_19	0.000331155464829002
+Medical_Keyword_43	0.000314083244547443
+Medical_Keyword_26	0.000303030926433027
+Medical_Keyword_31	0.000301689653065277
+Medical_Keyword_1	0.000297080783324457
+Medical_Keyword_39	0.000295630640983245
+MHN_26m38	0.000279960620082872
+Medical_History_14	0.000279686884521737
+Medical_Keyword_11	0.000271458746452768
+Medical_Keyword_45	0.000257773432109407
+Medical_Keyword_32	0.000244298456768553
+Medical_Keyword_16	0.000238831834043112
+Medical_History_36	0.000202605134231004
+Medical_Keyword_30	0.000194911082344262
+Medical_Keyword_18	0.000175135675275853
+Medical_Keyword_2	0.000173263247383098
+Medical_Keyword_10	0.000166790418981498
+Medical_Keyword_21	0.000165625988423061
+Product_Info_1	0.000163939663653701
+Medical_Keyword_28	0.000163541973564047
+Medical_Keyword_12	0.000148088104215998
+Product_Info_7	0.000146937346263825
+Product_Info_2LC	0.000138612412741902
+Medical_Keyword_6	0.000131579612428577
+Medical_Keyword_27	0.000128452101044324
+Medical_Keyword_20	0.000128286189551407
+Medical_Keyword_14	0.000127037295114044
+Medical_Keyword_5	0.000119271792014488
+Medical_Keyword_29	0.000114343024744846
+Medical_Keyword_7	0.00010079552790362
+Medical_Keyword_4	8.55043549554306e-05
+Medical_Keyword_8	8.13464189374484e-05
+Product_Info_5	7.64166998310453e-05
+Medical_Keyword_17	7.45668072023915e-05
+Medical_Keyword_36	7.25500131705901e-05
+Insurance_History_9	5.29188241777315e-05
+Medical_Keyword_46	5.14723453504509e-05
+Medical_History_38	4.8196398196202e-05
+Medical_Keyword_13	4.2701186524864e-05
+Medical_Keyword_44	3.78881118406593e-05
+Medical_History_26	1.87842657953785e-05
+Medical_Keyword_35	5.27051050971286e-06
+ Feature Importance evaluation finished ..... 
+2016-02-05 23:22:04 : 
+ Evaluation prediction started ..... 
+2016-02-05 23:22:04 : 
+MA_#XGBC#2016-02-05 23_17_49 Evaluation : 0.662366282059018
+2016-02-05 23:22:05 : 
+ Evaluation prediction finished ..... 
+2016-02-05 23:22:06 : 
+
+2016-02-05 23:22:06 : Model evaluation finished ..... 
+
+2016-02-05 23:25:25 : Data preparation started .....
+
+2016-02-05 23:25:26 : Prepare train data started
+
+2016-02-05 23:25:27 : Prepare train data finished
+
+2016-02-05 23:25:27 : Prepare test data started
+
+2016-02-05 23:25:27 : Prepare test data finished
+
+2016-02-05 23:25:27 : Data preparation finished ..... 
+
+2016-02-05 23:25:58 : Model evaluation started .....
+
+2016-02-05 23:25:58 : Model evaluation load data started
+
+2016-02-05 23:25:58 : Model evaluation load data finsihed
+
+2016-02-05 23:25:59 : MA_#XGBC#2016-02-05 23_25_58 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-05 23_25_58 Model Assesment finished : 187.92
+2016-02-05 23:29:07 : 
+Optimal parameters : 
+2016-02-05 23:29:07 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-05 23:29:07 : 
+MA_#XGBC#2016-02-05 23_25_58 Feature Importance : 
+2016-02-05 23:29:33 : 
+Var
+Imp
+BMI	0.225109725515784
+Medical_History_15	0.0925110141414489
+Medical_History_23	0.0648841822377581
+Medical_History_4	0.0583248905354151
+Medical_Keyword_3	0.0581227394355371
+Product_Info_4	0.0458689851890073
+BMI_Mult_Ins_Age	0.0375004832130516
+Medical_Keyword_Sum	0.0335713528048001
+Ins_Age	0.0276271716820997
+Wt	0.0234232217121419
+Employment_Info_1	0.0218546811947659
+Medical_History_1	0.0200034247413738
+Employment_Info_6	0.0149282276511567
+Insurance_History_5	0.0125119192178793
+Medical_History_2	0.0123531780198218
+Medical_History_40	0.012266394081682
+InsuredInfo_6	0.0121677146424492
+Family_Hist_4	0.0109589054914703
+Medical_History_13	0.0108811002579014
+Medical_History_30	0.0101268618711347
+Family_Hist_3	0.0100121309941063
+Product_Info_2N	0.00915970718701771
+Medical_History_5	0.00831337028938719
+InsuredInfo_5	0.00818140210283812
+Insurance_History_2	0.00798407186668202
+Ht	0.00760951660188078
+Family_Hist_2	0.0074928465439438
+Family_Hist_5	0.0074534947729076
+Employment_Info_2	0.00739666171831387
+Employment_Info_4	0.00732038896931429
+Medical_History_20	0.00669892623429711
+Medical_History_18	0.00662305610855113
+Medical_History_28	0.0066121290780246
+InsuredInfo_3	0.00622356636956427
+Medical_History_39	0.00517983036984977
+InsuredInfo_7	0.00490042458181611
+InsuredInfo_2	0.00417487717073788
+Medical_History_11	0.00392488869582217
+Medical_History_17	0.003238582943746
+Medical_History_27	0.00303191883964639
+Medical_Keyword_38	0.00293398863313831
+InsuredInfo_1	0.00249428389796226
+Medical_History_7	0.00227594965710571
+Medical_History_31	0.00222894796456023
+Medical_History_41	0.00218096767312618
+Insurance_History_8	0.00201656668598681
+Insurance_History_1	0.0019940423535707
+Medical_History_33	0.00197546440687558
+Medical_Keyword_41	0.00194654079727851
+Family_Hist_1	0.00170183731124528
+Medical_History_9	0.00164991571068977
+Medical_History_19	0.00163979381451302
+Product_Info_2LA	0.00159802400472785
+Medical_History_6	0.00156470712107546
+Medical_Keyword_23	0.00149907997936782
+Medical_History_29	0.00148198720367166
+Product_Info_2LE	0.00137871500616393
+Product_Info_3	0.00135204625426422
+Medical_History_3	0.00135033724907694
+Medical_Keyword_37	0.00129769216140864
+Medical_History_16	0.00127150686285252
+Medical_Keyword_25	0.00122670433298513
+Insurance_History_4	0.00119473632459706
+Medical_Keyword_9	0.00114374406557876
+Medical_Keyword_48	0.00101322287855395
+Medical_History_34	0.00100602574039048
+Medical_History_12	0.0009691237149248
+Insurance_History_7	0.000969024965787735
+Medical_History_21	0.000963375764620431
+Medical_Keyword_15	0.000924507657328408
+Product_Info_6	0.000859535810171908
+Medical_Keyword_47	0.000798014414716214
+Medical_History_22	0.000730610808921034
+MHN_36m14	0.000697639197283458
+Employment_Info_5	0.000683840101654239
+Family_Hist_2_3	0.000660951080495048
+Medical_Keyword_42	0.000633460442310403
+InsuredInfo_4	0.000605510920005986
+Medical_History_25	0.000543220596811958
+Insurance_History_3	0.00050960432028056
+Medical_Keyword_33	0.000507000075318265
+Medical_Keyword_34	0.000480232700774839
+Medical_History_8	0.00046960003712513
+Medical_Keyword_40	0.000409166792226645
+Medical_Keyword_22	0.000407066079318041
+Medical_Keyword_24	0.000370934023052561
+Medical_Keyword_19	0.000349652643747816
+Product_Info_2LB	0.000348287624559682
+Medical_Keyword_26	0.000323975038876399
+Medical_Keyword_1	0.00032199800272648
+Medical_Keyword_31	0.000318832447767486
+Medical_History_37	0.000318736957942247
+Medical_Keyword_39	0.000305828636873005
+Medical_Keyword_32	0.000295062489014022
+Medical_Keyword_43	0.000291703040841196
+MHN_26m38	0.000288168264460964
+Medical_Keyword_16	0.0002399518647678
+Product_Info_1	0.000223932389310291
+Medical_Keyword_45	0.000202775884234551
+Medical_Keyword_11	0.000186451163472656
+Medical_Keyword_20	0.000177574003963413
+Medical_Keyword_12	0.000173208018738803
+Medical_Keyword_30	0.000172180968683097
+Medical_Keyword_21	0.000163457304630119
+Medical_Keyword_18	0.00016247587650708
+Medical_Keyword_2	0.000160406791150872
+Medical_Keyword_27	0.00015450265529846
+Medical_Keyword_28	0.000151785793312173
+Medical_Keyword_10	0.000141622221795082
+Medical_Keyword_6	0.00013308092319587
+Medical_Keyword_4	0.000130970592576693
+Medical_Keyword_5	0.000120480798942369
+Medical_Keyword_14	0.000110369612535394
+Medical_Keyword_29	0.00010742138157395
+Medical_Keyword_8	9.03696276691911e-05
+Product_Info_2LC	8.99816557179563e-05
+Medical_Keyword_7	8.46252191784481e-05
+Product_Info_7	8.43688635514443e-05
+Product_Info_5	8.41655086354956e-05
+Medical_Keyword_17	7.60842621112645e-05
+Insurance_History_9	7.23430190788263e-05
+Medical_Keyword_36	7.08844158984997e-05
+Medical_Keyword_46	4.90761159207919e-05
+Medical_Keyword_44	4.25979827892972e-05
+Medical_Keyword_13	3.73935996819344e-05
+Medical_Keyword_35	6.00366924820956e-06
+ Feature Importance evaluation finished ..... 
+2016-02-05 23:29:33 : 
+ Evaluation prediction started ..... 
+2016-02-05 23:29:33 : 
+MA_#XGBC#2016-02-05 23_25_58 Evaluation : 0.66086769317047
+2016-02-05 23:29:34 : 
+ Evaluation prediction finished ..... 
+2016-02-05 23:29:35 : 
+
+2016-02-05 23:29:35 : Model evaluation finished ..... 
+
+2016-02-05 23:34:05 : Data preparation started .....
+
+2016-02-05 23:34:06 : Prepare train data started
+
+2016-02-05 23:34:06 : Prepare train data finished
+
+2016-02-05 23:34:06 : Prepare test data started
+
+2016-02-05 23:34:07 : Prepare test data finished
+
+2016-02-05 23:34:07 : Data preparation finished ..... 
+
+2016-02-05 23:35:25 : Model evaluation started .....
+
+2016-02-05 23:35:25 : Model evaluation load data started
+
+2016-02-05 23:35:25 : Model evaluation load data finsihed
+
+2016-02-05 23:35:26 : MA_#XGBC#2016-02-05 23_35_25 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-05 23_35_25 Model Assesment finished : 186.59
+2016-02-05 23:38:33 : 
+Optimal parameters : 
+2016-02-05 23:38:33 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-05 23:38:33 : 
+MA_#XGBC#2016-02-05 23_35_25 Feature Importance : 
+2016-02-05 23:38:59 : 
+Var
+Imp
+BMI	0.225535577815465
+Medical_History_15	0.0924396735493219
+Medical_History_23	0.064932782580892
+Medical_History_4	0.0582469610542129
+Medical_Keyword_3	0.058079039277755
+Product_Info_4	0.0459627281354682
+BMI_Mult_Ins_Age	0.0371466650958038
+Medical_Keyword_Sum	0.034158081384841
+Ins_Age	0.0280185334605579
+Wt	0.0231885828657348
+Employment_Info_1	0.0217444055135635
+Medical_History_1	0.0196671656155585
+Employment_Info_6	0.0151711699050303
+InsuredInfo_6	0.012495078832159
+Insurance_History_5	0.0123383760213858
+Medical_History_40	0.012187301274689
+Medical_History_2	0.0120840760033997
+Family_Hist_4	0.0113443921390404
+Medical_History_13	0.0107699282913198
+Medical_History_30	0.0101619536305416
+Family_Hist_3	0.00950249767068143
+Product_Info_2N	0.0092062335256463
+Medical_History_5	0.00846159620012733
+InsuredInfo_5	0.0082399882927365
+Insurance_History_2	0.00804337289227333
+Family_Hist_5	0.00758247686380919
+Employment_Info_2	0.00742158233514521
+Family_Hist_2	0.00739971119117851
+Employment_Info_4	0.0073209858679388
+Ht	0.00725922296167067
+Medical_History_20	0.00678186420357495
+Medical_History_28	0.00658313560189284
+Medical_History_18	0.00655682681587765
+InsuredInfo_3	0.00586839591824191
+Medical_History_39	0.00538970997905328
+InsuredInfo_7	0.00478049278481378
+InsuredInfo_2	0.00427295359489862
+Medical_History_11	0.00391994903302926
+Medical_History_17	0.0032122373282857
+Medical_History_27	0.00307064918470653
+Medical_Keyword_38	0.00280771962393918
+InsuredInfo_1	0.00230048891823711
+Medical_History_7	0.00227332222617867
+Medical_History_41	0.00222152262592005
+Medical_History_31	0.00217158415553428
+Medical_History_33	0.00216959275722623
+Medical_Keyword_41	0.00202059294563333
+Insurance_History_8	0.00199309902004372
+Insurance_History_1	0.00175292849703189
+Medical_History_9	0.00160482481319763
+Medical_History_19	0.00157807823863981
+Product_Info_2LA	0.0015656044323467
+Medical_History_29	0.0015496447075089
+Medical_History_6	0.00151305795042352
+Family_Hist_1	0.00148233881230096
+Product_Info_2LE	0.00146507617054186
+Product_Info_3	0.00135181246192624
+Medical_Keyword_37	0.00126329254634788
+Insurance_History_4	0.00125005516921373
+Medical_History_3	0.00124901125758794
+Medical_History_16	0.00124748895165689
+Medical_Keyword_23	0.00118680690213563
+Medical_Keyword_9	0.00117418231901927
+Medical_Keyword_25	0.00117103909352466
+Medical_History_21	0.00102104588521428
+Medical_History_12	0.00102088326849691
+Medical_Keyword_48	0.000998156748164907
+Product_Info_6	0.000954138410900976
+Medical_History_34	0.000899674631492879
+Medical_History_25	0.000888451299847128
+Medical_Keyword_15	0.000853964035074694
+Insurance_History_7	0.000826876272824776
+Medical_History_22	0.000741947502850213
+Medical_Keyword_42	0.000735076110348419
+Family_Hist_2_3	0.000644776371141631
+Medical_Keyword_47	0.000639225769572744
+Employment_Info_5	0.000624123341869359
+InsuredInfo_4	0.000608830871179543
+Medical_History_8	0.000552838079386081
+Medical_Keyword_33	0.000480982277775749
+Medical_Keyword_40	0.000460643741462844
+Medical_Keyword_22	0.000431699369642509
+Medical_Keyword_34	0.000413776903268994
+Insurance_History_3	0.000408008557589939
+Product_Info_2LB	0.000394165289941967
+Medical_History_14	0.00035506842878658
+Medical_Keyword_24	0.000353769854569306
+Medical_Keyword_19	0.000347949481012606
+Medical_History_37	0.00034208869536011
+Medical_Keyword_16	0.000336167788416622
+Medical_Keyword_26	0.000313613969854684
+Medical_Keyword_39	0.000308756365746453
+Medical_Keyword_31	0.000289855577377818
+Medical_History_36	0.00028038877014026
+Medical_Keyword_1	0.000266737968428482
+Medical_Keyword_43	0.000259965527841902
+Medical_Keyword_45	0.000256605463143312
+Medical_Keyword_11	0.000250274938148168
+Medical_Keyword_37_15	0.000239996590738485
+Medical_Keyword_28	0.00020331180778675
+Medical_Keyword_18	0.000198897345544705
+Medical_Keyword_32	0.000198049448440525
+Product_Info_1	0.000193077005816273
+Medical_Keyword_30	0.000186041905635427
+Medical_History_38	0.000173602007953404
+Medical_Keyword_27	0.000170479155533762
+Medical_Keyword_12	0.000155711158325757
+Medical_Keyword_23_15	0.000154543842020544
+Medical_Keyword_20	0.000154024205981194
+Medical_Keyword_21	0.000152247359240429
+Medical_Keyword_2	0.000149763645448739
+Medical_Keyword_29	0.000131388666778538
+Medical_Keyword_3_15	0.000126383668673956
+Medical_Keyword_6	0.000123664366360226
+Medical_Keyword_23_37	0.000122228766511034
+Medical_Keyword_4	0.00012213361181901
+Medical_Keyword_10	0.000117646118572833
+Product_Info_2LC	0.000110814271317443
+Medical_Keyword_15_33	9.74505320674463e-05
+Product_Info_7	9.55483727328873e-05
+Medical_Keyword_36	9.44750821012232e-05
+Medical_Keyword_5	9.06036100897045e-05
+Medical_Keyword_14	8.91591556911144e-05
+Product_Info_5	8.90717815009486e-05
+Medical_Keyword_46	8.90586053901924e-05
+Medical_Keyword_17	8.68200831203902e-05
+Medical_Keyword_8	8.52939461378852e-05
+Medical_Keyword_7	8.2556418844259e-05
+Insurance_History_9	7.16207162837934e-05
+Medical_History_26	6.55989334422949e-05
+Medical_Keyword_44	5.21907184756958e-05
+Medical_Keyword_37_32	5.14298107651225e-05
+Medical_Keyword_15_32	4.35714362313584e-05
+Medical_Keyword_3_37	4.31114690299034e-05
+Medical_Keyword_13	4.12525971940003e-05
+Medical_Keyword_23_32	3.16741228406357e-05
+Medical_Keyword_15_20	1.56050988658567e-05
+Medical_Keyword_37_6	1.05959187415248e-05
+Medical_Keyword_35	7.25240029498462e-06
+Medical_Keyword_3_33	5.6958812984284e-06
+Medical_Keyword_15_6	3.13667549604168e-06
+Medical_Keyword_38_15	2.46577635207875e-06
+Medical_Keyword_3_23	7.09053202805596e-07
+ Feature Importance evaluation finished ..... 
+2016-02-05 23:38:59 : 
+ Evaluation prediction started ..... 
+2016-02-05 23:38:59 : 
+MA_#XGBC#2016-02-05 23_35_25 Evaluation : 0.660176789926953
+2016-02-05 23:39:01 : 
+ Evaluation prediction finished ..... 
+2016-02-05 23:39:01 : 
+
+2016-02-05 23:39:02 : Model evaluation finished ..... 
+
+2016-02-05 23:43:26 : Data preparation started .....
+
+2016-02-05 23:43:27 : Prepare train data started
+
+2016-02-05 23:43:27 : Prepare train data finished
+
+2016-02-05 23:43:27 : Prepare test data started
+
+2016-02-05 23:43:27 : Prepare test data finished
+
+2016-02-05 23:43:28 : Data preparation finished ..... 
+
+2016-02-05 23:43:58 : Model evaluation started .....
+
+2016-02-05 23:43:58 : Model evaluation load data started
+
+2016-02-05 23:43:58 : Model evaluation load data finsihed
+
+2016-02-05 23:43:59 : MA_#XGBC#2016-02-05 23_43_58 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-05 23_43_58 Model Assesment finished : 204.12
+2016-02-05 23:47:23 : 
+Optimal parameters : 
+2016-02-05 23:47:23 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-05 23:47:23 : 
+MA_#XGBC#2016-02-05 23_43_58 Feature Importance : 
+2016-02-05 23:47:50 : 
+Var
+Imp
+BMI	0.225231819913802
+Medical_History_15	0.0923194023996757
+Medical_History_23	0.0649758515593201
+Medical_History_4	0.0582350408693447
+Medical_Keyword_3	0.0579806069137869
+Product_Info_4	0.0457950378212497
+BMI_Mult_Ins_Age	0.0378048951402758
+Medical_Keyword_Sum	0.0342048480443934
+Ins_Age	0.0279003414601744
+Wt	0.0227394301815837
+Employment_Info_1	0.0215544656734154
+Medical_History_1	0.0201889105410626
+Employment_Info_6	0.0148546839799674
+InsuredInfo_6	0.0125831530141893
+Insurance_History_5	0.0125327527271784
+Medical_History_40	0.0122399627324248
+Medical_History_2	0.0119578669310297
+Family_Hist_4	0.0111315836595381
+Medical_History_13	0.0109154043767163
+Medical_History_30	0.0101786170575379
+Family_Hist_3	0.00983336537056957
+Product_Info_2N	0.00906732989081905
+Medical_History_5	0.00847567044145869
+InsuredInfo_5	0.00821373500772644
+Insurance_History_2	0.0080328173609173
+Employment_Info_2	0.0079096929892768
+Family_Hist_2	0.00774203303134824
+Ht	0.00769671159815236
+Family_Hist_5	0.00751897079540122
+Employment_Info_4	0.00737276545091804
+Medical_History_20	0.00675527659330905
+Medical_History_18	0.00664736573453588
+Medical_History_28	0.00650900622886059
+InsuredInfo_3	0.00604100315542161
+Medical_History_39	0.00519290280812231
+InsuredInfo_7	0.00470193936173541
+InsuredInfo_2	0.00429925769340787
+Medical_History_11	0.00388116623485846
+Medical_History_17	0.00324452308168519
+Medical_History_27	0.00308149838265357
+Medical_Keyword_38	0.00281035737947824
+Medical_History_7	0.00226275288860715
+InsuredInfo_1	0.00225114681291733
+Medical_History_31	0.0022179302306525
+Medical_History_41	0.00215429516231833
+Medical_History_33	0.00205363050687483
+Insurance_History_8	0.00197053252495402
+Medical_Keyword_41	0.00195175589260934
+Insurance_History_1	0.00188398782868267
+Medical_History_9	0.001692303198938
+Product_Info_2LA	0.0016772064791724
+Medical_History_29	0.00159188724806841
+Family_Hist_1	0.00156409749449142
+Medical_History_6	0.0015632991517549
+Medical_History_19	0.00153259654996612
+Product_Info_3	0.00136429658127476
+Product_Info_2LE	0.00134852401763593
+Medical_History_16	0.00134701930330408
+Medical_Keyword_25	0.00129303569723906
+Insurance_History_4	0.00123647086114988
+Medical_Keyword_9	0.00120586558539961
+Medical_History_3	0.00116773710572285
+Medical_Keyword_37	0.00115741049962217
+Insurance_History_7	0.00113128310049024
+Medical_Keyword_23	0.0010938191712429
+Medical_Keyword_48	0.000997780167846969
+Product_Info_6	0.000991131024179417
+Medical_Keyword_15	0.000980323527384772
+Medical_History_12	0.000925464434831293
+Medical_History_34	0.000899345448851122
+Medical_History_25	0.000894778410536035
+Medical_History_21	0.000889993667686428
+Medical_History_22	0.000733413324822339
+Medical_Keyword_47	0.000664219077747807
+Family_Hist_2_3	0.000659207407525134
+InsuredInfo_4	0.000657435779100939
+Medical_Keyword_42	0.000645182691978285
+Medical_History_8	0.000564101947690471
+Medical_Keyword_33	0.000560046466956357
+Employment_Info_5	0.000530300303466147
+Insurance_History_3	0.000452740655068081
+Medical_Keyword_22	0.00044221605102845
+Medical_Keyword_19	0.000409697591674811
+Product_Info_2LB	0.000390736253749243
+Medical_Keyword_40	0.000377416201864652
+Medical_History_37	0.000366303444717539
+Medical_Keyword_34	0.00035015150486551
+Medical_Keyword_24	0.000329077023594023
+Medical_History_14	0.000327495351063462
+Medical_Keyword_16	0.000325492122698709
+Medical_Keyword_26	0.000289106223932712
+Medical_Keyword_31	0.000280491481250351
+Medical_History_36	0.000272590840141844
+Medical_Keyword_45	0.000271527392456883
+Medical_Keyword_11	0.000254137610194173
+Medical_Keyword_39	0.000240515996370191
+Medical_Keyword_32	0.000217856485741677
+Medical_Keyword_1	0.000210739790126534
+Medical_Keyword_18	0.000208653459221154
+Product_Info_1	0.000197581523782823
+Medical_Keyword_43	0.000194195822705281
+Medical_Keyword_27	0.000192931855244402
+Medical_Keyword_12	0.000192169003778655
+Medical_Keyword_20	0.000174046349546864
+Medical_Keyword_7	0.000162288444933364
+Medical_Keyword_29	0.000153338825074073
+Medical_Keyword_21	0.000151254505734302
+Medical_Keyword_28	0.000149712482553532
+Medical_History_38	0.000143900268258387
+Medical_Keyword_10	0.000137421411842965
+Medical_Keyword_2	0.000127799688694711
+Medical_Keyword_6	0.000125570060096727
+Medical_Keyword_14	0.00010077658620739
+Medical_Keyword_30	9.73246046756196e-05
+Product_Info_5	9.44043849403982e-05
+Insurance_History_9	9.42356453708219e-05
+Medical_Keyword_5	9.33661514079999e-05
+Medical_Keyword_17	8.96024193781184e-05
+Product_Info_2LC	8.86752057119802e-05
+Medical_Keyword_36	8.82297135121831e-05
+Medical_Keyword_8	8.47424937367578e-05
+Product_Info_7	8.12095140065809e-05
+Medical_Keyword_46	7.83557096733853e-05
+Medical_Keyword_4	7.59863763679076e-05
+Medical_Keyword_44	5.76638264937632e-05
+Medical_Keyword_13	5.1014809339771e-05
+Medical_History_26	3.92177698649595e-05
+Medical_Keyword_35	8.36790629202713e-06
+ Feature Importance evaluation finished ..... 
+2016-02-05 23:47:50 : 
+ Evaluation prediction started ..... 
+2016-02-05 23:47:50 : 
+MA_#XGBC#2016-02-05 23_43_58 Evaluation : 0.663249496632006
+2016-02-05 23:47:51 : 
+ Evaluation prediction finished ..... 
+2016-02-05 23:47:51 : 
+
+2016-02-05 23:47:51 : Model evaluation finished ..... 
+
+2016-02-06 21:34:27 : Data preparation started .....
+
+2016-02-06 21:34:28 : Prepare train data started
+
+2016-02-06 21:34:29 : Prepare train data finished
+
+2016-02-06 21:34:29 : Prepare test data started
+
+2016-02-06 21:34:29 : Prepare test data finished
+
+2016-02-06 21:34:30 : Data preparation finished ..... 
+
+2016-02-06 21:34:45 : Model evaluation started .....
+
+2016-02-06 21:34:45 : Model evaluation load data started
+
+2016-02-06 21:34:45 : Model evaluation load data finsihed
+
+2016-02-06 21:34:46 : MA_#XGBC#2016-02-06 21_34_45 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 21_34_45 Model Assesment finished : 189.96
+2016-02-06 21:37:56 : 
+Optimal parameters : 
+2016-02-06 21:37:56 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 21:37:56 : 
+MA_#XGBC#2016-02-06 21_34_45 Feature Importance : 
+2016-02-06 21:38:20 : 
+Var
+Imp
+BMI	0.222811509597834
+medical_keyword_sum_top10	0.0986971952901076
+Medical_History_15	0.0868664190254947
+Medical_History_4	0.0483607449020984
+Product_Info_4	0.0470539213598424
+Medical_Keyword_3	0.0465098684802484
+BMI_Mult_Ins_Age	0.0349168295218371
+Ins_Age	0.0279628037119547
+Medical_History_23	0.0270215582274233
+Wt	0.0219166161413
+Employment_Info_1	0.0207025941568497
+Medical_History_1	0.0200505330725316
+Medical_Keyword_Sum	0.0147165272071079
+Employment_Info_6	0.0146475283000387
+Insurance_History_5	0.0122020559114114
+Medical_History_40	0.0120755382607852
+InsuredInfo_6	0.0116620347227821
+Medical_History_2	0.0113930694364446
+Medical_History_13	0.010910835230396
+Family_Hist_4	0.0107117163893087
+Family_Hist_3	0.0097113832167662
+Medical_History_30	0.00923688487348928
+Product_Info_2N	0.00897760360179992
+Medical_History_5	0.00839014811216815
+Insurance_History_2	0.0083302941460338
+InsuredInfo_5	0.00798819783228217
+Family_Hist_5	0.00769720764308195
+Employment_Info_2	0.00764325218218543
+Family_Hist_2	0.0075313776138846
+Ht	0.00738039613003506
+Employment_Info_4	0.0071164064247652
+Medical_History_18	0.0070956776234925
+Medical_History_28	0.00656084910276502
+Medical_History_20	0.00651694112600325
+InsuredInfo_3	0.00554172428580701
+InsuredInfo_7	0.0047383823331973
+InsuredInfo_2	0.00448857232976044
+Medical_History_11	0.00394535374830273
+Medical_Keyword_38	0.00366998123321207
+Medical_History_39	0.0034401569289032
+Medical_History_17	0.00323900720420348
+Medical_History_27	0.00319124776772344
+InsuredInfo_1	0.00223621679256399
+Medical_History_7	0.0022312041864885
+Insurance_History_1	0.00215925822357063
+Medical_History_31	0.00215181018848074
+Medical_Keyword_25	0.0021272246063539
+Medical_History_41	0.00202715467874928
+Insurance_History_8	0.00201799146026485
+Medical_Keyword_41	0.00197370492678829
+Family_Hist_1	0.0017632259427558
+Product_Info_2LA	0.00167237553501235
+Insurance_History_4	0.00157918252522947
+Medical_History_19	0.00154202860561999
+Medical_History_9	0.0015301315176687
+Product_Info_3	0.00137739328985014
+Medical_History_29	0.00137109305402631
+Product_Info_2LE	0.00134886948137647
+Medical_History_3	0.00131716822232283
+Medical_History_16	0.00127358701539361
+Medical_History_21	0.00102690897200878
+Medical_History_12	0.00101155760039368
+Medical_Keyword_37	0.000966093518008978
+Medical_History_6	0.000952326286386985
+Medical_History_34	0.000903985090367057
+Medical_Keyword_15	0.00089352079389688
+Medical_History_33	0.000858711293587869
+Medical_History_25	0.000835146412029585
+Insurance_History_7	0.000792345420334455
+Product_Info_6	0.00077740052770056
+Medical_Keyword_42	0.000773679753157396
+Medical_Keyword_9	0.000702048553168795
+Family_Hist_2_3	0.000647601752005064
+Medical_History_22	0.00064250020465654
+Medical_Keyword_47	0.000640917813650746
+Medical_Keyword_23	0.000632965678272214
+InsuredInfo_4	0.000593461128982253
+Employment_Info_5	0.000589176038413662
+Medical_History_8	0.000498822257936423
+Insurance_History_3	0.00044472910116503
+Medical_Keyword_33	0.000419714963201189
+Medical_Keyword_22	0.000410675821669916
+Medical_Keyword_48	0.000409338609184784
+Medical_Keyword_34	0.000382639525499157
+Medical_Keyword_24	0.000371427876212937
+Medical_History_37	0.000370083103045289
+Product_Info_2LB	0.000360533910454074
+Medical_Keyword_19	0.000336955247718628
+Medical_Keyword_31	0.000318914713281109
+Medical_History_14	0.00031359196750307
+Medical_Keyword_40	0.00029596695873633
+Medical_History_36	0.000293924723142621
+Medical_Keyword_43	0.000290718892609455
+Medical_Keyword_30	0.000262450575359961
+Medical_Keyword_26	0.000257217529451864
+Medical_Keyword_1	0.000253768425319161
+Product_Info_1	0.000246842439763639
+Medical_Keyword_39	0.000242838514710141
+Medical_Keyword_10	0.000242319305699749
+Medical_Keyword_16	0.000230108259774806
+Medical_Keyword_45	0.000215352959894583
+Medical_Keyword_32	0.000205584920524268
+Insurance_History_9	0.000205477456843396
+Medical_Keyword_27	0.000179194826002548
+Medical_Keyword_20	0.000163733070108477
+Medical_Keyword_18	0.000161487454683736
+Medical_Keyword_2	0.000158627544340613
+Medical_Keyword_36	0.000154289044335273
+Medical_Keyword_28	0.000153737262016538
+Medical_Keyword_11	0.000131999671832511
+Medical_Keyword_21	0.000120361581508892
+Medical_Keyword_17	0.000117050091069725
+Medical_Keyword_12	0.000114713743240361
+Medical_Keyword_6	0.000105104242194961
+Medical_Keyword_4	0.000102349009796286
+Medical_Keyword_14	9.72043151414071e-05
+Product_Info_2LC	9.14605185784427e-05
+Medical_Keyword_29	8.76997701926549e-05
+Product_Info_7	8.35898396501194e-05
+Medical_History_38	7.8315998086082e-05
+Medical_Keyword_5	7.65361232330014e-05
+Product_Info_5	7.25096341359175e-05
+Medical_History_26	6.88621864127653e-05
+Medical_Keyword_46	6.86114406336837e-05
+Medical_Keyword_13	4.78708785802557e-05
+Medical_Keyword_8	4.61008149138518e-05
+Medical_Keyword_7	4.57383193813687e-05
+Medical_Keyword_44	2.06629828763042e-05
+Medical_Keyword_35	1.12800831561755e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 21:38:20 : 
+ Evaluation prediction started ..... 
+2016-02-06 21:38:20 : 
+MA_#XGBC#2016-02-06 21_34_45 Evaluation : 0.661952687188938
+2016-02-06 21:38:21 : 
+ Evaluation prediction finished ..... 
+2016-02-06 21:38:22 : 
+
+2016-02-06 21:38:22 : Model evaluation finished ..... 
+
+2016-02-06 21:44:22 : Data preparation started .....
+
+2016-02-06 21:44:23 : Prepare train data started
+
+2016-02-06 21:44:23 : Prepare train data finished
+
+2016-02-06 21:44:23 : Prepare test data started
+
+2016-02-06 21:44:23 : Prepare test data finished
+
+2016-02-06 21:44:24 : Data preparation finished ..... 
+
+2016-02-06 21:44:57 : Model evaluation started .....
+
+2016-02-06 21:44:57 : Model evaluation load data started
+
+2016-02-06 21:44:57 : Model evaluation load data finsihed
+
+2016-02-06 21:44:58 : MA_#XGBC#2016-02-06 21_44_57 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 21_44_57 Model Assesment finished : 189.73
+2016-02-06 21:48:08 : 
+Optimal parameters : 
+2016-02-06 21:48:08 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 21:48:08 : 
+MA_#XGBC#2016-02-06 21_44_57 Feature Importance : 
+2016-02-06 21:48:33 : 
+Var
+Imp
+BMI	0.22348594371947
+medical_keyword_sum_top10	0.0986044964960555
+Medical_History_15	0.0871488341050841
+Medical_History_4	0.0486480241395598
+Product_Info_4	0.0474323070436808
+Medical_Keyword_3	0.0466243260808836
+BMI_Mult_Ins_Age	0.0344800993943077
+Ins_Age	0.0278538860416027
+Medical_History_23	0.0271435269979435
+Wt	0.0216289332811164
+Employment_Info_1	0.0205804462488965
+Medical_History_1	0.0201183470468488
+Medical_Keyword_Sum	0.0144238361717376
+Employment_Info_6	0.0142987885451393
+Insurance_History_5	0.0123324672123306
+Medical_History_40	0.012068503262595
+Medical_History_2	0.01150607632593
+InsuredInfo_6	0.0114713724332859
+Medical_History_13	0.0108547232535365
+Family_Hist_4	0.0107762007277084
+Family_Hist_3	0.00962357120317193
+Medical_History_30	0.00919450322311145
+Product_Info_2N	0.00908707641730803
+Medical_History_5	0.00837579651990261
+Insurance_History_2	0.00830368061261798
+InsuredInfo_5	0.00808457777691233
+Family_Hist_2	0.00777873761846731
+Employment_Info_2	0.00754722852845061
+Ht	0.00734927224663535
+Family_Hist_5	0.00719749833924008
+Medical_History_18	0.00709136670065301
+Employment_Info_4	0.00679157171915129
+Medical_History_28	0.0066392706212169
+Medical_History_20	0.00656181221444541
+InsuredInfo_3	0.00575418727045961
+InsuredInfo_7	0.00483588830620841
+InsuredInfo_2	0.00439065735115016
+Medical_History_11	0.00389213734579007
+Medical_Keyword_38	0.00368706246371799
+Medical_History_39	0.0035190299982664
+Medical_History_17	0.00325540463504366
+Medical_History_27	0.00314907163788542
+InsuredInfo_1	0.00229079592542839
+Medical_History_7	0.00223203353068847
+Medical_History_31	0.00213739804336721
+Medical_History_41	0.00209760897554592
+Medical_Keyword_41	0.00208970546526246
+Insurance_History_1	0.00199227040764093
+Medical_Keyword_25	0.00198989480429268
+Insurance_History_8	0.00190861873388821
+Family_Hist_1	0.00160608544693512
+Medical_History_19	0.00157890453541852
+Product_Info_2LA	0.00147701809375885
+Medical_History_29	0.00141240080677251
+Product_Info_2LE	0.00138552028039677
+Product_Info_3	0.00138210050960214
+Medical_History_9	0.00137709506759061
+Medical_History_3	0.00136095794433957
+Insurance_History_4	0.00129424983279768
+Medical_History_16	0.00113092736118669
+Medical_History_12	0.00104925103450081
+Medical_History_21	0.00101929058604049
+Medical_History_34	0.00099601022723905
+Medical_History_6	0.000940353820226269
+Medical_Keyword_15	0.000924796964600239
+Medical_Keyword_37	0.000879449070248244
+Product_Info_6	0.000835495425168124
+Medical_History_33	0.00082956192514462
+Medical_History_25	0.000821848239999669
+Medical_History_32	0.000808839654602674
+Insurance_History_7	0.000799520444472082
+Medical_Keyword_42	0.000793917158951517
+Medical_Keyword_9	0.000760721864290955
+Medical_History_22	0.000732719947720203
+Medical_Keyword_47	0.000718500860159765
+Medical_Keyword_23	0.000653825321502631
+Employment_Info_5	0.000644337004056737
+Family_Hist_2_3	0.000633786564621265
+InsuredInfo_4	0.000612597365831806
+Medical_History_8	0.000537774388664146
+Insurance_History_3	0.00043238918638515
+Medical_Keyword_48	0.000416743435651417
+Medical_History_37	0.000415746753079692
+Medical_Keyword_33	0.000395255108835615
+Product_Info_2LB	0.000393571676634685
+Medical_Keyword_24	0.000369714828328671
+Medical_History_14	0.000354493530789369
+Medical_Keyword_22	0.000350700640952826
+Medical_Keyword_40	0.000344823257877357
+Medical_Keyword_34	0.000343291937379556
+Medical_Keyword_31	0.000321519226525342
+Medical_History_36	0.000312816728481052
+Medical_Keyword_1	0.000291566296185839
+Medical_Keyword_19	0.00027665196669634
+Medical_Keyword_26	0.000273088695094142
+Medical_Keyword_30	0.000270171308428368
+Medical_Keyword_39	0.000256320384303438
+Medical_Keyword_16	0.000247978379093637
+Medical_Keyword_32	0.00023083020201231
+Medical_Keyword_43	0.000226306402587305
+Medical_Keyword_45	0.000216406325076263
+Medical_Keyword_10	0.000195871219740497
+Medical_Keyword_36	0.000180754252540389
+Medical_Keyword_11	0.000180313063797232
+Medical_Keyword_18	0.000172089497580402
+Medical_Keyword_2	0.000171310154351607
+Medical_Keyword_28	0.000167392112157866
+Product_Info_1	0.000151964034529272
+Medical_Keyword_17	0.000136129910607354
+Medical_Keyword_20	0.000134934868241656
+Medical_Keyword_4	0.000120553956836657
+Medical_Keyword_27	0.00011928069212993
+Insurance_History_9	0.000115212185866299
+Medical_Keyword_6	0.000109221709075873
+Medical_Keyword_12	0.000102903340564176
+Medical_Keyword_5	9.51876858833472e-05
+Medical_Keyword_21	8.55958852104646e-05
+Medical_Keyword_29	8.5284380874803e-05
+Medical_Keyword_14	8.10584006877842e-05
+Product_Info_2LC	7.95873564589454e-05
+Medical_History_38	7.72074370740127e-05
+Product_Info_7	7.69257722657797e-05
+Product_Info_5	7.48952146609594e-05
+Medical_Keyword_46	4.77962053408157e-05
+Medical_Keyword_13	4.65628989168086e-05
+Medical_Keyword_8	4.34086300295306e-05
+Medical_History_26	3.99280408141219e-05
+Medical_Keyword_44	2.13287647608287e-05
+Medical_Keyword_7	2.01911481315224e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 21:48:33 : 
+ Evaluation prediction started ..... 
+2016-02-06 21:48:33 : 
+MA_#XGBC#2016-02-06 21_44_57 Evaluation : 0.66370111714988
+2016-02-06 21:48:34 : 
+ Evaluation prediction finished ..... 
+2016-02-06 21:48:35 : 
+
+2016-02-06 21:48:35 : Model evaluation finished ..... 
+
+2016-02-06 21:52:58 : Data preparation started .....
+
+2016-02-06 21:52:58 : Prepare train data started
+
+2016-02-06 21:52:59 : Prepare train data finished
+
+2016-02-06 21:52:59 : Prepare test data started
+
+2016-02-06 21:52:59 : Prepare test data finished
+
+2016-02-06 21:53:00 : Data preparation finished ..... 
+
+2016-02-06 21:53:52 : Model evaluation started .....
+
+2016-02-06 21:53:52 : Model evaluation load data started
+
+2016-02-06 21:53:52 : Model evaluation load data finsihed
+
+2016-02-06 21:53:53 : MA_#XGBC#2016-02-06 21_53_52 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 21_53_52 Model Assesment finished : 190.34
+2016-02-06 21:57:04 : 
+Optimal parameters : 
+2016-02-06 21:57:04 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 21:57:04 : 
+MA_#XGBC#2016-02-06 21_53_52 Feature Importance : 
+2016-02-06 21:57:29 : 
+Var
+Imp
+BMI	0.221779355680148
+medical_keyword_sum_top10	0.0974272885663311
+Medical_History_15	0.0857489112368028
+Medical_History_4	0.0507659693176033
+Product_Info_4	0.0468122583748503
+Medical_Keyword_3	0.0467341598544149
+BMI_Mult_Ins_Age	0.0328408905730162
+Medical_History_23	0.028590976781158
+Ins_Age	0.0284301460576426
+Wt	0.0217918439700084
+Medical_History_1	0.0198984100985283
+Employment_Info_1	0.0198194458849461
+Medical_Keyword_Sum	0.0143138875097695
+Employment_Info_6	0.013753267066379
+Medical_History_40	0.0121503599061479
+Insurance_History_5	0.0120488542333065
+Medical_History_2	0.0118461127805491
+InsuredInfo_6	0.0116273947029103
+Family_Hist_4	0.0112169436150236
+Medical_History_13	0.0110423778433215
+Family_Hist_3	0.0100138521329466
+Medical_History_30	0.00911776372172622
+Product_Info_2N	0.00888067378785745
+Medical_History_5	0.00833096949698334
+Insurance_History_2	0.00823752753910168
+InsuredInfo_5	0.00790789299041192
+Family_Hist_5	0.00764379782992825
+Employment_Info_2	0.00743267131800578
+Family_Hist_2	0.0070805183286421
+Ht	0.00704397444882514
+Employment_Info_4	0.00700130239333583
+Medical_History_18	0.00694923819643617
+Medical_History_28	0.00675554963318207
+Medical_History_20	0.0065988126017381
+InsuredInfo_3	0.00570782796333917
+InsuredInfo_7	0.00463434471377064
+InsuredInfo_2	0.00442761293381879
+Medical_History_11	0.00394519556050749
+Medical_History_39	0.0038237935499764
+Medical_Keyword_38	0.00368482109231065
+Medical_History_24	0.00355123074983904
+Medical_History_17	0.00331603122287506
+Medical_History_27	0.00310756098690917
+InsuredInfo_1	0.00228374206328609
+Medical_History_7	0.00222337665876474
+Medical_History_41	0.00217828376133743
+Insurance_History_1	0.002080373210728
+Medical_Keyword_25	0.00207579777326731
+Medical_History_31	0.00205165976735798
+Medical_Keyword_41	0.00200943736407799
+Insurance_History_8	0.00199075949201278
+Family_Hist_1	0.0018862098854834
+Medical_History_19	0.00156066381944407
+Medical_History_9	0.00143500648267106
+Product_Info_2LA	0.00142930631617045
+Product_Info_3	0.00136807798604319
+Insurance_History_4	0.00131889444622988
+Product_Info_2LE	0.001311656019275
+Medical_History_29	0.00122429300220065
+Medical_History_16	0.00110495751092524
+Medical_History_3	0.00106848927599484
+Medical_History_12	0.00102572118206414
+Medical_History_21	0.00101826250184073
+Medical_History_25	0.000944150190044029
+Medical_Keyword_37	0.000927386894380364
+Medical_History_34	0.000891206146225954
+Medical_History_6	0.00088128413234571
+Medical_Keyword_15	0.000879032072939229
+Insurance_History_7	0.000874113391486828
+Product_Info_6	0.000833427801223759
+Medical_History_33	0.000803810631602796
+Medical_Keyword_9	0.000763374341486711
+Medical_History_32	0.000726288953444688
+Family_Hist_2_3	0.000703123408026587
+Medical_Keyword_47	0.000670254237501192
+Medical_Keyword_23	0.000652225039012746
+Medical_History_8	0.000651956180273324
+Medical_Keyword_42	0.000642361662841618
+Medical_History_22	0.000640052526522
+Employment_Info_5	0.000631067320153825
+InsuredInfo_4	0.000586329214070603
+Insurance_History_3	0.000577746891865717
+Medical_Keyword_33	0.000459305415221823
+Medical_Keyword_34	0.000411273225959914
+Medical_Keyword_40	0.000400986628749969
+Product_Info_2LB	0.000380252566599204
+Medical_Keyword_48	0.000380243688250258
+Medical_Keyword_24	0.000344682732602297
+Medical_Keyword_19	0.000326583987752075
+Medical_Keyword_22	0.000319404427761439
+Medical_History_36	0.000310864708096135
+Medical_Keyword_1	0.000302872163741139
+Medical_Keyword_31	0.000299123711280835
+Medical_Keyword_43	0.000292527643658177
+Medical_History_14	0.000291142308217465
+Medical_History_37	0.0002768503955189
+Medical_Keyword_16	0.000275852547771654
+Medical_Keyword_30	0.000274242639591265
+Medical_Keyword_26	0.000257333610418986
+Product_Info_1	0.000238447276920016
+Medical_Keyword_10	0.000235555667614076
+Medical_Keyword_18	0.000200659644891789
+Medical_Keyword_39	0.000199592259242365
+Medical_Keyword_45	0.000192076315994646
+Medical_Keyword_28	0.000190677432506448
+Medical_Keyword_20	0.000175942723257431
+Medical_Keyword_11	0.000167288363338922
+Medical_Keyword_36	0.000159182392683148
+Medical_Keyword_32	0.000151293330370534
+Medical_Keyword_17	0.00014443076846632
+Medical_Keyword_2	0.00014244927663822
+Medical_Keyword_27	0.000121662206641343
+Product_Info_5	0.00010497138859044
+Medical_Keyword_21	0.00010129087093834
+Medical_History_38	9.8617460064378e-05
+Insurance_History_9	9.53477151514529e-05
+Product_Info_2LC	9.26529395607092e-05
+Medical_Keyword_12	9.22893671530664e-05
+Medical_Keyword_29	8.66316086212653e-05
+Medical_Keyword_6	7.16426292109659e-05
+Medical_Keyword_4	7.12953161522264e-05
+Medical_Keyword_5	7.0637214352588e-05
+Medical_Keyword_46	6.74703762293265e-05
+Medical_History_26	6.6925281980325e-05
+Medical_Keyword_14	6.5368978047764e-05
+Product_Info_7	5.72934196496945e-05
+Medical_Keyword_8	5.09741881681311e-05
+Medical_Keyword_7	4.95317546652852e-05
+Medical_Keyword_44	4.27451134305468e-05
+Medical_Keyword_13	2.88492749182335e-05
+Medical_Keyword_35	6.68824341123776e-06
+ Feature Importance evaluation finished ..... 
+2016-02-06 21:57:29 : 
+ Evaluation prediction started ..... 
+2016-02-06 21:57:29 : 
+MA_#XGBC#2016-02-06 21_53_52 Evaluation : 0.66484666780853
+2016-02-06 21:57:30 : 
+ Evaluation prediction finished ..... 
+2016-02-06 21:57:30 : 
+
+2016-02-06 21:57:30 : Model evaluation finished ..... 
+
+2016-02-06 22:05:31 : Data preparation started .....
+
+2016-02-06 22:05:32 : Prepare train data started
+
+2016-02-06 22:05:35 : Prepare train data finished
+
+2016-02-06 22:05:35 : Prepare test data started
+
+2016-02-06 22:05:35 : Prepare test data finished
+
+2016-02-06 22:05:36 : Data preparation finished ..... 
+
+2016-02-06 22:06:03 : Model evaluation started .....
+
+2016-02-06 22:06:03 : Model evaluation load data started
+
+2016-02-06 22:06:03 : Model evaluation load data finsihed
+
+2016-02-06 22:06:04 : MA_#XGBC#2016-02-06 22_06_03 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 22_06_03 Model Assesment finished : 182.64
+2016-02-06 22:09:07 : 
+Optimal parameters : 
+2016-02-06 22:09:07 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 22:09:07 : 
+MA_#XGBC#2016-02-06 22_06_03 Feature Importance : 
+2016-02-06 22:09:32 : 
+Var
+Imp
+BMI	0.221567769641013
+medical_keyword_sum_top10	0.0970083793365557
+Medical_History_15	0.0857468197070611
+Medical_History_4	0.050643309250577
+Product_Info_4	0.0469345479165646
+Medical_Keyword_3	0.046700925562629
+BMI_Mult_Ins_Age	0.0326701527668094
+Ins_Age	0.0286598096481018
+Medical_History_23	0.0284382280877282
+Wt	0.0218245660110185
+Employment_Info_1	0.0200247505621103
+Medical_History_1	0.0197303134981072
+Medical_Keyword_Sum	0.0147060075629425
+Employment_Info_6	0.0142071935396534
+Medical_History_40	0.0121139210209532
+Insurance_History_5	0.0119378901879513
+Medical_History_2	0.0116335718374986
+InsuredInfo_6	0.011542220887786
+Medical_History_13	0.0110567401776093
+Family_Hist_4	0.0104745747897461
+Family_Hist_3	0.00964553149863149
+Medical_History_30	0.00927170533983638
+Product_Info_2N	0.00868789201231946
+Medical_History_5	0.00841097569610676
+Insurance_History_2	0.00833442492176696
+InsuredInfo_5	0.00793156921732761
+Family_Hist_2	0.00751699813483788
+Employment_Info_2	0.00747885080547158
+Family_Hist_5	0.00736095353885188
+Medical_History_18	0.00714759999936414
+Ht	0.00694199773093984
+Medical_History_20	0.00663848716010191
+Medical_History_28	0.00657258206818214
+Employment_Info_4	0.00652740721758992
+InsuredInfo_3	0.00576011825391367
+InsuredInfo_7	0.00464926783579354
+InsuredInfo_2	0.004442001129378
+Medical_History_11	0.00402035920026721
+Medical_History_39	0.00375770730449455
+Medical_Keyword_38	0.00357977384915938
+Medical_History_24	0.0035652967711654
+Medical_History_17	0.00335960811252925
+Medical_History_27	0.00313440850813724
+MH_NAs	0.00237601130151707
+InsuredInfo_1	0.00235706534294123
+Medical_History_7	0.00222465384474959
+Medical_History_31	0.00215588229274066
+Medical_History_41	0.00213424092791342
+Medical_Keyword_25	0.00203374351562227
+Medical_Keyword_41	0.00201044782037059
+Insurance_History_8	0.00200093115324661
+Insurance_History_1	0.00190480571833923
+Family_Hist_1	0.00164305664139765
+Medical_History_19	0.00159769786811549
+Product_Info_2LA	0.00148415251095586
+Insurance_History_4	0.00147334477497573
+Medical_History_9	0.00134226806444113
+Product_Info_3	0.00133386249361557
+Product_Info_2LE	0.00128633831691495
+Medical_History_29	0.00126921178652278
+Medical_History_3	0.00116014947407506
+Medical_History_21	0.00105607092303252
+Medical_History_16	0.00101111219179569
+Medical_History_25	0.000964292350993088
+Medical_Keyword_37	0.00094139469353246
+Medical_History_34	0.000899416713102024
+Medical_History_12	0.000894632196906445
+Medical_History_6	0.000833995569483946
+Insurance_History_7	0.000789278008665774
+Medical_Keyword_15	0.00078200555217042
+Medical_Keyword_9	0.000746164786129911
+Product_Info_6	0.000745654750373437
+Medical_History_32	0.00071552664199974
+Medical_Keyword_47	0.000712086545556966
+Medical_Keyword_23	0.00067703375855431
+Medical_History_33	0.000637294303404802
+Family_Hist_2_3	0.000635711763185487
+Medical_Keyword_42	0.00063312586485258
+Medical_History_22	0.000625998482017295
+Medical_History_8	0.000556744754147658
+Medical_Keyword_33	0.000508124929727332
+Employment_Info_5	0.000486698097941952
+InsuredInfo_4	0.000475140708258869
+Insurance_History_3	0.000438154217753125
+Medical_Keyword_34	0.000432872098268981
+Medical_Keyword_22	0.000401067738732929
+Medical_Keyword_48	0.000381737679251398
+Medical_History_37	0.000362418440543229
+Product_Info_2LB	0.000361284805902179
+Medical_Keyword_24	0.000344342968936816
+Medical_Keyword_40	0.000343167861714827
+Medical_Keyword_31	0.000337641953337157
+Medical_Keyword_30	0.000319958043132426
+Medical_Keyword_43	0.000306767985722467
+Medical_History_36	0.000298158757620609
+Medical_Keyword_19	0.000276132671575634
+Medical_History_14	0.000267970640063598
+Medical_Keyword_26	0.000265322630153178
+Medical_Keyword_16	0.000247513760743944
+Medical_Keyword_39	0.000245349682214542
+Product_Info_1	0.000241760730340241
+Medical_Keyword_1	0.000233169408545514
+Medical_Keyword_45	0.000219643682962346
+Medical_Keyword_32	0.000212771903883762
+Medical_Keyword_18	0.000189737692324265
+Medical_Keyword_28	0.000174424796306525
+Medical_Keyword_10	0.000169685657138255
+Medical_Keyword_12	0.00016193311871605
+Medical_Keyword_36	0.000159714361016796
+Medical_Keyword_20	0.000156457134797809
+Medical_Keyword_27	0.000147845182466849
+Product_Info_2LC	0.000140663869201699
+Medical_Keyword_17	0.000128598948022435
+Medical_Keyword_6	0.000120411730081706
+Medical_Keyword_2	0.000117861754347466
+Medical_Keyword_11	0.000114882653307144
+Product_Info_5	0.00011087469046183
+Product_Info_7	0.000106805648200339
+Medical_Keyword_4	0.000101841485170066
+Medical_Keyword_21	0.000100021391326941
+Medical_Keyword_29	9.51170471223582e-05
+Insurance_History_9	9.49164397982149e-05
+Medical_Keyword_5	9.04594910014162e-05
+Medical_History_26	8.96137278493612e-05
+Medical_History_38	8.67175846614262e-05
+Medical_Keyword_14	8.01062867248782e-05
+Medical_Keyword_7	5.76900183134497e-05
+Medical_Keyword_46	5.00470158980634e-05
+Medical_Keyword_8	4.70893025943005e-05
+Medical_Keyword_44	4.35241877246501e-05
+Medical_Keyword_13	3.16991171511881e-05
+Medical_Keyword_35	2.14762740054964e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 22:09:32 : 
+ Evaluation prediction started ..... 
+2016-02-06 22:09:32 : 
+MA_#XGBC#2016-02-06 22_06_03 Evaluation : 0.662644427103155
+2016-02-06 22:09:33 : 
+ Evaluation prediction finished ..... 
+2016-02-06 22:09:34 : 
+
+2016-02-06 22:09:34 : Model evaluation finished ..... 
+
+2016-02-06 22:14:36 : Data preparation started .....
+
+2016-02-06 22:14:37 : Prepare train data started
+
+2016-02-06 22:14:40 : Prepare train data finished
+
+2016-02-06 22:14:40 : Prepare test data started
+
+2016-02-06 22:14:41 : Prepare test data finished
+
+2016-02-06 22:14:41 : Data preparation finished ..... 
+
+2016-02-06 22:15:01 : Model evaluation started .....
+
+2016-02-06 22:15:01 : Model evaluation load data started
+
+2016-02-06 22:15:01 : Model evaluation load data finsihed
+
+2016-02-06 22:15:03 : MA_#XGBC#2016-02-06 22_15_01 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 22_15_01 Model Assesment finished : 184.31
+2016-02-06 22:18:07 : 
+Optimal parameters : 
+2016-02-06 22:18:07 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 22:18:07 : 
+MA_#XGBC#2016-02-06 22_15_01 Feature Importance : 
+2016-02-06 22:18:32 : 
+Var
+Imp
+BMI	0.221567769641013
+medical_keyword_sum_top10	0.0970083793365557
+Medical_History_15	0.0857468197070611
+Medical_History_4	0.050643309250577
+Product_Info_4	0.0469345479165646
+Medical_Keyword_3	0.046700925562629
+BMI_Mult_Ins_Age	0.0326701527668094
+Ins_Age	0.0286598096481018
+Medical_History_23	0.0284382280877282
+Wt	0.0218245660110185
+Employment_Info_1	0.0200247505621103
+Medical_History_1	0.0197303134981072
+Medical_Keyword_Sum	0.0147060075629425
+Employment_Info_6	0.0142071935396534
+Medical_History_40	0.0121139210209532
+Insurance_History_5	0.0119378901879513
+Medical_History_2	0.0116335718374986
+InsuredInfo_6	0.011542220887786
+Medical_History_13	0.0110567401776093
+Family_Hist_4	0.0104745747897461
+Family_Hist_3	0.00964553149863149
+Medical_History_30	0.00927170533983638
+Product_Info_2N	0.00868789201231946
+Medical_History_5	0.00841097569610676
+Insurance_History_2	0.00833442492176696
+InsuredInfo_5	0.00793156921732761
+Family_Hist_2	0.00751699813483788
+Employment_Info_2	0.00747885080547158
+Family_Hist_5	0.00736095353885188
+Medical_History_18	0.00714759999936414
+Ht	0.00694199773093984
+Medical_History_20	0.00663848716010191
+Medical_History_28	0.00657258206818214
+Employment_Info_4	0.00652740721758992
+InsuredInfo_3	0.00576011825391367
+InsuredInfo_7	0.00464926783579354
+InsuredInfo_2	0.004442001129378
+Medical_History_11	0.00402035920026721
+Medical_History_39	0.00375770730449455
+Medical_Keyword_38	0.00357977384915938
+Medical_History_24	0.0035652967711654
+Medical_History_17	0.00335960811252925
+Medical_History_27	0.00313440850813724
+MH_NAs	0.00237601130151707
+InsuredInfo_1	0.00235706534294123
+Medical_History_7	0.00222465384474959
+Medical_History_31	0.00215588229274066
+Medical_History_41	0.00213424092791342
+Medical_Keyword_25	0.00203374351562227
+Medical_Keyword_41	0.00201044782037059
+Insurance_History_8	0.00200093115324661
+Insurance_History_1	0.00190480571833923
+Family_Hist_1	0.00164305664139765
+Medical_History_19	0.00159769786811549
+Product_Info_2LA	0.00148415251095586
+Insurance_History_4	0.00147334477497573
+Medical_History_9	0.00134226806444113
+Product_Info_3	0.00133386249361557
+Product_Info_2LE	0.00128633831691495
+Medical_History_29	0.00126921178652278
+Medical_History_3	0.00116014947407506
+Medical_History_21	0.00105607092303252
+Medical_History_16	0.00101111219179569
+Medical_History_25	0.000964292350993088
+Medical_Keyword_37	0.00094139469353246
+Medical_History_34	0.000899416713102024
+Medical_History_12	0.000894632196906445
+Medical_History_6	0.000833995569483946
+Insurance_History_7	0.000789278008665774
+Medical_Keyword_15	0.00078200555217042
+Medical_Keyword_9	0.000746164786129911
+Product_Info_6	0.000745654750373437
+Medical_History_32	0.00071552664199974
+Medical_Keyword_47	0.000712086545556966
+Medical_Keyword_23	0.00067703375855431
+Medical_History_33	0.000637294303404802
+Family_Hist_2_3	0.000635711763185487
+Medical_Keyword_42	0.00063312586485258
+Medical_History_22	0.000625998482017295
+Medical_History_8	0.000556744754147658
+Medical_Keyword_33	0.000508124929727332
+Employment_Info_5	0.000486698097941952
+InsuredInfo_4	0.000475140708258869
+Insurance_History_3	0.000438154217753125
+Medical_Keyword_34	0.000432872098268981
+Medical_Keyword_22	0.000401067738732929
+Medical_Keyword_48	0.000381737679251398
+Medical_History_37	0.000362418440543229
+Product_Info_2LB	0.000361284805902179
+Medical_Keyword_24	0.000344342968936816
+Medical_Keyword_40	0.000343167861714827
+Medical_Keyword_31	0.000337641953337157
+Medical_Keyword_30	0.000319958043132426
+Medical_Keyword_43	0.000306767985722467
+Medical_History_36	0.000298158757620609
+Medical_Keyword_19	0.000276132671575634
+Medical_History_14	0.000267970640063598
+Medical_Keyword_26	0.000265322630153178
+Medical_Keyword_16	0.000247513760743944
+Medical_Keyword_39	0.000245349682214542
+Product_Info_1	0.000241760730340241
+Medical_Keyword_1	0.000233169408545514
+Medical_Keyword_45	0.000219643682962346
+Medical_Keyword_32	0.000212771903883762
+Medical_Keyword_18	0.000189737692324265
+Medical_Keyword_28	0.000174424796306525
+Medical_Keyword_10	0.000169685657138255
+Medical_Keyword_12	0.00016193311871605
+Medical_Keyword_36	0.000159714361016796
+Medical_Keyword_20	0.000156457134797809
+Medical_Keyword_27	0.000147845182466849
+Product_Info_2LC	0.000140663869201699
+Medical_Keyword_17	0.000128598948022435
+Medical_Keyword_6	0.000120411730081706
+Medical_Keyword_2	0.000117861754347466
+Medical_Keyword_11	0.000114882653307144
+Product_Info_5	0.00011087469046183
+Product_Info_7	0.000106805648200339
+Medical_Keyword_4	0.000101841485170066
+Medical_Keyword_21	0.000100021391326941
+Medical_Keyword_29	9.51170471223582e-05
+Insurance_History_9	9.49164397982149e-05
+Medical_Keyword_5	9.04594910014162e-05
+Medical_History_26	8.96137278493612e-05
+Medical_History_38	8.67175846614262e-05
+Medical_Keyword_14	8.01062867248782e-05
+Medical_Keyword_7	5.76900183134497e-05
+Medical_Keyword_46	5.00470158980634e-05
+Medical_Keyword_8	4.70893025943005e-05
+Medical_Keyword_44	4.35241877246501e-05
+Medical_Keyword_13	3.16991171511881e-05
+Medical_Keyword_35	2.14762740054964e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 22:18:32 : 
+ Evaluation prediction started ..... 
+2016-02-06 22:18:32 : 
+MA_#XGBC#2016-02-06 22_15_01 Evaluation : 0.662644427103155
+2016-02-06 22:18:33 : 
+ Evaluation prediction finished ..... 
+2016-02-06 22:18:33 : 
+
+2016-02-06 22:18:33 : Model evaluation finished ..... 
+
+2016-02-06 22:20:45 : Data preparation started .....
+
+2016-02-06 22:20:46 : Prepare train data started
+
+2016-02-06 22:20:49 : Prepare train data finished
+
+2016-02-06 22:20:49 : Prepare test data started
+
+2016-02-06 22:20:49 : Prepare test data finished
+
+2016-02-06 22:20:50 : Data preparation finished ..... 
+
+2016-02-06 22:21:09 : Model evaluation started .....
+
+2016-02-06 22:21:09 : Model evaluation load data started
+
+2016-02-06 22:21:09 : Model evaluation load data finsihed
+
+2016-02-06 22:21:10 : MA_#XGBC#2016-02-06 22_21_09 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 22_21_09 Model Assesment finished : 188.03
+2016-02-06 22:24:18 : 
+Optimal parameters : 
+2016-02-06 22:24:18 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 22:24:18 : 
+MA_#XGBC#2016-02-06 22_21_09 Feature Importance : 
+2016-02-06 22:24:43 : 
+Var
+Imp
+BMI	0.221779355680148
+medical_keyword_sum_top10	0.0974272885663311
+Medical_History_15	0.0857489112368028
+Medical_History_4	0.0507659693176033
+Product_Info_4	0.0468122583748503
+Medical_Keyword_3	0.0467341598544149
+BMI_Mult_Ins_Age	0.0328408905730162
+Medical_History_23	0.028590976781158
+Ins_Age	0.0284301460576426
+Wt	0.0217918439700084
+Medical_History_1	0.0198984100985283
+Employment_Info_1	0.0198194458849461
+Medical_Keyword_Sum	0.0143138875097695
+Employment_Info_6	0.013753267066379
+Medical_History_40	0.0121503599061479
+Insurance_History_5	0.0120488542333065
+Medical_History_2	0.0118461127805491
+InsuredInfo_6	0.0116273947029103
+Family_Hist_4	0.0112169436150236
+Medical_History_13	0.0110423778433215
+Family_Hist_3	0.0100138521329466
+Medical_History_30	0.00911776372172622
+Product_Info_2N	0.00888067378785745
+Medical_History_5	0.00833096949698334
+Insurance_History_2	0.00823752753910168
+InsuredInfo_5	0.00790789299041192
+Family_Hist_5	0.00764379782992825
+Employment_Info_2	0.00743267131800578
+Family_Hist_2	0.0070805183286421
+Ht	0.00704397444882514
+Employment_Info_4	0.00700130239333583
+Medical_History_18	0.00694923819643617
+Medical_History_28	0.00675554963318207
+Medical_History_20	0.0065988126017381
+InsuredInfo_3	0.00570782796333917
+InsuredInfo_7	0.00463434471377064
+InsuredInfo_2	0.00442761293381879
+Medical_History_11	0.00394519556050749
+Medical_History_39	0.0038237935499764
+Medical_Keyword_38	0.00368482109231065
+Medical_History_24	0.00355123074983904
+Medical_History_17	0.00331603122287506
+Medical_History_27	0.00310756098690917
+InsuredInfo_1	0.00228374206328609
+Medical_History_7	0.00222337665876474
+Medical_History_41	0.00217828376133743
+Insurance_History_1	0.002080373210728
+Medical_Keyword_25	0.00207579777326731
+Medical_History_31	0.00205165976735798
+Medical_Keyword_41	0.00200943736407799
+Insurance_History_8	0.00199075949201278
+Family_Hist_1	0.0018862098854834
+Medical_History_19	0.00156066381944407
+Medical_History_9	0.00143500648267106
+Product_Info_2LA	0.00142930631617045
+Product_Info_3	0.00136807798604319
+Insurance_History_4	0.00131889444622988
+Product_Info_2LE	0.001311656019275
+Medical_History_29	0.00122429300220065
+Medical_History_16	0.00110495751092524
+Medical_History_3	0.00106848927599484
+Medical_History_12	0.00102572118206414
+Medical_History_21	0.00101826250184073
+Medical_History_25	0.000944150190044029
+Medical_Keyword_37	0.000927386894380364
+Medical_History_34	0.000891206146225954
+Medical_History_6	0.00088128413234571
+Medical_Keyword_15	0.000879032072939229
+Insurance_History_7	0.000874113391486828
+Product_Info_6	0.000833427801223759
+Medical_History_33	0.000803810631602796
+Medical_Keyword_9	0.000763374341486711
+Medical_History_32	0.000726288953444688
+Family_Hist_2_3	0.000703123408026587
+Medical_Keyword_47	0.000670254237501192
+Medical_Keyword_23	0.000652225039012746
+Medical_History_8	0.000651956180273324
+Medical_Keyword_42	0.000642361662841618
+Medical_History_22	0.000640052526522
+Employment_Info_5	0.000631067320153825
+InsuredInfo_4	0.000586329214070603
+Insurance_History_3	0.000577746891865717
+Medical_Keyword_33	0.000459305415221823
+Medical_Keyword_34	0.000411273225959914
+Medical_Keyword_40	0.000400986628749969
+Product_Info_2LB	0.000380252566599204
+Medical_Keyword_48	0.000380243688250258
+Medical_Keyword_24	0.000344682732602297
+Medical_Keyword_19	0.000326583987752075
+Medical_Keyword_22	0.000319404427761439
+Medical_History_36	0.000310864708096135
+Medical_Keyword_1	0.000302872163741139
+Medical_Keyword_31	0.000299123711280835
+Medical_Keyword_43	0.000292527643658177
+Medical_History_14	0.000291142308217465
+Medical_History_37	0.0002768503955189
+Medical_Keyword_16	0.000275852547771654
+Medical_Keyword_30	0.000274242639591265
+Medical_Keyword_26	0.000257333610418986
+Product_Info_1	0.000238447276920016
+Medical_Keyword_10	0.000235555667614076
+Medical_Keyword_18	0.000200659644891789
+Medical_Keyword_39	0.000199592259242365
+Medical_Keyword_45	0.000192076315994646
+Medical_Keyword_28	0.000190677432506448
+Medical_Keyword_20	0.000175942723257431
+Medical_Keyword_11	0.000167288363338922
+Medical_Keyword_36	0.000159182392683148
+Medical_Keyword_32	0.000151293330370534
+Medical_Keyword_17	0.00014443076846632
+Medical_Keyword_2	0.00014244927663822
+Medical_Keyword_27	0.000121662206641343
+Product_Info_5	0.00010497138859044
+Medical_Keyword_21	0.00010129087093834
+Medical_History_38	9.8617460064378e-05
+Insurance_History_9	9.53477151514529e-05
+Product_Info_2LC	9.26529395607092e-05
+Medical_Keyword_12	9.22893671530664e-05
+Medical_Keyword_29	8.66316086212653e-05
+Medical_Keyword_6	7.16426292109659e-05
+Medical_Keyword_4	7.12953161522264e-05
+Medical_Keyword_5	7.0637214352588e-05
+Medical_Keyword_46	6.74703762293265e-05
+Medical_History_26	6.6925281980325e-05
+Medical_Keyword_14	6.5368978047764e-05
+Product_Info_7	5.72934196496945e-05
+Medical_Keyword_8	5.09741881681311e-05
+Medical_Keyword_7	4.95317546652852e-05
+Medical_Keyword_44	4.27451134305468e-05
+Medical_Keyword_13	2.88492749182335e-05
+Medical_Keyword_35	6.68824341123776e-06
+ Feature Importance evaluation finished ..... 
+2016-02-06 22:24:43 : 
+ Evaluation prediction started ..... 
+2016-02-06 22:24:43 : 
+MA_#XGBC#2016-02-06 22_21_09 Evaluation : 0.66484666780853
+2016-02-06 22:24:44 : 
+ Evaluation prediction finished ..... 
+2016-02-06 22:24:44 : 
+
+2016-02-06 22:24:45 : Model evaluation finished ..... 
+
+2016-02-06 22:31:41 : Data preparation started .....
+
+2016-02-06 22:31:42 : Prepare train data started
+
+2016-02-06 22:31:43 : Prepare train data finished
+
+2016-02-06 22:31:43 : Prepare test data started
+
+2016-02-06 22:31:43 : Prepare test data finished
+
+2016-02-06 22:31:43 : Data preparation finished ..... 
+
+2016-02-06 22:32:06 : Model evaluation started .....
+
+2016-02-06 22:32:06 : Model evaluation load data started
+
+2016-02-06 22:32:06 : Model evaluation load data finsihed
+
+2016-02-06 22:32:07 : MA_#XGBC#2016-02-06 22_32_06 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 22_32_06 Model Assesment finished : 188.56
+2016-02-06 22:35:15 : 
+Optimal parameters : 
+2016-02-06 22:35:15 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 22:35:15 : 
+MA_#XGBC#2016-02-06 22_32_06 Feature Importance : 
+2016-02-06 22:35:41 : 
+Var
+Imp
+BMI	0.221779355680148
+medical_keyword_sum_top10	0.0974272885663311
+Medical_History_15	0.0857489112368028
+Medical_History_4	0.0507659693176033
+Product_Info_4	0.0468122583748503
+Medical_Keyword_3	0.0467341598544149
+BMI_Mult_Ins_Age	0.0328408905730162
+Medical_History_23	0.028590976781158
+Ins_Age	0.0284301460576426
+Wt	0.0217918439700084
+Medical_History_1	0.0198984100985283
+Employment_Info_1	0.0198194458849461
+Medical_Keyword_Sum	0.0143138875097695
+Employment_Info_6	0.013753267066379
+Medical_History_40	0.0121503599061479
+Insurance_History_5	0.0120488542333065
+Medical_History_2	0.0118461127805491
+InsuredInfo_6	0.0116273947029103
+Family_Hist_4	0.0112169436150236
+Medical_History_13	0.0110423778433215
+Family_Hist_3	0.0100138521329466
+Medical_History_30	0.00911776372172622
+Product_Info_2N	0.00888067378785745
+Medical_History_5	0.00833096949698334
+Insurance_History_2	0.00823752753910168
+InsuredInfo_5	0.00790789299041192
+Family_Hist_5	0.00764379782992825
+Employment_Info_2	0.00743267131800578
+Family_Hist_2	0.0070805183286421
+Ht	0.00704397444882514
+Employment_Info_4	0.00700130239333583
+Medical_History_18	0.00694923819643617
+Medical_History_28	0.00675554963318207
+Medical_History_20	0.0065988126017381
+InsuredInfo_3	0.00570782796333917
+InsuredInfo_7	0.00463434471377064
+InsuredInfo_2	0.00442761293381879
+Medical_History_11	0.00394519556050749
+Medical_History_39	0.0038237935499764
+Medical_Keyword_38	0.00368482109231065
+Medical_History_24	0.00355123074983904
+Medical_History_17	0.00331603122287506
+Medical_History_27	0.00310756098690917
+InsuredInfo_1	0.00228374206328609
+Medical_History_7	0.00222337665876474
+Medical_History_41	0.00217828376133743
+Insurance_History_1	0.002080373210728
+Medical_Keyword_25	0.00207579777326731
+Medical_History_31	0.00205165976735798
+Medical_Keyword_41	0.00200943736407799
+Insurance_History_8	0.00199075949201278
+Family_Hist_1	0.0018862098854834
+Medical_History_19	0.00156066381944407
+Medical_History_9	0.00143500648267106
+Product_Info_2LA	0.00142930631617045
+Product_Info_3	0.00136807798604319
+Insurance_History_4	0.00131889444622988
+Product_Info_2LE	0.001311656019275
+Medical_History_29	0.00122429300220065
+Medical_History_16	0.00110495751092524
+Medical_History_3	0.00106848927599484
+Medical_History_12	0.00102572118206414
+Medical_History_21	0.00101826250184073
+Medical_History_25	0.000944150190044029
+Medical_Keyword_37	0.000927386894380364
+Medical_History_34	0.000891206146225954
+Medical_History_6	0.00088128413234571
+Medical_Keyword_15	0.000879032072939229
+Insurance_History_7	0.000874113391486828
+Product_Info_6	0.000833427801223759
+Medical_History_33	0.000803810631602796
+Medical_Keyword_9	0.000763374341486711
+Medical_History_32	0.000726288953444688
+Family_Hist_2_3	0.000703123408026587
+Medical_Keyword_47	0.000670254237501192
+Medical_Keyword_23	0.000652225039012746
+Medical_History_8	0.000651956180273324
+Medical_Keyword_42	0.000642361662841618
+Medical_History_22	0.000640052526522
+Employment_Info_5	0.000631067320153825
+InsuredInfo_4	0.000586329214070603
+Insurance_History_3	0.000577746891865717
+Medical_Keyword_33	0.000459305415221823
+Medical_Keyword_34	0.000411273225959914
+Medical_Keyword_40	0.000400986628749969
+Product_Info_2LB	0.000380252566599204
+Medical_Keyword_48	0.000380243688250258
+Medical_Keyword_24	0.000344682732602297
+Medical_Keyword_19	0.000326583987752075
+Medical_Keyword_22	0.000319404427761439
+Medical_History_36	0.000310864708096135
+Medical_Keyword_1	0.000302872163741139
+Medical_Keyword_31	0.000299123711280835
+Medical_Keyword_43	0.000292527643658177
+Medical_History_14	0.000291142308217465
+Medical_History_37	0.0002768503955189
+Medical_Keyword_16	0.000275852547771654
+Medical_Keyword_30	0.000274242639591265
+Medical_Keyword_26	0.000257333610418986
+Product_Info_1	0.000238447276920016
+Medical_Keyword_10	0.000235555667614076
+Medical_Keyword_18	0.000200659644891789
+Medical_Keyword_39	0.000199592259242365
+Medical_Keyword_45	0.000192076315994646
+Medical_Keyword_28	0.000190677432506448
+Medical_Keyword_20	0.000175942723257431
+Medical_Keyword_11	0.000167288363338922
+Medical_Keyword_36	0.000159182392683148
+Medical_Keyword_32	0.000151293330370534
+Medical_Keyword_17	0.00014443076846632
+Medical_Keyword_2	0.00014244927663822
+Medical_Keyword_27	0.000121662206641343
+Product_Info_5	0.00010497138859044
+Medical_Keyword_21	0.00010129087093834
+Medical_History_38	9.8617460064378e-05
+Insurance_History_9	9.53477151514529e-05
+Product_Info_2LC	9.26529395607092e-05
+Medical_Keyword_12	9.22893671530664e-05
+Medical_Keyword_29	8.66316086212653e-05
+Medical_Keyword_6	7.16426292109659e-05
+Medical_Keyword_4	7.12953161522264e-05
+Medical_Keyword_5	7.0637214352588e-05
+Medical_Keyword_46	6.74703762293265e-05
+Medical_History_26	6.6925281980325e-05
+Medical_Keyword_14	6.5368978047764e-05
+Product_Info_7	5.72934196496945e-05
+Medical_Keyword_8	5.09741881681311e-05
+Medical_Keyword_7	4.95317546652852e-05
+Medical_Keyword_44	4.27451134305468e-05
+Medical_Keyword_13	2.88492749182335e-05
+Medical_Keyword_35	6.68824341123776e-06
+ Feature Importance evaluation finished ..... 
+2016-02-06 22:35:41 : 
+ Evaluation prediction started ..... 
+2016-02-06 22:35:41 : 
+MA_#XGBC#2016-02-06 22_32_06 Evaluation : 0.66484666780853
+2016-02-06 22:35:42 : 
+ Evaluation prediction finished ..... 
+2016-02-06 22:35:42 : 
+
+2016-02-06 22:35:42 : Model evaluation finished ..... 
+
+2016-02-06 22:39:10 : Starting prediction on data
+MODEL_#XGBC#2016-02-06 22_39_10 Optimal Model Creation started : 
+2016-02-06 22:39:11 : 
+MODEL_#XGBC#2016-02-06 22_39_10 Optimal Model Creation finished : 43.7
+2016-02-06 22:39:55 : 
+Finished prediction on data
+2016-02-06 22:39:57 : 
+
+2016-02-06 22:45:36 : Data preparation started .....
+
+2016-02-06 22:45:37 : Prepare train data started
+
+2016-02-06 22:45:37 : Prepare train data finished
+
+2016-02-06 22:45:37 : Prepare test data started
+
+2016-02-06 22:45:37 : Prepare test data finished
+
+2016-02-06 22:45:38 : Data preparation finished ..... 
+
+2016-02-06 22:48:09 : Data preparation started .....
+
+2016-02-06 22:48:10 : Prepare train data started
+
+2016-02-06 22:48:10 : Prepare train data finished
+
+2016-02-06 22:48:10 : Prepare test data started
+
+2016-02-06 22:48:10 : Prepare test data finished
+
+2016-02-06 22:48:11 : Data preparation finished ..... 
+
+2016-02-06 22:49:02 : Model evaluation started .....
+
+2016-02-06 22:49:02 : Model evaluation load data started
+
+2016-02-06 22:49:03 : Model evaluation load data finsihed
+
+2016-02-06 22:49:03 : MA_#XGBC#2016-02-06 22_49_03 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-06 22_49_03 Model Assesment finished : 221.67
+2016-02-06 22:52:45 : 
+Optimal parameters : 
+2016-02-06 22:52:45 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-06 22:52:45 : 
+MA_#XGBC#2016-02-06 22_49_03 Feature Importance : 
+2016-02-06 22:53:10 : 
+Var
+Imp
+BMI	0.219230288989785
+Medical_History_15	0.127653799003012
+medical_keyword_sum_top10	0.094762060610701
+Medical_Keyword_3	0.0499131311047215
+Product_Info_4	0.0460644624692181
+BMI_Mult_Ins_Age	0.0350333975961995
+Medical_History_23	0.0301533902600721
+Ins_Age	0.029664250408215
+Wt	0.0220429398551163
+Employment_Info_1	0.0210128329254988
+Medical_History_1	0.0188796431783034
+Medical_Keyword_Sum	0.0154699296168089
+InsuredInfo_6	0.0143110349795908
+Employment_Info_6	0.0142138933798458
+Medical_History_4	0.0130220860341169
+Medical_History_2	0.0125841940278796
+Medical_History_13	0.0108929786894572
+Medical_History_40	0.0107578326435648
+Product_Info_2N	0.00932234843178141
+Medical_History_30	0.00915066854045596
+Medical_History_5	0.00883293174208362
+Family_Hist_3	0.00864564779950832
+Insurance_History_2	0.00856730357633376
+Family_Hist_5	0.00819824646222696
+InsuredInfo_5	0.00797820797897265
+Employment_Info_2	0.00795720087921652
+Ht	0.00792973010731373
+Family_Hist_4	0.00788826401627358
+Insurance_History_5	0.00782671612768365
+Medical_History_18	0.00718207150454631
+Medical_History_20	0.00683120403637368
+Medical_History_28	0.00670403055528647
+InsuredInfo_3	0.00555777342630492
+Employment_Info_4	0.00509785632042982
+InsuredInfo_7	0.00475659413495592
+Family_Hist_2	0.00455074972332884
+InsuredInfo_2	0.0044549080403119
+Medical_History_11	0.00396943372967518
+Medical_Keyword_38	0.00347071173970253
+Medical_History_17	0.00315497444738999
+Medical_History_39	0.0031011764582706
+Medical_History_27	0.00293195217733559
+Insurance_History_1	0.00251891333016755
+Medical_History_24	0.00249250663379322
+InsuredInfo_1	0.00237192813564747
+Insurance_History_4	0.00236389581602803
+Medical_Keyword_41	0.00223793918242808
+Medical_History_7	0.00219557809226327
+Medical_History_31	0.00216029242149202
+Medical_History_41	0.0021375275075551
+Medical_Keyword_25	0.00198597638172197
+Insurance_History_8	0.0017806140572089
+Family_Hist_1	0.00170445136928888
+Product_Info_2LA	0.00170222967219312
+Insurance_History_7	0.00156573172566526
+Product_Info_3	0.00142184481928633
+Medical_History_19	0.00139060640943967
+Medical_History_29	0.00133990227257413
+Medical_History_9	0.0013259704770491
+Product_Info_2LE	0.00129263095799697
+Insurance_History_3	0.00114444617457694
+Medical_History_3	0.00107147191842602
+Medical_History_16	0.00102082276523668
+Medical_History_21	0.000937050039666737
+Medical_History_34	0.000858029740348809
+Medical_Keyword_37	0.000833737281700261
+Medical_Keyword_15	0.000833534664017039
+Medical_History_25	0.000832247331133555
+Medical_History_12	0.000811067214711416
+Product_Info_6	0.000786638689485055
+Medical_History_33	0.000774900073418737
+Insurance_History_9	0.000771833028426157
+Medical_Keyword_42	0.00076541960549905
+Medical_Keyword_9	0.000763170188372914
+Medical_History_6	0.000739454245789386
+Employment_Info_5	0.000698715274306605
+Family_Hist_2_3	0.000670148842504678
+Medical_Keyword_47	0.000669635183815829
+Medical_History_22	0.000653477016452269
+Medical_Keyword_48	0.000603627402092775
+Medical_History_8	0.000510649741183944
+InsuredInfo_4	0.000503620757852978
+Medical_Keyword_23	0.000497391953143296
+Medical_Keyword_33	0.000490711174169967
+Medical_Keyword_34	0.000460479685149957
+Product_Info_2LB	0.000379936451884042
+Medical_Keyword_16	0.000348903875738904
+Medical_Keyword_40	0.000338789297728924
+Medical_History_37	0.000334846578725344
+Medical_Keyword_24	0.000322137202844472
+Medical_Keyword_22	0.000301064196039652
+Medical_History_32	0.000283225228323351
+Medical_History_36	0.000275622458704168
+Medical_Keyword_19	0.000263149724615205
+Medical_Keyword_31	0.000251515910651751
+Medical_Keyword_30	0.00024592341691491
+Medical_Keyword_43	0.00023461262938336
+Medical_Keyword_32	0.000214222578612506
+Medical_Keyword_26	0.000207490300693673
+Medical_Keyword_39	0.000205602382791261
+Medical_History_14	0.00020383391821565
+Medical_Keyword_20	0.000202414613419556
+Medical_Keyword_18	0.000187226425324997
+Medical_Keyword_1	0.00018186167174852
+Product_Info_1	0.000175942611400484
+Medical_Keyword_2	0.00017202300592893
+Medical_Keyword_27	0.000166348362971415
+Medical_Keyword_45	0.000164713452725903
+Medical_Keyword_12	0.000158602936922605
+Medical_Keyword_11	0.00014410317294617
+Product_Info_2LC	0.000138128489130491
+Medical_History_38	0.000126778469587946
+Product_Info_5	0.000120044809719607
+Medical_Keyword_28	0.000118202534538401
+Medical_Keyword_29	0.000115670513003431
+Medical_Keyword_36	0.000108393678734557
+Medical_History_26	9.8284944153047e-05
+Medical_Keyword_21	9.0099269085014e-05
+Medical_Keyword_4	8.50732210959545e-05
+Medical_Keyword_17	8.24366917621823e-05
+Medical_Keyword_5	7.815120662819e-05
+Product_Info_7	7.78627118728479e-05
+Medical_Keyword_10	6.90111461411456e-05
+Medical_Keyword_6	6.79499837963642e-05
+Medical_Keyword_7	5.86068705679197e-05
+Medical_Keyword_14	4.45220198697517e-05
+Medical_Keyword_8	3.83429269548235e-05
+Medical_Keyword_44	3.12578296494453e-05
+Medical_Keyword_46	3.05888551910436e-05
+Medical_Keyword_35	2.94032790031773e-05
+Medical_Keyword_13	1.34111631095044e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 22:53:10 : 
+ Evaluation prediction started ..... 
+2016-02-06 22:53:10 : 
+MA_#XGBC#2016-02-06 22_49_03 Evaluation : 0.659469326147726
+2016-02-06 22:53:11 : 
+ Evaluation prediction finished ..... 
+2016-02-06 22:53:11 : 
+
+2016-02-06 22:53:12 : Model evaluation finished ..... 
+
+2016-02-06 22:56:21 : Data preparation started .....
+
+2016-02-06 22:56:22 : Prepare train data started
+
+2016-02-06 22:56:22 : Prepare train data finished
+
+2016-02-06 22:56:22 : Prepare test data started
+
+2016-02-06 22:56:22 : Prepare test data finished
+
+2016-02-06 22:56:23 : Data preparation finished ..... 
+
+2016-02-06 22:57:38 : Model evaluation started .....
+
+2016-02-06 22:57:38 : Model evaluation load data started
+
+2016-02-06 22:57:38 : Model evaluation load data finsihed
+
+2016-02-06 22:57:39 : Model evaluation finished ..... 
+
+2016-02-06 22:58:13 : Model evaluation started .....
+
+2016-02-06 22:58:13 : Model evaluation load data started
+
+2016-02-06 22:58:13 : Model evaluation load data finsihed
+
+2016-02-06 22:58:13 : MA_#XGBCL#2016-02-06 22_58_13 Model Assesment started
+nrounds
+lambda
+alpha
+100	0.01	0.01
+MA_#XGBCL#2016-02-06 22_58_13 Model Assesment finished : 91.2
+2016-02-06 22:59:45 : 
+Optimal parameters : 
+2016-02-06 22:59:45 : list(nrounds = 100, lambda = 0.01, alpha = 0.01)
+ Feature Importance evaluation started ..... 
+2016-02-06 22:59:45 : 
+MA_#XGBCL#2016-02-06 22_58_13 Feature Importance : 
+2016-02-06 22:59:48 : 
+Var
+Imp
+BMI	0.220031191151049
+medical_keyword_sum_top10	0.102484591020427
+Medical_History_15	0.0869617580169452
+Product_Info_4	0.0495550841726195
+Medical_History_4	0.0461633684799387
+Medical_Keyword_3	0.0457296191769898
+BMI_Mult_Ins_Age	0.0377621720091675
+Ins_Age	0.0255920099282092
+Wt	0.0235965656682946
+Medical_History_23	0.0230552171060199
+Employment_Info_1	0.0174427042996722
+Medical_History_1	0.016215565569482
+Medical_Keyword_Sum	0.0128411672834185
+Medical_History_40	0.0126118019260009
+Family_Hist_4	0.0111179264654747
+Medical_History_13	0.0107505981027327
+InsuredInfo_6	0.0102387535377586
+Insurance_History_5	0.0100019498394233
+Employment_Info_6	0.00999699434721081
+Medical_History_2	0.00991394701917154
+InsuredInfo_5	0.00901105395570191
+Employment_Info_4	0.00895588995753754
+Medical_History_5	0.00851335279934105
+Medical_History_30	0.00805967943693042
+Insurance_History_2	0.00791613921973492
+Product_Info_2N	0.00790633106816842
+Family_Hist_3	0.00785050344653515
+Family_Hist_2	0.00772574741631124
+Ht	0.00770060544438741
+Employment_Info_2	0.00767503308323282
+Family_Hist_5	0.00660570920139294
+Medical_History_28	0.00649990590601875
+Medical_History_20	0.00611842665701385
+Medical_History_18	0.0058643543367662
+InsuredInfo_7	0.00506178570499987
+InsuredInfo_3	0.00500404890597855
+Medical_History_24	0.00478216321897248
+InsuredInfo_2	0.00415451704021843
+Medical_History_11	0.00414659368404587
+Medical_Keyword_38	0.00378265653198354
+InsuredInfo_1	0.00347252477192712
+Medical_History_17	0.00337165285679443
+Medical_History_39	0.00323776820572387
+Medical_Keyword_41	0.00321377957461329
+Medical_History_27	0.00290638851938629
+Product_Info_3	0.00276311171627801
+Medical_History_7	0.00254690997799665
+Medical_Keyword_25	0.00248669445224848
+Insurance_History_1	0.00183504683932323
+Medical_History_25	0.00175195047832109
+Medical_History_31	0.00166852308646084
+Medical_History_19	0.00147209066659472
+Medical_History_12	0.00136094656620817
+Medical_History_21	0.00136016473793032
+Product_Info_2LE	0.00135253739734882
+Product_Info_2LA	0.00127271144573469
+Medical_History_3	0.00126845138183558
+Medical_History_35	0.00125876949217653
+Family_Hist_1	0.00125147676951754
+Insurance_History_8	0.00121058729820715
+Medical_History_9	0.00117368311890388
+Product_Info_6	0.00116107449594472
+Medical_History_32	0.00111080303066629
+Insurance_History_4	0.00107396056266703
+Family_Hist_2_3	0.00105995261264254
+Medical_History_41	0.00102589307749847
+Product_Info_1	0.00102412108838157
+Medical_Keyword_9	0.00100820197941947
+Medical_Keyword_42	0.0010014831318782
+Medical_History_6	0.000922650747434656
+Medical_Keyword_37	0.000911929171994021
+Medical_Keyword_34	0.000898991734430678
+Medical_History_34	0.000897653511075836
+Product_Info_7	0.000856941384229167
+Medical_Keyword_31	0.000841816687242751
+Medical_History_37	0.000838635584721071
+InsuredInfo_4	0.00083104611250247
+Medical_Keyword_15	0.000820649392650636
+Medical_History_16	0.000813387767080686
+Medical_History_22	0.000797469258262051
+Medical_History_8	0.000768710074321789
+Employment_Info_5	0.000750163935980617
+Medical_Keyword_1	0.000728854014189566
+Medical_History_33	0.000719070491959064
+Medical_Keyword_16	0.000714984988409844
+Medical_Keyword_33	0.000701256465183223
+Medical_Keyword_40	0.000680058404615714
+Medical_Keyword_47	0.000678992384262903
+Medical_History_14	0.000668588517875081
+Insurance_History_7	0.000659362505470806
+Medical_Keyword_26	0.000658716916657981
+Medical_Keyword_13	0.000658458648021487
+Medical_Keyword_17	0.000628032891888717
+Medical_Keyword_24	0.000620764009411566
+Medical_Keyword_4	0.000611956000380609
+Insurance_History_9	0.000607880488185372
+Medical_History_38	0.000604320740664637
+Medical_History_29	0.000579957620031137
+Medical_Keyword_36	0.000550310036129821
+Medical_Keyword_7	0.000534848160608765
+Medical_Keyword_20	0.000518099053232893
+Product_Info_5	0.000515824967260553
+Product_Info_2LB	0.000509878191457914
+Medical_Keyword_23	0.00049215296108155
+Product_Info_2LC	0.000491664844395698
+Medical_Keyword_22	0.000457581303512977
+Medical_Keyword_12	0.000445868986404798
+Medical_Keyword_30	0.000441866181245582
+Medical_Keyword_27	0.00043924086399994
+Insurance_History_3	0.000439218913925118
+Medical_Keyword_39	0.000434362732349752
+Medical_Keyword_28	0.00042098587939793
+Medical_Keyword_43	0.000419981280624696
+Medical_Keyword_18	0.000415996134859428
+Medical_Keyword_35	0.000374431302101723
+Medical_History_36	0.000372351080680219
+Medical_Keyword_10	0.000363627615997789
+Medical_Keyword_21	0.000362696082967016
+Medical_Keyword_2	0.000355939709213609
+Medical_Keyword_8	0.000355933638796939
+Medical_Keyword_29	0.000350653893898443
+Medical_Keyword_32	0.00029502329867531
+Medical_Keyword_5	0.000287613306603391
+Medical_Keyword_46	0.000278838240619988
+Medical_Keyword_44	0.000269963846064186
+Medical_Keyword_45	0.000247844654952652
+Medical_Keyword_6	0.000244750508390485
+Medical_Keyword_11	0.000219602013803938
+Medical_Keyword_14	0.000201966073738225
+Medical_Keyword_48	0.000128124973511589
+Medical_Keyword_19	0.000102193091653814
+Medical_History_26	9.05242608032316e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 22:59:48 : 
+ Evaluation prediction started ..... 
+2016-02-06 22:59:48 : 
+MA_#XGBCL#2016-02-06 22_58_13 Evaluation : 0.652071318754744
+2016-02-06 22:59:49 : 
+ Evaluation prediction finished ..... 
+2016-02-06 22:59:49 : 
+
+2016-02-06 22:59:49 : Model evaluation finished ..... 
+
+2016-02-06 23:03:30 : Model evaluation started .....
+
+2016-02-06 23:03:30 : Model evaluation load data started
+
+2016-02-06 23:03:30 : Model evaluation load data finsihed
+
+2016-02-06 23:03:30 : MA_#XGBCL#2016-02-06 23_03_30 Model Assesment started
+nrounds
+lambda
+alpha
+500	0.01	0.01
+
+2016-02-06 23:12:19 : Model evaluation started .....
+
+2016-02-06 23:12:19 : Model evaluation load data started
+
+2016-02-06 23:12:19 : Model evaluation load data finsihed
+
+2016-02-06 23:12:20 : MA_#XGBCL#2016-02-06 23_12_20 Model Assesment started
+nrounds
+lambda
+alpha
+500	0.01	0.01
+MA_#XGBCL#2016-02-06 23_12_20 Model Assesment finished : 147.16
+2016-02-06 23:14:47 : 
+Optimal parameters : 
+2016-02-06 23:14:47 : list(nrounds = 500, lambda = 0.01, alpha = 0.01)
+ Feature Importance evaluation started ..... 
+2016-02-06 23:14:47 : 
+MA_#XGBCL#2016-02-06 23_12_20 Feature Importance : 
+2016-02-06 23:15:05 : 
+Var
+Imp
+BMI	0.175358276431522
+medical_keyword_sum_top10	0.0764891418059971
+Medical_History_15	0.0677388567720116
+BMI_Mult_Ins_Age	0.0500526469536854
+Product_Info_4	0.0479067076957853
+Medical_History_4	0.0342611889764989
+Medical_Keyword_3	0.0335648512868083
+Employment_Info_1	0.031391461161091
+Ins_Age	0.0307727506880724
+Wt	0.0285527917130907
+Medical_History_1	0.0252370176838516
+Employment_Info_6	0.0205514727689921
+Medical_History_2	0.0178364516323882
+Medical_History_23	0.0174795235076356
+Family_Hist_4	0.015786998450246
+Medical_Keyword_Sum	0.0145296969524364
+Ht	0.0139070795991257
+Employment_Info_4	0.0133531019351236
+Insurance_History_5	0.0130543838114951
+Family_Hist_3	0.0126504170626175
+Family_Hist_2	0.0108944241854478
+Medical_History_40	0.00991971378017627
+Employment_Info_2	0.00959798934688842
+Family_Hist_5	0.00949467143372196
+Product_Info_2N	0.00933579929548037
+Medical_History_13	0.00902326603915423
+InsuredInfo_3	0.00892815744632668
+InsuredInfo_6	0.00818143416651123
+InsuredInfo_5	0.00762535853041763
+Insurance_History_2	0.00649272929302601
+Medical_History_5	0.00645815493858292
+Medical_History_30	0.00632147487182032
+Medical_History_24	0.00617050198035328
+Medical_History_28	0.00574663591019896
+Medical_History_20	0.00513043541551167
+Medical_History_18	0.00497053126893464
+Product_Info_3	0.00494021393896276
+InsuredInfo_7	0.00428246323852666
+InsuredInfo_1	0.00423008198686825
+Medical_History_7	0.00318017675422577
+InsuredInfo_2	0.00313502450370951
+Medical_History_11	0.00304682474757772
+Medical_History_17	0.00303512567603901
+Medical_History_39	0.0030086371897637
+Medical_History_25	0.00293680661488951
+Medical_Keyword_38	0.00289639473965491
+Medical_Keyword_25	0.00253617103468684
+Family_Hist_1	0.00252718174946847
+Medical_Keyword_41	0.00247609928945475
+Medical_History_27	0.00237369194469923
+Insurance_History_8	0.00225550644730775
+Product_Info_6	0.00219803132888277
+Insurance_History_1	0.00213288468842687
+Product_Info_1	0.00208115098187112
+Medical_History_19	0.00202723635249819
+Medical_History_9	0.00188628024842604
+InsuredInfo_4	0.00185585839258232
+Medical_History_3	0.00185573648177719
+Medical_History_41	0.00180519735123546
+Family_Hist_2_3	0.00177900717890546
+Insurance_History_4	0.00176397387490332
+Product_Info_2LE	0.00171202175224388
+Medical_Keyword_42	0.00170228831285306
+Medical_History_34	0.00159681672391248
+Product_Info_2LA	0.00158105059202495
+Medical_History_21	0.00157366231887119
+Medical_Keyword_40	0.00156655314954763
+Medical_History_31	0.00156566362212263
+Medical_History_12	0.00154865625891256
+Medical_History_37	0.00150283477367281
+Medical_History_32	0.00149142139837277
+Product_Info_7	0.00145496962079396
+Medical_History_33	0.00142406410853499
+Medical_Keyword_34	0.00141211348477723
+Product_Info_2LC	0.00141121810915165
+Medical_Keyword_15	0.00139978943042999
+Medical_Keyword_37	0.00138728481691954
+Medical_Keyword_17	0.0013538713269074
+Medical_History_6	0.00129527367067468
+Medical_History_8	0.00128210815418645
+Insurance_History_7	0.00125928915309883
+Medical_History_29	0.00124308274264479
+Medical_History_16	0.00123850698435944
+Medical_History_22	0.00114855698337669
+Medical_Keyword_16	0.00112601858746917
+Medical_Keyword_36	0.00109088286108922
+Medical_Keyword_33	0.00106733004216051
+Medical_Keyword_1	0.00104016024947284
+Medical_Keyword_24	0.0010156927711786
+Insurance_History_9	0.000960114304506189
+Medical_Keyword_31	0.000956989886933804
+Medical_Keyword_22	0.000950522923260013
+Medical_Keyword_9	0.000950097640283685
+Medical_Keyword_28	0.000936645853680954
+Medical_Keyword_7	0.000922127891760182
+Medical_History_14	0.000918245134298479
+Medical_History_35	0.000916492576433451
+Medical_Keyword_4	0.000912064603111811
+Medical_History_36	0.000905079867736743
+Medical_Keyword_10	0.000869618944393534
+Medical_Keyword_12	0.000855079010431004
+Product_Info_2LB	0.000829365252537663
+Medical_Keyword_35	0.000827651630276789
+Employment_Info_5	0.000820837215037764
+Medical_Keyword_13	0.000817523460230705
+Medical_Keyword_30	0.000817514466060379
+Insurance_History_3	0.000805195160674875
+Medical_Keyword_47	0.00079906364994513
+Medical_Keyword_21	0.000786084298057677
+Medical_Keyword_26	0.000780445550221253
+Medical_History_38	0.000758742688858716
+Product_Info_5	0.000747328646557372
+Medical_Keyword_44	0.000724089034089373
+Medical_Keyword_39	0.000712049302379972
+Medical_Keyword_20	0.000682204277302865
+Medical_Keyword_29	0.000634678026672178
+Medical_Keyword_18	0.000606271366426465
+Medical_Keyword_2	0.000602594308823903
+Medical_Keyword_8	0.000599932312987795
+Medical_Keyword_14	0.000593659370680746
+Medical_Keyword_43	0.000589612425833651
+Medical_Keyword_27	0.000586717289959464
+Medical_Keyword_6	0.000561869678627994
+Medical_Keyword_23	0.000541035699885779
+Medical_Keyword_5	0.000537704553696276
+Medical_Keyword_45	0.000532586787206424
+Medical_Keyword_32	0.000502269572166904
+Medical_Keyword_46	0.000461280286519281
+Medical_Keyword_11	0.00041139291295865
+Medical_Keyword_48	0.000399362255014002
+Medical_Keyword_19	0.000288181276192583
+Medical_History_26	8.66450811571613e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 23:15:05 : 
+ Evaluation prediction started ..... 
+2016-02-06 23:15:05 : 
+MA_#XGBCL#2016-02-06 23_12_20 Evaluation : 0.628661533521352
+2016-02-06 23:15:06 : 
+ Evaluation prediction finished ..... 
+2016-02-06 23:15:06 : 
+
+2016-02-06 23:16:39 : Model evaluation started .....
+
+2016-02-06 23:16:39 : Model evaluation load data started
+
+2016-02-06 23:16:39 : Model evaluation load data finsihed
+
+2016-02-06 23:16:40 : MA_#GLMNET#2016-02-06 23_16_39 Model Assesment started
+alpha
+lambda
+0.5	0.005
+MA_#GLMNET#2016-02-06 23_16_39 Model Assesment finished : 81.97
+2016-02-06 23:18:02 : 
+Optimal parameters : 
+2016-02-06 23:18:02 : list(alpha = 0.5, lambda = 0.005)
+ Feature Importance evaluation started ..... 
+2016-02-06 23:18:02 : 
+MA_#GLMNET#2016-02-06 23_16_39 Feature Importance : 
+2016-02-06 23:18:02 : 
+Var
+Imp
+Product_Info_1	0.141682686603015
+Product_Info_3	0.0104056334544708
+Product_Info_4	0.769796600702447
+Product_Info_5	0.205152747566921
+Product_Info_6	0.0337093827222442
+Product_Info_7	0.0438976415111317
+Ins_Age	2.80426933705908
+Ht	1.173230128326
+Wt	2.52560483263549
+BMI	5.64402846624723
+InsuredInfo_1	0.142725397576697
+InsuredInfo_2	0.928468000399396
+InsuredInfo_3	0.00306392507897886
+InsuredInfo_4	0
+InsuredInfo_5	0.620133929677801
+InsuredInfo_6	0.183691289025442
+InsuredInfo_7	0.337821173647548
+Insurance_History_1	0.142530496678874
+Insurance_History_2	0.404099374583352
+Insurance_History_3	0
+Insurance_History_4	0.016359184758113
+Insurance_History_7	0.000312826202407265
+Insurance_History_8	0
+Insurance_History_9	0
+Medical_History_2	0.000101852426009553
+Medical_History_3	0.244907464030428
+Medical_History_4	1.18417340155435
+Medical_History_5	1.78348488593263
+Medical_History_6	0.0262406775713652
+Medical_History_7	0.489386493496734
+Medical_History_8	0.0586299844062051
+Medical_History_9	0.00249773084834155
+Medical_History_11	0.64173437090898
+Medical_History_12	0.229043912003157
+Medical_History_13	0.27889685077983
+Medical_History_14	0.216698389366836
+Medical_History_16	0.011194707383925
+Medical_History_17	0.573563857105371
+Medical_History_18	0.686618255252346
+Medical_History_19	0.360467596450484
+Medical_History_20	1.07618631567366
+Medical_History_21	0.0750800132628262
+Medical_History_22	0.313405918117708
+Medical_History_23	0.403493887147158
+Medical_History_25	0
+Medical_History_26	0
+Medical_History_27	0.471897038291657
+Medical_History_28	0.292255452388557
+Medical_History_29	0.0524237857176683
+Medical_History_30	0.955026556575213
+Medical_History_31	0.421952816622977
+Medical_History_33	0.164281745772046
+Medical_History_34	0.0084001649177819
+Medical_History_35	1.14197109812626
+Medical_History_36	0.0408702082888868
+Medical_History_37	0.0778925741355088
+Medical_History_38	0.280932465888287
+Medical_History_39	0.168401834967528
+Medical_History_40	0.547925463341612
+Medical_History_41	0.0225638191026776
+Medical_Keyword_1	0.026311033301777
+Medical_Keyword_2	0.264059431737148
+Medical_Keyword_3	1.53756190213058
+Medical_Keyword_4	0.132952769676922
+Medical_Keyword_5	0.00526061877452543
+Medical_Keyword_6	0.240937722852308
+Medical_Keyword_7	0.0585067224759158
+Medical_Keyword_8	0
+Medical_Keyword_9	0.805672902397977
+Medical_Keyword_10	0
+Medical_Keyword_11	0.0220215797214459
+Medical_Keyword_12	0.210680139611417
+Medical_Keyword_13	0
+Medical_Keyword_14	0.0892410667448094
+Medical_Keyword_15	0.156354837638297
+Medical_Keyword_16	0.0148418245372681
+Medical_Keyword_17	0.0854596826302328
+Medical_Keyword_18	0.274752105285677
+Medical_Keyword_19	0.264131837549635
+Medical_Keyword_20	0.0516059804289977
+Medical_Keyword_21	0
+Medical_Keyword_22	0.136423032137442
+Medical_Keyword_23	0
+Medical_Keyword_24	0.119663475540515
+Medical_Keyword_25	0.226842096559935
+Medical_Keyword_26	0.142404287281235
+Medical_Keyword_27	0.136850581988707
+Medical_Keyword_28	0.0357910173732385
+Medical_Keyword_29	0.148469269672093
+Medical_Keyword_30	0.0475976707271401
+Medical_Keyword_31	0.189908722822159
+Medical_Keyword_32	0.0331030793575652
+Medical_Keyword_33	0.330590139378551
+Medical_Keyword_34	0.329578435725271
+Medical_Keyword_35	0.0726392279623293
+Medical_Keyword_36	0.0376489488012257
+Medical_Keyword_37	0.173685198188235
+Medical_Keyword_38	0.962995619417826
+Medical_Keyword_39	0.241904934477727
+Medical_Keyword_40	0.0371362187914251
+Medical_Keyword_41	0.82867705016184
+Medical_Keyword_42	0
+Medical_Keyword_43	0.143468678441759
+Medical_Keyword_44	0
+Medical_Keyword_45	0.310423167699075
+Medical_Keyword_46	0.0559636424467521
+Medical_Keyword_47	0.113938291500793
+Medical_Keyword_48	0.251694593002057
+Product_Info_2LA	0.0836281891685252
+Product_Info_2LE	0.146680386126303
+Product_Info_2LC	0.0888844476732279
+Product_Info_2LB	0.208381600834504
+Product_Info_2N	0.0140652159015445
+BMI_Mult_Ins_Age	4.21739992882693
+Medical_Keyword_Sum	0.0148162514054433
+medical_keyword_sum_top10	0
+is_BMI_above_mean	0.0660257691854375
+Employment_Info_1	0.248183343812315
+Employment_Info_2	0
+Employment_Info_3	0.151745270675286
+Employment_Info_4	0.0622972649519528
+Employment_Info_5	0.0144882924444274
+Employment_Info_6	0.0140752579621499
+Insurance_History_5	0.192771814307271
+Family_Hist_1	0.0145689793402237
+Family_Hist_2	0.188651905049538
+Family_Hist_3	0.11388589923904
+Family_Hist_4	0.136587719723357
+Family_Hist_5	0.0176144428938332
+Medical_History_1	0.00501910778712667
+Medical_History_15	0.00532908836443476
+Medical_History_32	0.00406760230731676
+Medical_History_24	0.00269276604489243
+Family_Hist_2_3	0.00965409481293408
+ Feature Importance evaluation finished ..... 
+2016-02-06 23:18:02 : 
+ Evaluation prediction started ..... 
+2016-02-06 23:18:02 : 
+MA_#GLMNET#2016-02-06 23_16_39 Evaluation : 0.606481540664753
+2016-02-06 23:18:02 : 
+ Evaluation prediction finished ..... 
+2016-02-06 23:18:03 : 
+
+2016-02-06 23:18:03 : Model evaluation finished ..... 
+
+2016-02-06 23:18:51 : Model evaluation started .....
+
+2016-02-06 23:18:51 : Model evaluation load data started
+
+2016-02-06 23:18:51 : Model evaluation load data finsihed
+
+2016-02-06 23:18:52 : MA_#GBM#2016-02-06 23_18_51 Model Assesment started
+interaction.depth
+n.trees
+shrinkage
+n.minobsinnode
+1	301	0.02	5
+2	301	0.02	5
+3	301	0.02	5
+1	401	0.02	5
+2	401	0.02	5
+3	401	0.02	5
+1	501	0.02	5
+2	501	0.02	5
+3	501	0.02	5
+1	301	0.035	5
+2	301	0.035	5
+3	301	0.035	5
+1	401	0.035	5
+2	401	0.035	5
+3	401	0.035	5
+1	501	0.035	5
+2	501	0.035	5
+3	501	0.035	5
+1	301	0.05	5
+2	301	0.05	5
+3	301	0.05	5
+1	401	0.05	5
+2	401	0.05	5
+3	401	0.05	5
+1	501	0.05	5
+2	501	0.05	5
+3	501	0.05	5
+MA_#GBM#2016-02-06 23_18_51 Model Assesment finished : 1086.86
+2016-02-06 23:36:59 : 
+Optimal parameters : 
+2016-02-06 23:36:59 : list(n.trees = 301, interaction.depth = 1, shrinkage = 0.02, n.minobsinnode = 5)
+ Feature Importance evaluation started ..... 
+2016-02-06 23:36:59 : 
+MA_#GBM#2016-02-06 23_18_51 Feature Importance : 
+2016-02-06 23:36:59 : 
+Var
+Imp
+Product_Info_1	0
+Product_Info_3	0
+Product_Info_4	98100.1205501593
+Product_Info_5	0
+Product_Info_6	0
+Product_Info_7	0
+Ins_Age	1049.42972880917
+Ht	0
+Wt	37417.2839175886
+BMI	356032.98455246
+InsuredInfo_1	0
+InsuredInfo_2	0
+InsuredInfo_3	0
+InsuredInfo_4	0
+InsuredInfo_5	9575.21858421408
+InsuredInfo_6	0
+InsuredInfo_7	5830.95515443323
+Insurance_History_1	0
+Insurance_History_2	7330.20145092738
+Insurance_History_3	0
+Insurance_History_4	0
+Insurance_History_7	0
+Insurance_History_8	0
+Insurance_History_9	0
+Medical_History_2	0
+Medical_History_3	0
+Medical_History_4	112765.32752562
+Medical_History_5	0
+Medical_History_6	0
+Medical_History_7	0
+Medical_History_8	0
+Medical_History_9	0
+Medical_History_11	0
+Medical_History_12	0
+Medical_History_13	8537.60452861016
+Medical_History_14	0
+Medical_History_16	0
+Medical_History_17	0
+Medical_History_18	0
+Medical_History_19	0
+Medical_History_20	0
+Medical_History_21	0
+Medical_History_22	0
+Medical_History_23	57983.5576919266
+Medical_History_25	0
+Medical_History_26	0
+Medical_History_27	0
+Medical_History_28	0
+Medical_History_29	0
+Medical_History_30	2023.65513971659
+Medical_History_31	0
+Medical_History_33	0
+Medical_History_34	0
+Medical_History_35	0
+Medical_History_36	0
+Medical_History_37	0
+Medical_History_38	0
+Medical_History_39	0
+Medical_History_40	25439.8283409206
+Medical_History_41	0
+Medical_Keyword_1	0
+Medical_Keyword_2	0
+Medical_Keyword_3	116299.764733844
+Medical_Keyword_4	0
+Medical_Keyword_5	0
+Medical_Keyword_6	0
+Medical_Keyword_7	0
+Medical_Keyword_8	0
+Medical_Keyword_9	0
+Medical_Keyword_10	0
+Medical_Keyword_11	0
+Medical_Keyword_12	0
+Medical_Keyword_13	0
+Medical_Keyword_14	0
+Medical_Keyword_15	0
+Medical_Keyword_16	0
+Medical_Keyword_17	0
+Medical_Keyword_18	0
+Medical_Keyword_19	0
+Medical_Keyword_20	0
+Medical_Keyword_21	0
+Medical_Keyword_22	0
+Medical_Keyword_23	0
+Medical_Keyword_24	0
+Medical_Keyword_25	0
+Medical_Keyword_26	0
+Medical_Keyword_27	0
+Medical_Keyword_28	0
+Medical_Keyword_29	0
+Medical_Keyword_30	0
+Medical_Keyword_31	0
+Medical_Keyword_32	0
+Medical_Keyword_33	0
+Medical_Keyword_34	0
+Medical_Keyword_35	0
+Medical_Keyword_36	0
+Medical_Keyword_37	0
+Medical_Keyword_38	0
+Medical_Keyword_39	0
+Medical_Keyword_40	0
+Medical_Keyword_41	0
+Medical_Keyword_42	0
+Medical_Keyword_43	0
+Medical_Keyword_44	0
+Medical_Keyword_45	0
+Medical_Keyword_46	0
+Medical_Keyword_47	0
+Medical_Keyword_48	0
+Product_Info_2LA	0
+Product_Info_2LE	0
+Product_Info_2LC	0
+Product_Info_2LB	0
+Product_Info_2N	0
+BMI_Mult_Ins_Age	63322.3901273986
+Medical_Keyword_Sum	22900.5197721006
+medical_keyword_sum_top10	175638.750773163
+is_BMI_above_mean	0
+Employment_Info_1	0
+Employment_Info_2	0
+Employment_Info_3	0
+Employment_Info_4	0
+Employment_Info_5	0
+Employment_Info_6	0
+Insurance_History_5	0
+Family_Hist_1	0
+Family_Hist_2	0
+Family_Hist_3	0
+Family_Hist_4	0
+Family_Hist_5	0
+Medical_History_1	0
+Medical_History_15	8182.39790050733
+Medical_History_32	0
+Medical_History_24	0
+Family_Hist_2_3	0
+ Feature Importance evaluation finished ..... 
+2016-02-06 23:36:59 : 
+ Evaluation prediction started ..... 
+2016-02-06 23:36:59 : 
+MA_#GBM#2016-02-06 23_18_51 Evaluation : 0.435979800108619
+2016-02-06 23:37:07 : 
+ Evaluation prediction finished ..... 
+2016-02-06 23:37:11 : 
+
+2016-02-06 23:37:12 : Model evaluation finished ..... 
+
+2016-02-06 23:51:13 : Model evaluation started .....
+
+2016-02-06 23:51:13 : Model evaluation load data started
+
+2016-02-06 23:51:14 : Model evaluation load data finsihed
+
+2016-02-06 23:51:15 : MA_#XGBCL#2016-02-06 23_51_14 Model Assesment started
+nrounds
+lambda
+alpha
+100	0.01	1
+MA_#XGBCL#2016-02-06 23_51_14 Model Assesment finished : 88.59
+2016-02-06 23:52:43 : 
+Optimal parameters : 
+2016-02-06 23:52:43 : list(nrounds = 100, lambda = 0.01, alpha = 1)
+ Feature Importance evaluation started ..... 
+2016-02-06 23:52:43 : 
+MA_#XGBCL#2016-02-06 23_51_14 Feature Importance : 
+2016-02-06 23:52:47 : 
+Var
+Imp
+BMI	0.222095067199116
+medical_keyword_sum_top10	0.0916539447985255
+Medical_History_15	0.0873858668565581
+Medical_History_4	0.0490704739817079
+Product_Info_4	0.0483746574077652
+Medical_Keyword_3	0.0471803835792875
+BMI_Mult_Ins_Age	0.0450290781369474
+Medical_History_23	0.0287053038504626
+Wt	0.0231973862180349
+Ins_Age	0.0230511158370291
+Employment_Info_1	0.0174454990845407
+Medical_History_1	0.016508106530419
+Medical_Keyword_Sum	0.0140145641249712
+Medical_History_40	0.0120855501242651
+Employment_Info_6	0.0116439069907456
+Medical_History_13	0.0110371574991379
+Medical_History_2	0.0110000486848929
+Insurance_History_5	0.0104615383825216
+InsuredInfo_6	0.0101574482121807
+Family_Hist_4	0.00923646622374152
+Medical_History_30	0.00866596785860964
+Medical_History_5	0.00850519213124269
+InsuredInfo_5	0.00850103496219223
+Insurance_History_2	0.00804230067562774
+Family_Hist_3	0.00775321397794593
+Employment_Info_2	0.00752459336352122
+Ht	0.00749273998048312
+Family_Hist_2	0.00728436133344856
+Product_Info_2N	0.00724618388654071
+Family_Hist_5	0.00724062168242976
+Employment_Info_4	0.00715524332009921
+Medical_History_18	0.00690091367338131
+Medical_History_28	0.00644777604782651
+Medical_History_20	0.00590708682589693
+InsuredInfo_7	0.00565517417557973
+InsuredInfo_3	0.00447803055214716
+Medical_History_24	0.00418879638995554
+Medical_History_11	0.00413377426182392
+InsuredInfo_2	0.00388724704890299
+Medical_History_27	0.00322553716245993
+Medical_Keyword_41	0.00319276183754746
+Medical_Keyword_38	0.0031112094073008
+Medical_History_7	0.00301595611665255
+Product_Info_3	0.00271078756925017
+Medical_History_39	0.00269542507880231
+Medical_Keyword_25	0.00260806913047696
+InsuredInfo_1	0.00242335958859044
+Medical_History_17	0.00205262648221785
+Medical_History_19	0.00183864226249498
+Product_Info_2LA	0.00180066297560962
+Product_Info_2LE	0.00178316517355879
+Insurance_History_1	0.00169888842509614
+Medical_History_31	0.00169375529535604
+Medical_History_25	0.00158176257039377
+Medical_History_3	0.00142911641464133
+Medical_History_35	0.00142342642668939
+Medical_History_33	0.00124238172153202
+Medical_History_32	0.00117891604262822
+Family_Hist_2_3	0.00117585196507435
+Medical_History_8	0.0011570242408147
+Medical_History_41	0.00113448078335426
+Medical_History_21	0.00113106376515386
+Medical_Keyword_42	0.00111840192439072
+Insurance_History_8	0.00111074479228516
+Insurance_History_7	0.00109634500740007
+Medical_History_12	0.00109109843217254
+Medical_Keyword_37	0.00104398279638587
+Product_Info_6	0.0010379829826705
+Family_Hist_1	0.00101223846617478
+Product_Info_7	0.0010091595299047
+Medical_History_16	0.000998490773135277
+Medical_Keyword_34	0.000972022011382518
+Medical_History_34	0.000963578852070677
+InsuredInfo_4	0.000911288057404028
+Medical_History_9	0.000883758698159408
+Medical_Keyword_47	0.000856192838033816
+Medical_History_29	0.000837026802559939
+Product_Info_1	0.000836042067286681
+Medical_History_6	0.000822530743595424
+Medical_Keyword_10	0.000786823212934536
+Medical_Keyword_31	0.00075901839982242
+Medical_History_22	0.000738298990982836
+Medical_History_36	0.000724750380693773
+Medical_Keyword_9	0.000722311666632402
+Medical_History_14	0.000712792301745538
+Medical_Keyword_43	0.000636568759652253
+Medical_Keyword_33	0.000596320462357113
+Insurance_History_4	0.000588823773069863
+Medical_Keyword_16	0.000588237673049908
+Medical_Keyword_15	0.0005825613973946
+Medical_Keyword_2	0.000542293957688618
+Medical_Keyword_40	0.000539166888573039
+Medical_Keyword_1	0.000537687839546011
+Medical_Keyword_48	0.000537666868456132
+Medical_Keyword_24	0.0005169906600617
+Medical_Keyword_22	0.000509856854513726
+Medical_History_37	0.000504754560384568
+Medical_Keyword_26	0.000469403255840955
+Medical_Keyword_36	0.000469039396246963
+Medical_Keyword_20	0.000465445958053915
+Medical_Keyword_29	0.000461886604872285
+Medical_Keyword_39	0.000438693977538115
+Medical_Keyword_23	0.000424740625214376
+Insurance_History_3	0.000417025889719139
+Medical_Keyword_46	0.00039574571673232
+Medical_Keyword_17	0.000390862528550224
+Medical_Keyword_12	0.000387860586937593
+Product_Info_2LB	0.000379638186094696
+Product_Info_2LC	0.000371190919245383
+Medical_Keyword_28	0.000365721826773505
+Employment_Info_5	0.000359245422951076
+Medical_Keyword_11	0.000349869919740787
+Medical_Keyword_21	0.000341952913889443
+Medical_Keyword_32	0.000338796317479314
+Medical_Keyword_6	0.000324984841568974
+Medical_Keyword_13	0.000319028118130633
+Medical_Keyword_30	0.000313959025430973
+Medical_Keyword_18	0.000300797709229806
+Medical_Keyword_4	0.000287500025021516
+Insurance_History_9	0.000282558341479383
+Product_Info_5	0.000254303432855545
+Medical_Keyword_27	0.000236724766282141
+Medical_Keyword_45	0.000223821646139572
+Medical_Keyword_7	0.000218335441258352
+Medical_Keyword_19	0.000175467345938803
+Medical_Keyword_14	0.000169956507017338
+Medical_Keyword_8	0.000165643089366544
+Medical_Keyword_35	0.000156240155970691
+Medical_Keyword_5	0.000116619112362286
+Medical_Keyword_44	0.000110232157228558
+Medical_History_26	9.29293303907036e-05
+Medical_History_38	4.9283179675169e-05
+ Feature Importance evaluation finished ..... 
+2016-02-06 23:52:47 : 
+ Evaluation prediction started ..... 
+2016-02-06 23:52:47 : 
+MA_#XGBCL#2016-02-06 23_51_14 Evaluation : 0.650429318130169
+2016-02-06 23:52:47 : 
+ Evaluation prediction finished ..... 
+2016-02-06 23:52:47 : 
+
+2016-02-06 23:52:48 : Model evaluation finished ..... 
+
+2016-02-07 00:16:47 : Model evaluation started .....
+
+2016-02-07 00:16:47 : Model evaluation load data started
+
+2016-02-07 00:16:47 : Model evaluation load data finsihed
+
+2016-02-07 00:16:48 : MA_#XGBC#2016-02-07 00_16_47 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-07 00_16_47 Model Assesment finished : 199.95
+2016-02-07 00:20:08 : 
+Optimal parameters : 
+2016-02-07 00:20:08 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-07 00:20:08 : 
+
+2016-02-07 00:20:34 : Model evaluation finished ..... 
+
+2016-02-07 00:22:16 : Model evaluation started .....
+
+2016-02-07 00:22:16 : Model evaluation load data started
+
+2016-02-07 00:22:17 : Model evaluation load data finsihed
+
+2016-02-07 00:22:18 : MA_#XGBC#2016-02-07 00_22_17 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	1	0
+MA_#XGBC#2016-02-07 00_22_17 Model Assesment finished : 203.01
+2016-02-07 00:25:41 : 
+Optimal parameters : 
+2016-02-07 00:25:41 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 1, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-07 00:25:41 : 
+MA_#XGBC#2016-02-07 00_22_17 Feature Importance : 
+2016-02-07 00:26:06 : 
+Var
+Imp
+BMI	0.213540800097196
+medical_keyword_sum_top10	0.0972461049382325
+Medical_History_15	0.0846156742128537
+Product_Info_4	0.0459087594747775
+Medical_History_4	0.0448219309699962
+Medical_Keyword_3	0.0445234277931776
+BMI_Mult_Ins_Age	0.0366035747877069
+Ins_Age	0.0294139770124566
+Medical_History_23	0.0252893066369531
+Employment_Info_1	0.0229495195487989
+Wt	0.0224121304795566
+Medical_History_1	0.0215376283647609
+Employment_Info_6	0.0168745675491869
+Medical_Keyword_Sum	0.0151730843882729
+Medical_History_2	0.0130510457884056
+Insurance_History_5	0.0130319353703379
+Medical_History_40	0.0117820273506605
+Family_Hist_4	0.0113855313571446
+InsuredInfo_6	0.0113221774213353
+Medical_History_13	0.0109274388098606
+Family_Hist_3	0.0104875894498608
+Product_Info_2N	0.00959666309531317
+Medical_History_30	0.00903964221540284
+Family_Hist_5	0.00839659104788364
+Ht	0.00836630558025621
+Insurance_History_2	0.00829170809825221
+Medical_History_5	0.0081171933952448
+Employment_Info_2	0.00802680958562724
+InsuredInfo_5	0.00790686673330279
+Family_Hist_2	0.00761101089277251
+Employment_Info_4	0.00744627668406022
+Medical_History_18	0.00676280364831712
+Medical_History_20	0.00640178605252102
+Medical_History_28	0.00637699606156989
+InsuredInfo_3	0.00599677570126252
+InsuredInfo_7	0.00465990184151399
+InsuredInfo_2	0.00443793451746902
+Medical_History_11	0.00387774198130249
+Medical_History_24	0.00383890813454708
+Medical_History_39	0.00351648606313838
+Medical_Keyword_38	0.00332615608051405
+Medical_History_17	0.00317977611616187
+Medical_History_27	0.00306049846950354
+Medical_History_41	0.00250496076822604
+InsuredInfo_1	0.00249187330385894
+Medical_Keyword_25	0.00212760179145649
+Medical_History_7	0.0021159519669016
+Insurance_History_8	0.00210745016180785
+Medical_Keyword_41	0.0020540472857916
+Medical_History_31	0.00199964340293494
+Insurance_History_1	0.00186632694340698
+Family_Hist_1	0.00182315353752037
+Product_Info_2LA	0.00159312548182552
+Medical_History_19	0.00156667555536465
+Medical_History_9	0.00154872152457462
+Insurance_History_4	0.00152991145002318
+Product_Info_2LE	0.00141193804971081
+Product_Info_3	0.00140523964287674
+Medical_History_3	0.00126876335221401
+Medical_History_29	0.00126591650129323
+Medical_History_16	0.00124170026496572
+Medical_History_21	0.00123960112794945
+Insurance_History_7	0.00107683583512926
+Medical_History_34	0.00105137803411641
+Medical_Keyword_15	0.00105079048964401
+Medical_History_33	0.00104231410990616
+Medical_History_12	0.00101816498853916
+Medical_History_6	0.000948738696424186
+Medical_History_25	0.000862904837620005
+Medical_Keyword_37	0.000831498139858873
+Medical_Keyword_9	0.000783011959277351
+Medical_Keyword_42	0.000778365784788097
+Family_Hist_2_3	0.000715927700152188
+Medical_History_8	0.000708601970177137
+Product_Info_6	0.000680760725836378
+Medical_Keyword_47	0.000671544881538583
+Employment_Info_5	0.000664657877913534
+Medical_History_32	0.00065429182314858
+Medical_History_22	0.000617302977743119
+InsuredInfo_4	0.000610217251114297
+Medical_Keyword_23	0.000520678655275801
+Insurance_History_3	0.000492955079410388
+Medical_Keyword_33	0.000490888959944178
+Product_Info_2LB	0.000420712368804313
+Medical_Keyword_48	0.000410537510743318
+Medical_History_37	0.000408073367013055
+Medical_History_14	0.000390547371551552
+Medical_Keyword_22	0.000384068321168571
+Medical_Keyword_24	0.000375640667386035
+Medical_Keyword_34	0.000364994229936722
+Medical_Keyword_40	0.000296434349856808
+Medical_Keyword_43	0.000286799023047665
+Medical_Keyword_19	0.000278251280181147
+Medical_History_36	0.000271989927684078
+Medical_Keyword_31	0.000271878767956396
+Medical_Keyword_1	0.00025292419203463
+Medical_Keyword_45	0.000251081799562878
+Medical_Keyword_26	0.000250409883431696
+Medical_Keyword_30	0.000247189371224517
+Medical_Keyword_10	0.000242879652370407
+Medical_Keyword_2	0.000236140458280827
+Medical_Keyword_18	0.000234078816940593
+Medical_Keyword_39	0.000230114577212707
+Medical_Keyword_11	0.000227632870622009
+Medical_Keyword_16	0.000215506154787626
+Product_Info_1	0.000200764294070199
+Medical_Keyword_36	0.000182685086435444
+Medical_Keyword_32	0.000178918502850488
+Medical_Keyword_21	0.000171570368797731
+Medical_Keyword_27	0.000159040061299433
+Product_Info_2LC	0.000145354061103676
+Insurance_History_9	0.00014086510514531
+Product_Info_5	0.000132626612962435
+Product_Info_7	0.00012556566171126
+Medical_Keyword_17	0.000125164297903811
+Medical_Keyword_12	0.000118732108710974
+Medical_Keyword_6	0.000116540283452226
+Medical_Keyword_28	0.000115686660299458
+Medical_Keyword_29	0.000109282837053744
+Medical_Keyword_4	0.000108829282234545
+Medical_Keyword_5	0.000104445367243142
+Medical_History_38	0.000103450021937364
+Medical_Keyword_14	9.63609512825376e-05
+Medical_Keyword_20	9.2038479407004e-05
+Medical_Keyword_7	8.53322952470408e-05
+Medical_Keyword_44	6.40243543009624e-05
+Medical_Keyword_13	6.39238318034525e-05
+Medical_Keyword_8	5.23013646087525e-05
+Medical_Keyword_46	3.43067034545114e-05
+Medical_History_26	2.94212876624881e-05
+Medical_Keyword_35	2.73884694954532e-05
+ Feature Importance evaluation finished ..... 
+2016-02-07 00:26:06 : 
+ Evaluation prediction started ..... 
+2016-02-07 00:26:06 : 
+MA_#XGBC#2016-02-07 00_22_17 Evaluation : 0.664073152189708
+2016-02-07 00:26:07 : 
+ Evaluation prediction finished ..... 
+2016-02-07 00:26:08 : 
+
+2016-02-07 00:26:08 : Model evaluation finished ..... 
+
+2016-02-07 00:27:08 : Starting prediction on data
+MODEL_#XGBC#2016-02-07 00_27_08 Optimal Model Creation started : 
+2016-02-07 00:27:09 : 
+
+2016-02-07 00:30:39 : Model evaluation started .....
+
+2016-02-07 00:30:39 : Model evaluation load data started
+
+2016-02-07 00:30:40 : Model evaluation load data finsihed
+
+2016-02-07 00:30:41 : Model evaluation finished ..... 
+
+2016-02-07 00:31:50 : Model evaluation started .....
+
+2016-02-07 00:31:50 : Model evaluation load data started
+
+2016-02-07 00:31:50 : Model evaluation load data finsihed
+
+2016-02-07 00:31:51 : MA_#XGBC#2016-02-07 00_31_50 Model Assesment started
+nrounds
+eta
+max_depth
+min_child_weight
+colsample_bytree
+gamma
+500	0.04	9	60	0.67	0
+MA_#XGBC#2016-02-07 00_31_50 Model Assesment finished : 210.08
+2016-02-07 00:35:21 : 
+Optimal parameters : 
+2016-02-07 00:35:21 : list(nrounds = 500, max_depth = 9, eta = 0.04, gamma = 0, colsample_bytree = 0.67, min_child_weight = 60)
+ Feature Importance evaluation started ..... 
+2016-02-07 00:35:21 : 
+MA_#XGBC#2016-02-07 00_31_50 Feature Importance : 
+2016-02-07 00:35:46 : 
+Var
+Imp
+BMI	0.17177227286663
+medical_keyword_sum_top10	0.0921812556467923
+Medical_History_15	0.0866902697018318
+Product_Info_4	0.0476047481692823
+Medical_History_4	0.0474940218261152
+Medical_Keyword_3	0.0449736959907242
+BMI_Mult_Ins_Age	0.0375978433765011
+Wt	0.0358067997920846
+Medical_History_23	0.0318167058740909
+Ins_Age	0.0300573773258938
+Employment_Info_1	0.0224533125101211
+Medical_History_1	0.0201776529141417
+Medical_Keyword_Sum	0.0173674576580704
+Employment_Info_6	0.016205683855566
+is_BMI_above_mean	0.0155711246478911
+Medical_History_2	0.0136364258245408
+Insurance_History_5	0.0119492453711261
+InsuredInfo_6	0.0114693764888392
+Medical_History_40	0.0114629431127128
+Family_Hist_4	0.010644427061519
+Medical_History_13	0.0102924631274359
+Family_Hist_3	0.00993014411754004
+Product_Info_2N	0.00943690591429227
+Ht	0.00931210316912066
+Medical_History_30	0.00895349870906073
+Medical_History_5	0.00823647764810981
+Family_Hist_5	0.00819999701941814
+Insurance_History_2	0.00817365436796433
+InsuredInfo_5	0.00792037439271295
+Employment_Info_4	0.00770718082345015
+Employment_Info_2	0.00757411957998316
+Family_Hist_2	0.00735780988426803
+Medical_History_39	0.00653856922955473
+Medical_History_18	0.00636245875139689
+Medical_History_20	0.00633576512123267
+Medical_History_28	0.00587684676753617
+InsuredInfo_3	0.00578016146491086
+InsuredInfo_2	0.00473896964614541
+InsuredInfo_7	0.00449352172655646
+Medical_History_11	0.0039090383693719
+Medical_History_24	0.00346328134998623
+Medical_Keyword_38	0.00320907127332166
+Medical_History_27	0.00309505151605193
+Medical_History_17	0.00301437446916434
+InsuredInfo_1	0.00238577135179077
+Medical_Keyword_15	0.0023627427584197
+Medical_Keyword_41	0.00223863113578693
+Insurance_History_8	0.00222268785975385
+Medical_Keyword_25	0.00221628910120732
+Medical_History_7	0.00220031777524103
+Medical_History_41	0.00215264178230289
+Insurance_History_4	0.00214497533096598
+Medical_History_31	0.00203293676523153
+Insurance_History_1	0.00181875339764234
+Product_Info_3	0.00169725375421749
+Family_Hist_1	0.00164422957279447
+Product_Info_2LA	0.00153873606468527
+Medical_History_29	0.001512907988624
+Medical_History_16	0.00143005030404874
+Family_Hist_2_3	0.00142070380403226
+Medical_History_19	0.0013762209740697
+Medical_History_9	0.00135252099726211
+Insurance_History_7	0.00133205766852019
+Product_Info_2LE	0.0011439002844232
+Medical_History_21	0.00112437212848296
+Medical_History_3	0.00106743225254227
+Employment_Info_3	0.00100798350268918
+Medical_History_12	0.000997369584751855
+Product_Info_6	0.000993086916582772
+Medical_History_34	0.000989723591104751
+Medical_History_6	0.00095672609310862
+Medical_History_33	0.000914478299431296
+Medical_History_25	0.000829266768271391
+Medical_Keyword_23	0.00082164392393515
+Medical_Keyword_37	0.000817280128161448
+Medical_History_32	0.000817093573024713
+Insurance_History_3	0.000816557513382294
+Medical_Keyword_42	0.000777600282515647
+Medical_Keyword_9	0.000743368086117726
+Medical_Keyword_48	0.000685715152045245
+Medical_Keyword_47	0.000659446199869852
+Medical_History_8	0.000639410649389371
+Employment_Info_5	0.000600674957747301
+Medical_History_22	0.000559294582902432
+InsuredInfo_4	0.000540276223186346
+Medical_Keyword_33	0.000503437569627156
+Product_Info_2LB	0.00041355772195613
+Medical_Keyword_22	0.000396829618991866
+Medical_Keyword_40	0.000392330255922535
+Medical_History_36	0.000390013589779385
+Medical_History_26	0.000347520673665436
+Medical_History_37	0.000334718287454998
+Medical_Keyword_24	0.000329178314920006
+Medical_Keyword_34	0.000322379654539581
+Medical_Keyword_43	0.000297163722052122
+Medical_Keyword_19	0.000296674783037433
+Medical_Keyword_31	0.000278360093882502
+Medical_Keyword_30	0.000278331853549625
+Medical_History_14	0.000276925074037813
+Medical_Keyword_18	0.000247772667444182
+Medical_Keyword_1	0.000243149220415873
+Medical_Keyword_45	0.00023427115378192
+Medical_Keyword_39	0.000232605686428635
+Medical_Keyword_2	0.000214812806483445
+Medical_Keyword_10	0.000205860780769144
+Medical_Keyword_16	0.00020051218043656
+Medical_Keyword_32	0.000197603152193836
+Medical_Keyword_26	0.000190652939165251
+Insurance_History_9	0.000190540137641607
+Medical_Keyword_11	0.000189213476661889
+Medical_Keyword_12	0.000181140535754255
+Product_Info_7	0.00017644528020288
+Product_Info_1	0.000176332423887968
+Medical_Keyword_28	0.000164855150803918
+Medical_Keyword_6	0.000151150703981633
+Medical_Keyword_27	0.000135254391827602
+Medical_Keyword_4	0.000131049130022831
+Product_Info_5	0.000129976453967389
+Medical_Keyword_29	0.000119254168033212
+Medical_Keyword_21	0.000118577162555969
+Medical_History_38	0.00010112273740704
+Medical_Keyword_36	0.000100145494043186
+Medical_Keyword_5	9.57019450125119e-05
+Medical_Keyword_14	9.22144625204884e-05
+Medical_Keyword_7	8.62914305308875e-05
+Medical_Keyword_17	7.36674035966332e-05
+Medical_Keyword_8	7.21257553778633e-05
+Product_Info_2LC	6.84214729689944e-05
+Medical_Keyword_44	6.0508143591902e-05
+Medical_Keyword_46	5.09676185624435e-05
+Medical_Keyword_20	4.9746316625757e-05
+Medical_Keyword_13	1.80874012761413e-05
+Medical_Keyword_35	1.49414692870392e-05
+ Feature Importance evaluation finished ..... 
+2016-02-07 00:35:46 : 
+ Evaluation prediction started ..... 
+2016-02-07 00:35:46 : 
+MA_#XGBC#2016-02-07 00_31_50 Evaluation : 0.664606271012496
+2016-02-07 00:35:48 : 
+ Evaluation prediction finished ..... 
+2016-02-07 00:35:48 : 
+
+2016-02-07 00:35:48 : Model evaluation finished ..... 
+
+2016-02-07 00:36:52 : Starting prediction on data
+MODEL_#XGBC#2016-02-07 00_36_52 Optimal Model Creation started : 
+2016-02-07 00:36:52 : 
+MODEL_#XGBC#2016-02-07 00_36_52 Optimal Model Creation finished : 30.16
+2016-02-07 00:37:23 : 
+Finished prediction on data
+2016-02-07 00:37:25 : 
+
+2016-02-07 00:37:53 : Starting prediction on data
+MODEL_#XGBC#2016-02-07 00_37_53 Optimal Model Creation started : 
+2016-02-07 00:37:53 : 
+MODEL_#XGBC#2016-02-07 00_37_53 Optimal Model Creation finished : 32.28
+2016-02-07 00:38:27 : 
+Finished prediction on data
+2016-02-07 00:38:28 : 

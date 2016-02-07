@@ -53,8 +53,8 @@ run_data_preparation <- function()       ################## Data Preparation ###
 run_mode_evaluation <- function()        ################## Model Evaluation #############
 {
 
-SYS_ALGORITHM_ID            <- "XGBC"
-# SYS_ALGORITHM_ID              <- "XGBLC"
+SYS_ALGORITHM_ID              <- "XGBC"
+# SYS_ALGORITHM_ID            <- "XGBCL"
 # SYS_ALGORITHM_ID            <- "GBM"
 # SYS_ALGORITHM_ID            <- "GLMNET"
 # SYS_ALGORITHM_ID            <- "EMM"
@@ -98,7 +98,7 @@ run_prediction <- function()        ################## Prediction #############
 #   names(opt_parameters) <- c("nrounds","max_depth", "eta")
 #   setwd(SYSG_OUTPUT_MODELING_DIR)
 #   save(opt_parameters, file = paste0("OM_",ma_run_id,".rda"))
-  ma_run_id <- "MA_#XGBC#2016-02-05 21_44_37"
+  ma_run_id <- "MA_#XGBC#2016-02-07 00_31_50"
 
   create_log_entry("", "Starting prediction on data","SF")
   opt_model_id <- paste0("MODEL_","#",SYS_ALGORITHM_ID,"#",format(Sys.time(), "%Y-%m-%d %H_%M_%S"))
