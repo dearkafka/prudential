@@ -64,7 +64,7 @@ create_prediction_bounds <- function (prediction_values,actual_values)
   }
   
   optBounds = optim(seq(1.5, 7.5, by = 1), SQWKfun, data = data.frame(prediction_values,actual_values) , 
-                    control = list(maxit = 10000))
+                    method = "Nelder-Mead",control = list(maxit = 1000))
   return(optBounds$par)
 }
 

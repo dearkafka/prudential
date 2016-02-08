@@ -69,19 +69,20 @@ perform_data_preparation <- function()
   
   create_log_entry("", "Prepare train data started","SF")
   
+  product_info_features            <- names(train_input)[str_detect(names(train_input), "^Product_Info")]
   employment_info_features         <- names(train_input)[str_detect(names(train_input), "^Employment_Info")]
   insured_info_features            <- names(train_input)[str_detect(names(train_input), "^InsuredInfo")]
   insurance_history_features       <- names(train_input)[str_detect(names(train_input), "^Insurance_History")]
   family_hist_features             <- names(train_input)[str_detect(names(train_input), "^Family_Hist")]
   
   medical_history_features         <- names(train_input)[str_detect(names(train_input), "^Medical_History")]
-  medical_history_features_dropped <- c("Medical_History_10")
+  medical_history_features_dropped <- c("Medical_History_10","Medical_History_32")
+  medical_history_features_missing <- c("Medical_History_1","Medical_History_15","Medical_History_24")
   medical_history_features         <- setdiff(medical_history_features,c(medical_history_features_dropped))
   
   medical_keyword_features         <- names(train_input)[str_detect(names(train_input), "^Medical_Keyword")]
   
-  features_select <- c("Product_Info_1","Product_Info_2","Product_Info_3","Product_Info_4",
-                       "Product_Info_5","Product_Info_6", "Product_Info_7",
+  features_select <- c(product_info_features,
                        "Ins_Age","Ht","Wt","BMI",
                        employment_info_features,
                        insured_info_features, 
@@ -94,24 +95,20 @@ perform_data_preparation <- function()
   me_input_target_data     <- train_input$Response
   train_input1             <- data.frame(train_input[,features_select])
   
-  # Set what to do with origin features that are basis for some derived features
-  medical_history_features_to_cat <- setdiff(medical_history_features,
-                                             c(medical_history_features_dropped,"Medical_History_15",
-                                               "Medical_History_1","Medical_History_2"))
-
-  vbef_data         <- create_vbfe(train_input1,medical_keyword_features)
+  vbef_data         <- create_vbfe(train_input1,medical_keyword_features,medical_history_features,insured_info_features)
   
+  # Set what to do with origin features that are basis for some derived features
+  medical_history_multiplication  <- c("Medical_History_6","Medical_History_7","Medical_History_8",
+                                       "Medical_History_26","Medical_History_27","Medical_History_28")
   replace_features  <- c("Product_Info_2")
   
   train_input2      <- data.frame(train_input1[,!(names(train_input1) %in% replace_features)],vbef_data , 
                                   stringsAsFactors = FALSE)
   
-  medical_history_features_missing <- c("Medical_History_1","Medical_History_15","Medical_History_32",
-                                        "Medical_History_24")
-  missing_features  <- c("Employment_Info_1","Employment_Info_2","Employment_Info_3","Employment_Info_4",
-                         "Employment_Info_5","Employment_Info_6", "Insurance_History_5","Family_Hist_1",
+  missing_features  <- c("Employment_Info_1","Employment_Info_4","Employment_Info_6", 
+                         "Insurance_History_5","Family_Hist_1",
                          "Family_Hist_2","Family_Hist_3","Family_Hist_4","Family_Hist_5",
-                          medical_history_features_missing,"Family_Hist_2_3")
+                         medical_history_features_missing,"Family_Hist_2_3")
   
   new_missing_data  <- process_missing_data(train_input2[,missing_features])
   
@@ -133,7 +130,7 @@ perform_data_preparation <- function()
   # summary(test_input)
   # str(test_input)
   
-  vbef_data             <- create_vbfe(test_input,medical_keyword_features)
+  vbef_data             <- create_vbfe(test_input,medical_keyword_features,medical_history_features,insured_info_features)
   test_input1           <- data.frame(test_input[,!(names(test_input) %in% replace_features)],vbef_data , 
                                       stringsAsFactors = FALSE)
   
@@ -146,7 +143,7 @@ perform_data_preparation <- function()
   p_input_data          <- data.frame(test_input2[,p_features_select] , stringsAsFactors = FALSE)
   
   
-  
+ 
   for (f in names(me_input_data)) {
     if (class(me_input_data[[f]])=="character") {
       levels              <- unique(c(as.character(me_input_data[[f]]), as.character(p_input_data[[f]])))
@@ -155,15 +152,45 @@ perform_data_preparation <- function()
     }
   }
   
-#   
-#   me_input_data <- create_data_presentation(me_input_data,medical_history_features_to_cat)
-#   p_input_data  <- create_data_presentation(p_input_data,medical_history_features_to_cat)
-#   
-#   m_not_p_features <- setdiff(names(me_input_data),names(p_input_data))
-#   
-#   new_me_features  <- c(setdiff(names(me_input_data),m_not_p_features),"Response")
-# 
-#   me_input_data    <- me_input_data[,new_me_features]
+  if (SYS_HE_MODE == "Y") {
+    
+    # "Medical_History_10" and "Medical_History_2" with large number of disctinct values
+    medical_history_features_to_cat <- setdiff(medical_history_features,
+                                               c("Medical_History_1","Medical_History_15","Medical_History_24","Medical_History_32",
+                                                 "Medical_History_10","Medical_History_2"))
+    product_info_features_to_cat <- c("Product_Info_1","Product_Info_2L","Product_Info_3","Product_Info_5",
+                                      "Product_Info_6","Product_Info_6")
+    employment_info_features_to_cat <- c("Employment_Info_2","Employment_Info_3","Employment_Info_5")
+    insured_info_features_to_cat <- c("InsuredInfo_1","InsuredInfo_2","InsuredInfo_3","InsuredInfo_4",
+                                      "InsuredInfo_5","InsuredInfo_6","InsuredInfo_7")
+    insurance_history_features_to_cat <- c("Insurance_History_1","Insurance_History_2","Insurance_History_3", 
+                                           "Insurance_History_4","Insurance_History_7", "Insurance_History_8", 
+                                           "Insurance_History_9")
+    family_history_features_to_cat <- c("Family_Hist_1")
+    
+    features_to_cat <- c(medical_history_features_to_cat,product_info_features_to_cat,employment_info_features_to_cat,
+                         insured_info_features_to_cat,insurance_history_features_to_cat,family_history_features_to_cat)
+    
+    
+    tr_new  <- me_input_data
+    for(i in features_to_cat) {
+      missing_values <- setdiff(x=tr_new[[i]], y=p_input_data[[i]])
+      tr_new <- tr_new[!tr_new[[i]] %in% missing_values,]
+    }
+    
+    me_input_data <- tr_new
+    
+
+    c_me_input_data <- create_data_presentation(me_input_data[,features_to_cat])
+    c_p_input_data  <- create_data_presentation(p_input_data[,features_to_cat])
+    
+    me_input_data    <- 
+      data.frame(me_input_data[,setdiff(names(me_input_data),c(features_to_cat,"Response"))],
+                 c_me_input_data,Response = me_input_data[["Response"]])
+    p_input_data    <- 
+      data.frame(p_input_data[,setdiff(names(p_input_data),features_to_cat)],c_p_input_data)
+  }
+  
   
   
   create_log_entry("", "Prepare test data finished","SF")
@@ -179,42 +206,15 @@ perform_data_preparation <- function()
   
 }
 
-create_data_presentation <- function (input_data,medical_history_features_to_cat)
+create_data_presentation <- function (input_data)
 {
-  
-  output_data <- NULL
-  
-  # Data presentation
-  
-  # Transfer medical history to categorical data
-  #   cnt <- 1
-  #   medical_history_features_cat_data <- apply(input_data[,medical_history_features_to_cat],2,
-  #                                                 function (x) { 
-  #     # No NAs . Check if factor NA is returned in case of NA
-  #     i_mh_features_cat_data <- 
-  #       paste0("MH_",substr(medical_history_features_to_cat[cnt], 17, 20),"_", x)
-  #     cnt <- cnt + 1
-  #     i_mh_features_cat_data
-  #     })
-  # 
-  # Create medical history dummy features
-  
-  mh_input_dummy         <- data.frame(apply(input_data[,medical_history_features_to_cat],2,as.factor))
-  mh_features_dummy_data <- createDummyFeatures(mh_input_dummy)
-  
-  replace_features         <- c(medical_history_features_to_cat)
-  original_output_features <- setdiff(names(input_data),c(replace_features , "Response"))
-  
-  if("Response" %in% names(input_data)) {
-    output_data                      <- data.frame(input_data[,original_output_features],
-                                                   mh_features_dummy_data,
-                                                   Response = input_data$Response)
-  }
-  else  output_data                <- data.frame(input_data[,original_output_features],
-                                                 mh_features_dummy_data)
-  
-  return(output_data)
+
+  input_dummy              <- data.frame(apply(input_data,2,as.factor))
+  features_dummy_data      <- createDummyFeatures(input_dummy)
+
+  return(features_dummy_data)
 }
+
 
 process_missing_data <- function (input_data)
 {
@@ -234,40 +234,50 @@ process_missing_data <- function (input_data)
   return (new_input_data)
 }
 
-create_vbfe <- function(input_data,medical_keyword_features,medical_history_features)
+create_vbfe <- function(input_data,medical_keyword_features,medical_history_features,insured_info_features)
 {
   
   Product_Info_2  <- input_data$Product_Info_2
-  
   Product_Info_2L <- substr(Product_Info_2, 1 , 1)
   Product_Info_2N <- as.integer(substr(Product_Info_2, 2 , 2))
   
   BMI_Mult_Ins_Age <- input_data$BMI*input_data$Ins_Age
   
-#   MHN_36m14    <- input_data$Medical_History_36*input_data$Medical_History_14
-#   MHN_26m38    <- input_data$Medical_History_26*input_data$Medical_History_38
+  #   MHN_36m14    <- input_data$Medical_History_36*input_data$Medical_History_14
+  #   MHN_26m38    <- input_data$Medical_History_26*input_data$Medical_History_38
   
-#   # Bi gram features on set of medical keyword 
-#   bi_gram_features <- c("Medical_Keyword_3", "Medical_Keyword_38", "Medical_Keyword_23",
-#                         "Medical_Keyword_37","Medical_Keyword_15",
-#                         "Medical_Keyword_2","Medical_Keyword_32","Medical_Keyword_6",
-#                         "Medical_Keyword_20","Medical_Keyword_33")
-#   bi_gram_comb     <- t(combn(bi_gram_features,2))
-#   bi_gram_data     <- apply(bi_gram_comb , 1 , function (x) {
-#     i_bi_gram_data <- input_data[[x[1]]]*input_data[[x[2]]]
-#   })
-#   bi_gram_data_names     <- paste0(bi_gram_comb[,1],"_",str_split_fixed(bi_gram_comb[,2],"_",3)[,3])
-#   colnames(bi_gram_data) <- bi_gram_data_names
+  #   # Bi gram features on set of medical keyword 
+  #   bi_gram_features <- c("Medical_Keyword_3", "Medical_Keyword_38", "Medical_Keyword_23",
+  #                         "Medical_Keyword_37","Medical_Keyword_15",
+  #                         "Medical_Keyword_2","Medical_Keyword_32","Medical_Keyword_6",
+  #                         "Medical_Keyword_20","Medical_Keyword_33")
+  #   bi_gram_comb     <- t(combn(bi_gram_features,2))
+  #   bi_gram_data     <- apply(bi_gram_comb , 1 , function (x) {
+  #     i_bi_gram_data <- input_data[[x[1]]]*input_data[[x[2]]]
+  #   })
+  #   bi_gram_data_names     <- paste0(bi_gram_comb[,1],"_",str_split_fixed(bi_gram_comb[,2],"_",3)[,3])
+  #   colnames(bi_gram_data) <- bi_gram_data_names
   
-
+  
   medical_keyword_sum        <- rowSums(input_data[,medical_keyword_features])
   
   medical_top_keyword_features <- c("Medical_Keyword_3","Medical_Keyword_38","Medical_Keyword_41",
                                     "Medical_Keyword_25","Medical_Keyword_9","Medical_Keyword_37",
                                     "Medical_Keyword_23","Medical_Keyword_48","Medical_Keyword_15",
-                                    "Medical_Keyword_47")
+                                    "Medical_Keyword_47","Medical_Keyword_42")
   
-  medical_keyword_sum_top10  <- rowSums(input_data[,medical_top_keyword_features])
+  medical_top_keyword_comb     <- t(combn(medical_top_keyword_features,10))
+  medical_top_keyword_data     <- apply(medical_top_keyword_comb , 1 , function (x) {
+    i_medical_top_keyword      <- rowSums(input_data[,medical_top_keyword_features])
+  })
+  medical_top_keyword_data_names   <- apply(medical_top_keyword_comb,2,function (x) {
+    str_split_fixed(x,"_",3)[,3]
+  })
+  
+  colnames(medical_top_keyword_data) <- paste0("MKW_",apply(medical_top_keyword_data_names,1,paste0,collapse = "_"))
+  
+  
+  # medical_keyword_sum_top10  <- rowSums(input_data[,medical_top_keyword_features])
   
   Family_Hist_2_3 <- rep(NA,dim(input_data)[1])
   
@@ -276,18 +286,48 @@ create_vbfe <- function(input_data,medical_keyword_features,medical_history_feat
   Family_Hist_2_3 <- ifelse(input_data$Family_Hist_3>=0 & is.na(input_data$Family_Hist_2), 0, Family_Hist_2_3)
   
   is_BMI_above_mean <- ifelse(input_data$BMI > mean(input_data$BMI, na.rm=T), 1, 0)
-
-  # MH_NAs <- apply(input_data[,medical_history_features], 1, function(x) sum(is.na(x)))
+  
+  MH_NAs_Cnt <- apply(input_data[,medical_history_features], 1, function(x) sum(is.na(x)))
+  FH_NAs_Cnt   <- apply(input_data[,c("Family_Hist_2","Family_Hist_3",
+                                      "Family_Hist_4","Family_Hist_5")], 1, function(x) sum(is.na(x)))
+  
+  
+  insured_info_var <- apply(input_data[,insured_info_features],1, function (x) var(x))
+  insured_info_mean <- apply(input_data[,insured_info_features],1, function (x) mean(x))
+  
+  #GP
+  lfe1 <- as.numeric(input_data$Medical_History_15 < 10.0)
+  lfe1[is.na(lfe1)] <- 0.0 
+  lfe2 <- as.numeric(input_data$Product_Info_4 < 0.075)
+  lfe3 <- as.numeric(input_data$Product_Info_4 == 1)
+  BMI_cutoff <- quantile(input_data$BMI, 0.8)
+  lfe4 <- as.numeric(input_data$BMI > BMI_cutoff)
+  lfe5 <- (input_data$BMI*input_data$Product_Info_4)**0.9
+  ageBMI_cutoff <- quantile(input_data$Ins_Age*input_data$BMI, 0.9)
+  lfe6 <- as.numeric(input_data$Ins_Age*input_data$BMI > ageBMI_cutoff)
+  lfe7 <- (input_data$BMI*input_data$Medical_Keyword_3 + 0.5)**3.0
+  lfe_data <- data.frame(lfe1,lfe2,lfe3,lfe4,lfe5,lfe6,lfe7)
   
   vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N , 
                           Family_Hist_2_3 = Family_Hist_2_3 ,
                           BMI_Mult_Ins_Age = BMI_Mult_Ins_Age,
                           Medical_Keyword_Sum = medical_keyword_sum,
-                          medical_keyword_sum_top10 = medical_keyword_sum_top10,
                           is_BMI_above_mean = is_BMI_above_mean,
-                          # MH_NAs = MH_NAs,
+                          medical_top_keyword_data,
+                          MH_NAs_Cnt = MH_NAs_Cnt,
+                          FH_NAs_Cnt = FH_NAs_Cnt,
+                          insured_info_var = insured_info_var,
+                          insured_info_mean = insured_info_mean,
+                          lfe_data,
                           stringsAsFactors = FALSE)
-
+  
+#   vbfe_data <- data.frame(Product_Info_2L,Product_Info_2N , 
+#                           Family_Hist_2_3 = Family_Hist_2_3 ,
+#                           BMI_Mult_Ins_Age = BMI_Mult_Ins_Age,
+#                           Medical_Keyword_Sum = medical_keyword_sum,
+#                           stringsAsFactors = FALSE)
+  
+ 
 }
 
 perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
@@ -327,14 +367,14 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
                                     max_depth        = c(6,8,10) ,
                                     min_child_weight = seq(10,300, by = 50),
                                     colsample_bytree = 0.67,
-                                    gamma = 0)
+                                    gamma = 1)
     
-    xgbc_tuneGrid   <- expand.grid(    nrounds          = 500 , 
+    xgbc_tuneGrid   <- expand.grid(    nrounds          = 800 , 
                                        eta              = 0.04, 
                                        max_depth        = 9   ,
                                        min_child_weight = 60  ,
                                        colsample_bytree = 0.67   ,
-                                       gamma = 0)
+                                       gamma = 4)
     assesment_grid <- xgbc_tuneGrid
   }
   
@@ -344,7 +384,7 @@ perform_model_assessment <- function (me_input_data,ma_model_id,cs_mode)
                                      lambda       = seq(0.01,0.05, length.out = 5) , 
                                      alpha        = seq(0.01,0.05, length.out = 5))
     
-    xgbcl_tuneGrid   <- expand.grid( nrounds   = 100 , 
+    xgbcl_tuneGrid   <- expand.grid( nrounds   = 50 , 
                                      lambda    = 0.01,
                                      alpha    = 1)
     assesment_grid <- xgbcl_tuneGrid
@@ -650,7 +690,7 @@ create_feature_importance_data <- function(classification_model,ma_model_id,m_in
   
   
   setwd(SYSG_OUTPUT_MODELING_DIR)
-  save(importance_input_vector, file = paste0(ma_model_id,"IIV_",".rda"))
+  save(importance_input_vector, file = paste0(ma_model_id,"_IIV",".rda"))
   
   
   create_log_entry(paste0(ma_model_id , " Feature Importance : "),"","F")
